@@ -1,0 +1,65 @@
+/*------------------------------------*\
+    #SHARED
+\*------------------------------------*/
+
+/**
+ * Where `margin-bottom` is concerned,this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ * As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+h1, h2, h3, h4, h5, h6, hgroup,
+ul, ol, dl,
+blockquote, p, address,
+table,
+fieldset, figure,
+pre,
+%margin-bottom {
+    margin-bottom: $base-spacing-unit;
+}
+
+img {
+max-width: 100%;
+height: auto;
+}
+
+
+
+/**
+ * Where `margin-left` is concerned we want to try and indent certain elements
+ * by a consistent amount. Define that amount once,here.
+ */
+ul, ol, dd,
+%margin-left {
+    margin-left: 2 * $base-spacing-unit;
+}
+
+
+.menu-horizontal {
+width: 100%;
+
+ul {
+	position: relative;
+	display: inline-block;
+	zoom: 1;
+	vertical-align: middle;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+}
+li {
+	display: inline-block;
+	zoom: 1;
+	vertical-align: middle;
+	position: relative;
+}
+}
+
+.custom-header .side-header {
+	min-height: 100%;
+	height: 100vw;
+}
+
+.site-footer {
+	width: 100%;
+}
