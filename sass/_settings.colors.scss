@@ -4,13 +4,21 @@
 
 // Literal color variables.
 
+$color-primary:         #f43059;
 $color-pink:            #f43059;
-$color-gray-dark:       #424242;
-$color-gray-light:      #f7f6f6;
+
+/* ==========  Blacks  ========== */
+
+$color-black: #000;
+$color-gray-dark: rgba($color-black, .87);
+$color-gray: rgba($color-black, .54);
+$color-gray-light: rgba($color-black, .26);
+$color-gray-lighter: rgba($color-black, .12);
 
 
+/* ==========  LIGHT  ========== */
 
-
+$color-white: #fff;
 
 // Assign colors to more meaningful variables.
 

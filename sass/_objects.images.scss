@@ -1,0 +1,13 @@
+/*------------------------------------*\
+    #IMAGES
+\*------------------------------------*/
+
+/**
+ * Makes images fit within it's fluid parent wrapper while maintaining
+ * aspect ratio.
+ */
+.pure-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}

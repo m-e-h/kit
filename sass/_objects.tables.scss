@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    #TABLES
+\*------------------------------------*/
+
+/*
+striping:
+   even - #fff (white)
+   odd  - $color-gray-lighter
+*/
+.table td {
+    background-color: transparent;
+}
+.table-odd td {
+    background-color: $color-gray-lighter;
+}
+
+/* nth-child selector for modern browsers */
+.table-striped tr:nth-child(2n-1) td {
+    background-color: $color-gray-lighter;
+}
