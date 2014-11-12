@@ -40,6 +40,8 @@ function kit_setup() {
 		array( 'default' => is_rtl() ? '2c-r' :'2c-l' )
 	);
 
+	add_theme_support( 'jetpack-responsive-videos' );
+
 	/* Enable custom template hierarchy. */
 	add_theme_support( 'hybrid-core-template-hierarchy' );
 
