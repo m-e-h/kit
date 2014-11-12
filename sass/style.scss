@@ -58,13 +58,14 @@ This theme, like WordPress, is licensed under the GPL.
 
 @import "settings.global";
 @import "settings.colors";
+@import "settings.responsive";
 
 @import "tools.functions";
 @import "tools.mixins";
 
-@import "generic.box-sizing";
-@import "generic.normalize";
 @import "generic.reset";
+@import "generic.normalize";
+@import "generic.box-sizing";
 @import "generic.h5bp";
 
 @import "base.page";

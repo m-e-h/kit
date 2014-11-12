@@ -1,0 +1,252 @@
+/*------------------------------------*\
+    $CSSWIZARDRY-GRIDS
+\*------------------------------------*/
+/**
+ * CONTENTS
+ * INTRODUCTION.........How the grid system works.
+ * VARIABLES............Your settings.
+ * MIXINS...............Library mixins.
+ * GRID SETUP...........Build the grid structure.
+ * WIDTHS...............Build our responsive widths around our breakpoints.
+ * PUSH.................Push classes.
+ * PULL.................Pull classes.
+ */
+
+$breakpoints: (
+    'palm' '(max-width: 480px)',
+    'lap' '(min-width: 481px) and (max-width: 1023px)',
+    'portable' '(max-width: 1023px)',
+    'desk' '(min-width: 1024px)'
+) !default;
+
+
+
+$breakpoint-has-widths: ('palm', 'lap', 'portable', 'desk') !default;
+
+
+$class-type:  unquote(".");
+
+/**
+ * Enclose a block of code with a media query as named in `$breakpoints`.
+ */
+@mixin grid-media-query($media-query) {
+    $breakpoint-found: false;
+
+    @each $breakpoint in $breakpoints {
+        $name: nth($breakpoint, 1);
+        $declaration: nth($breakpoint, 2);
+
+        @if $media-query == $name and $declaration {
+            $breakpoint-found: true;
+
+            @media only screen and #{$declaration} {
+                @content;
+            }
+        }
+    }
+
+    @if not $breakpoint-found {
+        @warn "Breakpoint ‘#{$media-query}’ does not exist";
+    }
+}
+
+
+
+
+.grid {
+    letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
+    *letter-spacing: normal; /* reset IE < 8 */
+    *word-spacing: -0.43em; /* IE < 8: collapse white-space between units */
+    text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+
+    display: flex;
+    flex-flow: row wrap;
+}
+
+/* Opera as of 12 on Windows needs word-spacing.
+   The ".opera-only" selector is used to prevent actual prefocus styling
+   and is not required in markup.
+*/
+.opera-only :-o-prefocus,
+.grid {
+    word-spacing: -0.43em;
+}
+
+.grid__item {
+    display: inline-block;
+    *display: inline; /* IE < 8: fake inline-block */
+    zoom: 1;
+    width:100%;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+}
+
+/*
+Resets the font family back to the OS/browser's default sans-serif font,
+this the same font stack that Normalize.css sets for the `body`.
+*/
+.grid [class *= "grid__item"] {
+    font-family: sans-serif;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $WIDTHS
+\*------------------------------------*/
+/**
+ * Create our width classes, prefixed by the specified namespace.
+ */
+
+@mixin device-type($namespace:"") {
+    $prefix: $class-type + $namespace;
+
+#{$prefix}1-24 {
+    width: 4.1667%;
+    *width: 4.1357%;
+}
+
+#{$prefix}1-12,
+#{$prefix}2-24 {
+    width: 8.3333%;
+    *width: 8.3023%;
+}
+
+#{$prefix}1-8,
+#{$prefix}3-24 {
+    width: 12.5000%;
+    *width: 12.4690%;
+}
+
+#{$prefix}1-6,
+#{$prefix}4-24 {
+    width: 16.6667%;
+    *width: 16.6357%;
+}
+
+#{$prefix}5-24 {
+    width: 20.8333%;
+    *width: 20.8023%;
+}
+
+#{$prefix}1-4,
+#{$prefix}6-24 {
+    width: 25%;
+    *width: 24.9690%;
+}
+
+#{$prefix}7-24 {
+    width: 29.1667%;
+    *width: 29.1357%;
+}
+
+#{$prefix}1-3,
+#{$prefix}8-24 {
+    width: 33.3333%;
+    *width: 33.3023%;
+}
+
+#{$prefix}3-8,
+#{$prefix}9-24 {
+    width: 37.5000%;
+    *width: 37.4690%;
+}
+
+#{$prefix}5-12,
+#{$prefix}10-24 {
+    width: 41.6667%;
+    *width: 41.6357%;
+}
+
+#{$prefix}11-24 {
+    width: 45.8333%;
+    *width: 45.8023%;
+}
+
+#{$prefix}1-2,
+#{$prefix}12-24 {
+    width: 50%;
+    *width: 49.9690%;
+}
+
+#{$prefix}13-24 {
+    width: 54.1667%;
+    *width: 54.1357%;
+}
+
+#{$prefix}7-12,
+#{$prefix}14-24 {
+    width: 58.3333%;
+    *width: 58.3023%;
+}
+
+#{$prefix}5-8,
+#{$prefix}15-24 {
+    width: 62.5000%;
+    *width: 62.4690%;
+}
+
+#{$prefix}2-3,
+#{$prefix}16-24 {
+    width: 66.6667%;
+    *width: 66.6357%;
+}
+
+#{$prefix}17-24 {
+    width: 70.8333%;
+    *width: 70.8023%;
+}
+
+#{$prefix}3-4,
+#{$prefix}18-24 {
+    width: 75%;
+    *width: 74.9690%;
+}
+
+#{$prefix}19-24 {
+    width: 79.1667%;
+    *width: 79.1357%;
+}
+
+#{$prefix}5-6,
+#{$prefix}20-24 {
+    width: 83.3333%;
+    *width: 83.3023%;
+}
+
+#{$prefix}7-8,
+#{$prefix}21-24 {
+    width: 87.5000%;
+    *width: 87.4690%;
+}
+
+#{$prefix}11-12,
+#{$prefix}22-24 {
+    width: 91.6667%;
+    *width: 91.6357%;
+}
+
+#{$prefix}23-24 {
+    width: 95.8333%;
+    *width: 95.8023%;
+}
+
+#{$prefix}1,
+#{$prefix}1-1,
+#{$prefix}24-24 {
+    width: 100%;
+}
+}
+
+@include device-type;
+
+
+@each $name in $breakpoint-has-widths {
+    @include grid-media-query($name) {
+       @include device-type('#{$name}--');
+    }
+}

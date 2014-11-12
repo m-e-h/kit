@@ -10,18 +10,8 @@ class Doc_Attributes {
 	public $body                  	= ' ';	// get_body_class()
 	public $header                	= ''; 	// na
 	public $footer                	= ''; 	// na
-	public $content_1c            	= ' '; 	// content
-	public $content_2cl           	= ' '; 	// content
-	public $content_2cr           	= ' '; 	// content
-	public $sidebar_1c     		  	= ' ';	// sidebar
-	public $sidebar_2cl    			= ' ';	// sidebar
-	public $sidebar_2cr    			= ' ';	// sidebar
-	public $sidebar_1_1c     		= ' ';	// sidebar
-	public $sidebar_1_2cl    		= ' ';	// sidebar
-	public $sidebar_1_2cr    		= ' ';	// sidebar
-	public $sidebar_2_1c     		= ' ';	// sidebar
-	public $sidebar_2_2cl    		= ' ';	// sidebar
-	public $sidebar_2_2cr    		= ' ';	// sidebar
+	public $content            		= ' palm--1-2'; 	// content
+	public $sidebar     		  	= ' palm--1-2';	// sidebar
 	public $menu                  	= ' menu-horizontal';	// menu
 	public $archive_wrap           	= '';
 
@@ -61,8 +51,6 @@ add_filter( 'hybrid_attr_header',            array( $this, 'header' ) );
 add_filter( 'hybrid_attr_footer',            array( $this, 'footer' ) );
 add_filter( 'hybrid_attr_content',           array( $this, 'content' ) );
 add_filter( 'hybrid_attr_sidebar',           array( $this, 'sidebar' ) );
-add_filter( 'hybrid_attr_sidebar_1',         array( $this, 'sidebar_1' ) );
-add_filter( 'hybrid_attr_sidebar_2',         array( $this, 'sidebar_2' ) );
 add_filter( 'hybrid_attr_menu',              array( $this, 'menu' ) );
 add_filter( 'hybrid_attr_archive_wrap',      array( $this, 'archive_wrap' ) );
 
@@ -120,68 +108,14 @@ public function footer( $attr ) {
 
 public function content( $attr ) {
 
-	if ( '1c' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->content_1c;
-endif;
-
-if ( '2c-l' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->content_2cl;
-endif;
-
-if ( '2c-r' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->content_2cr;
-endif;
+  	$attr['class'] .= $this->content;
 
 	return $attr;
 }
 
 public function sidebar( $attr ) {
 
-	if ( '1c' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->sidebar_1c;
-endif;
-
-if ( '2c-l' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->sidebar_2cl;
-endif;
-
-if ( '2c-r' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->sidebar_2cr;
-endif;
-
-	return $attr;
-}
-
-public function sidebar_1( $attr ) {
-
-	if ( '1c' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->sidebar_1_1c;
-endif;
-
-if ( '2c-l' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->sidebar_1_2cl;
-endif;
-
-if ( '2c-r' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->sidebar_1_2cr;
-endif;
-
-	return $attr;
-}
-
-public function sidebar_2( $attr ) {
-
-	if ( '1c' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->sidebar_2_1c;
-endif;
-
-if ( '2c-l' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->sidebar_2_2cl;
-endif;
-
-if ( '2c-r' == get_theme_mod( 'theme_layout' ) ) :
-  $attr['class'] .= $this->sidebar_2_2cr;
-endif;
+  	$attr['class'] .= $this->sidebar;
 
 	return $attr;
 }
