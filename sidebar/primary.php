@@ -1,8 +1,15 @@
-<?php if ( ! is_active_sidebar( 'primary' ) ) {
-  return;
+<?php
+/**
+ * The sidebar containing the primary widget area.
+ *
+ * @package kit
+ */
+
+if ( ! is_active_sidebar( 'primary' ) ) {
+	return;
 }
 ?>
 
-<div <?php hybrid_attr( 'sidebar', 'primary' ); ?>>
-  <?php dynamic_sidebar( 'primary' ); ?>
-</div><!-- #primary -->
+<aside <?php hybrid_attr( 'sidebar', 'primary' ); ?>>
+	<?php dynamic_sidebar( 'primary' ); ?>
+</aside><!-- #sidebar-primary -->

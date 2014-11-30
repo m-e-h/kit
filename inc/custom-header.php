@@ -1,98 +1,126 @@
 <?php
-/* Call late so child themes can override. */
-add_action( 'after_setup_theme', 'kit_custom_header_setup', 15 );
 /**
- * Adds support for the WordPress 'custom-header' theme feature and registers custom headers.
+ * Sample implementation of the Custom Header feature
+ * http://codex.wordpress.org/Custom_Headers
  *
- * @since  1.0.0
- * @access public
- * @return void
+ * You can add an optional custom header image to header.php like so ...
+
+	<?php if ( get_header_image() ) : ?>
+	<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+		<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+	</a>
+	<?php endif; // End header image check. ?>
+
+ *
+ * @package kit
+ */
+
+/**
+ * Set up the WordPress core custom header feature.
+ *
+ * @uses kit_header_style()
+ * @uses kit_admin_header_style()
+ * @uses kit_admin_header_image()
  */
 function kit_custom_header_setup() {
-	/* Adds support for WordPress' "custom-header" feature. */
-	add_theme_support( 
-		'custom-header', 
-		array(
-			'default-image'          => '',
-			'random-default'         => false,
-			'width'                  => 954,
-			'height'                 => 1300,
-			'default-text-color'     => '000000',
-			'header-text'            => true,
-			'uploads'                => true,
-			'wp-head-callback'       => 'kit_custom_header_wp_head',
-			'admin-head-callback'    => 'kit_custom_header_admin_head',
-			'admin-preview-callback' => 'kit_custom_header_admin_preview',
-		)
-	);
-	/* Registers default headers for the theme. */
-	//register_default_headers();
+	add_theme_support( 'custom-header', apply_filters( 'kit_custom_header_args', array(
+		'default-image'          => '',
+		'default-text-color'     => '000000',
+		'width'                  => 1000,
+		'height'                 => 250,
+		'flex-height'            => true,
+		'wp-head-callback'       => 'kit_header_style',
+		'admin-head-callback'    => 'kit_admin_header_style',
+		'admin-preview-callback' => 'kit_admin_header_image',
+	) ) );
 }
+add_action( 'after_setup_theme', 'kit_custom_header_setup' );
+
+if ( ! function_exists( 'kit_header_style' ) ) :
 /**
- * Callback function for outputting the custom header CSS to `wp_head`.
+ * Styles the header image and text displayed on the blog
  *
- * @since  1.0.0
- * @access public
- * @return void
+ * @see kit_custom_header_setup().
  */
-function kit_custom_header_wp_head() {
-	if ( !display_header_text() )
+function kit_header_style() {
+	$header_text_color = get_header_textcolor();
+
+	// If no custom options for text are set, let's bail
+	// get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
+	if ( HEADER_TEXTCOLOR == $header_text_color ) {
 		return;
-	$hex = get_header_textcolor();
-	if ( empty( $hex ) )
-		return;
-	$style = "body.custom-header #site-title a { color: #{$hex}; }";
-	echo "\n" . '<style type="text/css" id="custom-header-css">' . trim( $style ) . '</style>' . "\n";
+	}
+
+	// If we get this far, we have custom styles. Let's do this.
+	?>
+	<style type="text/css">
+	<?php
+		// Has the text been hidden?
+		if ( 'blank' == $header_text_color ) :
+	?>
+		#site-title,
+		#site-description {
+			position: absolute;
+			clip: rect(1px, 1px, 1px, 1px);
+		}
+	<?php
+		// If the user has set a custom color for the text use that
+		else :
+	?>
+		#site-title a,
+		#site-description {
+			color: #<?php echo esc_attr( $header_text_color ); ?>;
+		}
+	<?php endif; ?>
+	</style>
+	<?php
 }
+endif; // kit_header_style
+
+if ( ! function_exists( 'kit_admin_header_style' ) ) :
 /**
- * Callback for the admin preview output on the "Appearance > Custom Header" screen.
+ * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @since  1.0.0
- * @access public
- * @return void
+ * @see kit_custom_header_setup().
  */
-function kit_custom_header_admin_preview() { ?>
-
-		<div <?php hybrid_attr( 'body' ); // Fake <body> class. ?>>
-
-			<header <?php hybrid_attr( 'header' ); ?>>
-
-				<?php if ( display_header_text() ) : // If user chooses to display header text. ?>
-
-					<div id="branding">
-						<?php hybrid_site_title(); ?>
-						<?php hybrid_site_description(); ?>
-					</div><!-- #branding -->
-
-				<?php endif; // End check for header text. ?>
-
-			</header><!-- #header -->
-
-			<?php if ( get_header_image() && !display_header_text() ) : // If there's a header image but no header text. ?>
-
-				<a href="<?php echo home_url(); ?>" title="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" rel="home"><img class="header-image" src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
-
-			<?php elseif ( get_header_image() ) : // If there's a header image. ?>
-
-				<img class="header-image" src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" />
-
-			<?php endif; // End check for header image. ?>
-
-		</div><!-- Fake </body> close. -->
-
-<?php }
-/**
- * Callback function for outputting the custom header CSS to `admin_head` on "Appearance > Custom Header".  See 
- * the `css/admin-custom-header.css` file for all the style rules specific to this screen.
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function kit_custom_header_admin_head() {
-	$hex = get_header_textcolor();
-	if ( empty( $hex ) )
-		return;
-	$style = "#site-title a { color: #{$hex}; }";
-	echo "\n" . '<style type="text/css" id="custom-header-css">' . trim( $style ) . '</style>' . "\n";
+function kit_admin_header_style() {
+?>
+	<style type="text/css">
+		.appearance_page_custom-header #headimg {
+			border: none;
+		}
+		#headimg h1,
+		#desc {
+		}
+		#headimg h1 {
+		}
+		#headimg h1 a {
+		}
+		#desc {
+		}
+		#headimg img {
+		}
+	</style>
+<?php
 }
+endif; // kit_admin_header_style
+
+if ( ! function_exists( 'kit_admin_header_image' ) ) :
+/**
+ * Custom header image markup displayed on the Appearance > Header admin panel.
+ *
+ * @see kit_custom_header_setup().
+ */
+function kit_admin_header_image() {
+	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
+?>
+	<div id="headimg">
+		<h1 class="displaying-header-text"><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+		<div class="displaying-header-text" id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
+		<?php if ( get_header_image() ) : ?>
+		<img src="<?php header_image(); ?>" alt="">
+		<?php endif; ?>
+	</div>
+<?php
+}
+endif; // kit_admin_header_image

@@ -16,6 +16,14 @@
 
 		</header><!-- .entry-header -->
 
+		<?php if ( has_excerpt() ) : // If the post has an excerpt. ?>
+
+			<div <?php hybrid_attr( 'entry-summary' ); ?>>
+				<?php the_excerpt(); ?>
+			</div><!-- .entry-summary -->
+
+		<?php endif; // End post excerpt check. ?>
+
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
 			<?php the_content(); ?>
 			<?php wp_link_pages(); ?>
@@ -27,8 +35,6 @@
 		</footer><!-- .entry-footer -->
 
 	<?php else : // If not viewing a single post. ?>
-
-		<?php get_the_image(); ?>
 
 		<header class="entry-header">
 
@@ -46,8 +52,6 @@
 
 		<div <?php hybrid_attr( 'entry-summary' ); ?>>
 			<?php the_excerpt(); ?>
-			<?php $count = hybrid_get_gallery_item_count(); ?>
-			<p class="gallery-count"><?php printf( _n( 'This gallery contains %s item.', 'This gallery contains %s items.', $count, 'kit' ), $count ); ?></p>
 		</div><!-- .entry-summary -->
 
 	<?php endif; // End single post check. ?>

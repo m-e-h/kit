@@ -4,19 +4,21 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package Kit
+ * @package kit
  */
 ?>
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer <?php hybrid_attr( 'footer' ); ?>>
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'kit' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'kit' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'kit' ), 'Kit', '<a href="http://martyhelmick.com" rel="designer">Marty Helmick</a>' ); ?>
+        <?php printf(
+                /* Translators: 1 is current year, 2 is site name/link, 3 is WordPress name/link, and 4 is theme name/link. */
+                __( 'Copyright &#169; %1$s %2$s. Powered by %3$s and %4$s.', 'kit' ), 
+                date_i18n( 'Y' ), hybrid_get_site_link(), hybrid_get_wp_link(), hybrid_get_theme_link()
+            ); ?>
 		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+	</footer><!-- #footer -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

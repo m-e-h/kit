@@ -1,68 +1,32 @@
 <?php
 /**
- * The header.
+ * The header for our theme.
  *
+ * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package Kit
+ * @package kit
  */
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<head>
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <?php wp_head(); ?>
-  </head>
+<?php wp_head(); ?>
+</head>
 
 <body <?php hybrid_attr( 'body' ); ?>>
-
-	<?php hybrid_get_menu( 'primary' ); ?>
-
-<div id="page" class="site grid">
-	<a href="#content" class="screen-reader-text visuallyhidden"><?php _e( 'Skip to main content', 'kit' ); ?></a>
-
-	<div class="side-header grid__item desk--four-twelfths">
-
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'kit' ); ?></a>
+	
 	<header <?php hybrid_attr( 'header' ); ?>>
+	        	<div <?php hybrid_attr( 'branding' ); ?>>
+			<?php hybrid_site_title(); ?>
+			<?php hybrid_site_description(); ?>
+		</div><!-- #branding -->
 
-		<?php if ( display_header_text() ) : ?>
-
-			<div <?php hybrid_attr( 'branding' ); ?>>
-				<?php hybrid_site_title(); ?>
-				<?php hybrid_site_description(); ?>
-			</div><!-- #branding -->
-
-		<?php endif; // End check for header text. ?>
-
-
-
+		<?php hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template. ?>
+		
 	</header><!-- #header -->
 
-	<?php hybrid_get_menu( 'secondary' ); ?>
-	<?php hybrid_get_sidebar( 'primary' ); ?>
+	<div <?php hybrid_attr( 'content' ); ?>>
 
-	</div><!-- side-header -->
-
-		<?php if ( get_header_image() ) : // If there's a header image. ?>
-
-    	<style type="text/css" id="custom-header-css">
-
-
-			.custom-header .side-header {
-				background: url(<?php header_image(); ?>);
-			    background-size: cover;
-			    background-attachment: fixed;
-			    background-repeat: no-repeat;
-			    background-position: center center;
-			}
-		</style>
-
-    <?php endif; // End check for header image. ?>
-
-	<div class="main-container grid__item desk--eight-twelfths">
+  <?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>

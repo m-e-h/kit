@@ -2,18 +2,22 @@
 /**
  * The main template file.
  *
- * @package Kit
+ * @package kit
  */
 
 get_header(); ?>
 
-<?php hybrid_get_sidebar( 'primary' ); ?>
+<div id="primary" class="content-area">
+	<main id="main" class="site-main" role="main">
 
-<main <?php hybrid_attr( 'content' ); ?>>
+	<?php if ( !is_front_page() && !is_singular() && !is_404() ) : ?>
 
-	<?php if ( !is_front_page() && !is_singular() && !is_404() ) : // If viewing a multi-post page ?>
-
-		<?php kit_loop_meta(); ?>
+		<header class="page-header">
+		<?php
+			the_archive_title( '<h1 class="page-title">', '</h1>' );
+			the_archive_description( '<div class="taxonomy-description">', '</div>' );
+		?>
+		</header><!-- .page-header -->
 
 	<?php endif; // End check for multi-post page. ?>
 
@@ -21,26 +25,26 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php hybrid_get_content_template(); ?>
+				<?php hybrid_get_content_template(); // Loads the content/*.php template. ?>
 
-			<?php if ( is_singular() ) : ?>
+				<?php if ( is_singular() ) : ?>
 
-				<?php comments_template( '', true ); // Loads comments.php ?>
+	            			<?php comments_template( '', true ); // Loads the comments.php template. ?>
 
-			<?php endif; // End check for single post. ?>
+	        			<?php endif; // End check for single post. ?>
 
-		<?php endwhile; // End found posts loop. ?>
+			<?php endwhile; ?>
 
-		<?php kit_loop_nav(); ?>
+			<?php kit_loop_nav(); ?>
 
-	<?php else : ?>
+		<?php else : ?>
 
-		<?php get_template_part( 'content/error' ); ?>
+			<?php get_template_part( 'content/error.php' ); ?>
 
-	<?php endif; // End check for posts. ?>
+		<?php endif; // End check for posts. ?>
 
-</main><!-- #content -->
+	</main><!-- #main -->
+</div><!-- #primary -->
 
-<?php hybrid_get_sidebar( 'secondary' ); ?>
-
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -1,8 +1,8 @@
 <?php
 /**
- * Kit Theme Customizer
+ * kit Theme Customizer
  *
- * @package Kit
+ * @package kit
  */
 
 /**
