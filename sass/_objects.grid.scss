@@ -10,6 +10,7 @@
     text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
     display: flex; /* Use flexbox when possible to avoid `letter-spacing` side-effects. */
     flex-wrap: wrap;
+    width: 100%;
 }
 
 /* Opera as of 12 on Windows needs word-spacing.

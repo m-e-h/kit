@@ -682,43 +682,273 @@ html {
 	color: rgba(0, 0, 0, 0.87);
 	/* [1] */
 	background-color: #fff;
-	font-size: 1em;
-	/* [1] */
+	font-size: 16px;
+	font-size: 1rem;
 	line-height: 1.5;
 	/* [3] */ }
 
 /*------------------------------------*\
-    #HEADINGS
+    #TYPOGRAPHY
 \*------------------------------------*/
-h1, .alpha {
-	font-size: 48px;
-	font-size: 3rem;
-	line-height: 1; }
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0; }
 
-h2, .beta {
+/**
+ * Styles for HTML elements
+ */
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+	opacity: 0.54;
+	font-size: 58px;
+	font-size: 3.625rem;
+	font-size: 0.6em; 
+	font-weight: 400;
+	line-height: 1.2413793103;
+	letter-spacing: -0.02em;}
+
+p {
+	margin: 0 0 16px 0; 
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0.04em;}
+
+article a {
+	font-weight: bold; }
+
+blockquote p {
+	font-size: 26px;
+	font-size: 1.625rem;
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.8461538462;
+	letter-spacing: 0.08em; }
+blockquote p:before {
+	opacity: 0.54; 
+	content: "“";}
+blockquote p:after {
+	opacity: 0.54; 
+	content: "”";}
+
+mark {
+	background-color: rgba(0, 0, 0, 0.26); }
+
+code {
+	background-color: rgba(0, 0, 0, 0.26); }
+
+dt {
+	font-weight: 900; }
+
+h1 a, h2 a, h3 a {
+	color: inherit; 
+	font-weight: inherit;}
+
+/**
+ * Class Name Styles
+ */
+.Typography--display-4 {
+	font-size: 114px;
+	font-size: 7.125rem;
+	font-weight: 300;
+	line-height: 1.0526315789;
+	letter-spacing: -0.04em; }
+
+.Typography--display-4--colorContrast {
+	opacity: 0.54; 
+	font-size: 114px;
+	font-size: 7.125rem;
+	font-weight: 300;
+	line-height: 1.0526315789;
+	letter-spacing: -0.04em;}
+
+h1, .Typography--display-3 {
+	font-size: 58px;
+	font-size: 3.625rem;
+	font-weight: 400;
+	line-height: 1.2413793103;
+	letter-spacing: -0.02em; }
+
+.Typography--display-3--colorContrast {
+	opacity: 0.54; 
+	font-size: 58px;
+	font-size: 3.625rem;
+	font-weight: 400;
+	line-height: 1.2413793103;
+	letter-spacing: -0.02em;}
+
+h2, .Typography--display-2 {
+	font-size: 47px;
+	font-size: 2.9375rem;
+	line-height: 1.0212765957; }
+
+.Typography--display-2--colorContrast {
+	opacity: 0.54; 
+	font-size: 47px;
+	font-size: 2.9375rem;
+	line-height: 1.0212765957;}
+
+h3, .Typography--display-1 {
 	font-size: 36px;
 	font-size: 2.25rem;
 	line-height: 1.3333333333; }
 
-h3, .gamma {
-	font-size: 28px;
-	font-size: 1.75rem;
-	line-height: 1.7142857143; }
+.Typography--display-1--colorContrast {
+	opacity: 0.54; 
+	font-size: 36px;
+	font-size: 2.25rem;
+	line-height: 1.3333333333;}
 
-h4, .delta {
-	font-size: 24px;
-	font-size: 1.5rem;
-	line-height: 1; }
+h4, .Typography--headline {
+	font-size: 26px;
+	font-size: 1.625rem;
+	font-weight: 400;
+	line-height: 1.8461538462;
 
-h5, .epsilon {
+	-moz-osx-font-smoothing: grayscale; }
+
+.Typography--headline--colorContrast {
+	opacity: 0.87; 
+	font-size: 26px;
+	font-size: 1.625rem;
+	font-weight: 400;
+	line-height: 1.8461538462;
+
+	-moz-osx-font-smoothing: grayscale;}
+
+h5, .Typography--title a, .Typography--title {
+	font-size: 22px;
+	font-size: 1.375rem;
+	font-weight: 700;
+	line-height: 1.0909090909;
+	letter-spacing: 0.02em; }
+
+.Typography--title--colorContrast {
+	opacity: 0.87; 
+	font-size: 22px;
+	font-size: 1.375rem;
+	font-weight: 700;
+	line-height: 1.0909090909;
+	letter-spacing: 0.02em;}
+
+h6, .Typography--subhead a, .Typography--subhead {
 	font-size: 18px;
 	font-size: 1.125rem;
-	line-height: 1.3333333333; }
+	font-weight: 400;
+	line-height: 1.3333333333;
+	letter-spacing: 0.04em; }
 
-h6, .zeta {
+.entry-meta, .Typography--subhead--colorContrast {
+	opacity: 0.87; 
+	font-size: 18px;
+	font-size: 1.125rem;
+	font-weight: 400;
+	line-height: 1.3333333333;
+	letter-spacing: 0.04em;}
+
+.Typography--body-2 {
 	font-size: 16px;
 	font-size: 1rem;
-	line-height: 1.5; }
+	font-weight: 700;
+	line-height: 1.5;
+	letter-spacing: 0.04em; }
+
+.Typography--body-2 a, .Typography--body-2--colorContrast {
+	opacity: 0.87; 
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.5;
+	letter-spacing: 0.04em;}
+
+.Typography--body-1 a, .Typography--body-1 {
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0.04em; }
+
+.Typography--body-1--colorContrast {
+	opacity: 0.87; 
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0.04em;}
+
+.Typography--caption {
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 1.7142857143;
+	letter-spacing: 0.08em; }
+
+.Typography--caption--colorContrast {
+	opacity: 0.54; 
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 1.7142857143;
+	letter-spacing: 0.08em;}
+
+.Typography--menu {
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.5;
+	letter-spacing: 0.04em; }
+
+.Typography--menu--colorContrast {
+	opacity: 0.87; 
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.5;
+	letter-spacing: 0.04em;}
+
+.Typography--button {
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0.04em; 
+	text-transform: uppercase;}
+
+.Typography--button--colorContrast {
+	opacity: 0.87; 
+	font-size: 16px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;}
+
+.Typography--textLeft {
+	text-align: left; }
+
+.Typography--textRight {
+	text-align: right; }
+
+.Typography--textCenter {
+	text-align: center; }
+
+.Typography--textJustify {
+	text-align: justify; }
+
+.Typography--textNowrap {
+	white-space: nowrap; }
+
+.Typography--textLowercase {
+	text-transform: lowercase; }
+
+.Typography--textUppercase {
+	text-transform: uppercase; }
+
+.Typography--textCapitalize {
+	text-transform: capitalize; }
+
+.Typography--tableStriped > tbody > tr:nth-child(odd) > td, .Typography--tableStriped > tbody > tr:nth-child(odd) > th {
+	background-color: rgba(0, 0, 0, 0.26); }
 
 /*------------------------------------*\
     #LINKS
@@ -761,6 +991,7 @@ dd {
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display:         flex;
+	width: 100%; 
 	letter-spacing: -0.31em;
 	/* Webkit: collapse white-space between units */
 
@@ -772,7 +1003,7 @@ dd {
 	/* Use flexbox when possible to avoid `letter-spacing` side-effects. */
 	-webkit-flex-wrap: wrap;
 	    -ms-flex-wrap: wrap;
-	        flex-wrap: wrap; }
+	        flex-wrap: wrap;}
 
 /* Opera as of 12 on Windows needs word-spacing.
    The ".opera-only" selector is used to prevent actual prefocus styling
@@ -1405,35 +1636,35 @@ img {
 /*------------------------------------*\
     #MENUS
 \*------------------------------------*/
-.main-navigation {
+.menu {
 	display: block;
 	float: left;
 	clear: both;
 	width: 100%; }
-.main-navigation ul {
+.menu ul {
 	margin: 0;
 	padding-left: 0; 
 	list-style: none;}
-.main-navigation ul ul {
+.menu ul ul {
 	float: left;
 	position: absolute;
 	z-index: 99999; 
 	top: 1.5em;
 	left: -999em;
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);}
-.main-navigation ul ul ul {
+.menu ul ul ul {
 	top: 0; 
 	left: -999em;}
-.main-navigation ul ul li:hover > ul {
+.menu ul ul li:hover > ul {
 	left: 100%; }
-.main-navigation ul ul a {
+.menu ul ul a {
 	width: 200px; }
-.main-navigation ul li:hover > ul {
+.menu ul li:hover > ul {
 	left: auto; }
-.main-navigation li {
+.menu li {
 	float: left;
 	position: relative; }
-.main-navigation a {
+.menu a {
 	display: block;
 	text-decoration: none; }
 
@@ -1442,9 +1673,9 @@ img {
 	display: none; }
 
 @media screen and (max-width: 600px) {
-	.menu-toggle, .main-navigation.toggled .nav-menu {
+	.menu-toggle, .menu.toggled .nav-menu {
 		display: block; }
-	.main-navigation ul {
+	.menu ul {
 		display: none; } }
 
 .site-main .comment-navigation, .site-main .paging-navigation, .site-main .post-navigation {

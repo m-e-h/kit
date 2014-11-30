@@ -2,7 +2,7 @@
     #MENUS
 \*------------------------------------*/
 
-.main-navigation {
+.menu {
     clear: both;
     display: block;
     float: left;
@@ -72,11 +72,11 @@
 
 @media screen and (max-width: 600px) {
     .menu-toggle,
-    .main-navigation.toggled .nav-menu {
+    .menu.toggled .nav-menu {
         display: block;
     }
 
-    .main-navigation ul {
+    .menu ul {
         display: none;
     }
 }
