@@ -28,27 +28,44 @@ ul, ol, dd,
     margin-left: 2 * $base-spacing-unit;
 }
 
+.content {
+	align-items: stretch;
+}
 
+.content-area, .widget-area {
+	display: flex;
+}
 
+.sidebar, .site-main {
+	margin: $base-spacing-unit;
+	padding: $base-spacing-unit;
+	background-color: $color-gray-lighter;
+	width: 100%;
+}
 
+.layout-1c {
+
+.content-area {
+	width: 100%;
+}
+
+.sidebar__primary {
+	width: 100%;
+}
+
+}
 
 // @import "../layout/content-sidebar";
 .layout-2c-l {
 
 .content-area {
 	float: left;
-	margin: 0 (-$size__site-sidebar) 0 0;
-	width: $size__site-main;
 }
 
-.site-main {
-	margin: 0 $size__site-sidebar 0 0;
-}
 
 .sidebar__primary {
 	float: right;
 	overflow: hidden;
-	width: $size__site-sidebar;
 }
 
 }
@@ -58,24 +75,17 @@ ul, ol, dd,
 
 .content-area {
 	float: right;
-	margin: 0 0 0 (-$size__site-sidebar);
-	width: $size__site-main;
-}
-
-.site-main {
-	margin: 0 0 0 $size__site-sidebar;
+	order: 1;
 }
 
 .sidebar__primary {
 	float: left;
 	overflow: hidden;
-	width: $size__site-sidebar;
 }
 
 }
 .site-footer {
-	clear: both;
-	width: $size__site-main;
+	width: 100%;
 }
 
 /*--------------------------------------------------------------

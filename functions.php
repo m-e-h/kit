@@ -128,7 +128,7 @@ function kit_register_image_sizes() {
 function kit_register_menus() {
 	register_nav_menu( 'primary',    _x( 'Primary',    'nav menu location', 'kit' ) );
 	register_nav_menu( 'secondary',  _x( 'Secondary',  'nav menu location', 'kit' ) );
-	register_nav_menu( 'subsidiary', _x( 'Subsidiary', 'nav menu location', 'kit' ) );
+	register_nav_menu( 'social', _x( 'Social', 'nav menu location', 'kit' ) );
 }
 
 /**

@@ -10,11 +10,20 @@ function doc_attr_menu( $attr, $context ) {
 	return $attr;
 }
 
-add_filter( 'hybrid_attr_sidebar', 'doc_attr_sidebar', 10, 2 );
+// add_filter( 'hybrid_attr_sidebar', 'doc_attr_sidebar', 10, 2 );
 
-function doc_attr_sidebar( $attr, $context ) {
+// function doc_attr_sidebar( $attr, $context ) {
 
-	$attr['class'] .= " sidebar__{$context}";
+// 	$attr['class'] .= "  sidebar__{$context}";
+
+// 	return $attr;
+// }
+
+add_filter( 'hybrid_attr_content', 'doc_attr_content' );
+
+function doc_attr_content( $attr ) {
+
+	$attr['class'] .= "  grid";
 
 	return $attr;
 }

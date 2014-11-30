@@ -1622,30 +1622,47 @@ h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, blockquote, p, address, table, field
 ul, ol, dd {
 	margin-left: 48px; }
 
-.layout-2c-l .content-area {
-	float: left;
+.content {
+	-webkit-box-align: stretch;
+	-webkit-align-items: stretch;
+	-ms-flex-align: stretch;
+	        align-items: stretch; }
+
+.content-area, .widget-area {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex; }
+
+.sidebar, .site-main {
 	width: 100%; 
-	margin: 0 -25% 0 0;}
-.layout-2c-l .site-main {
-	margin: 0 25% 0 0; }
+	margin: 24px;
+	padding: 24px;
+	background-color: rgba(0, 0, 0, 0.12);}
+
+.layout-1c .content-area {
+	width: 100%; }
+.layout-1c .sidebar__primary {
+	width: 100%; }
+
+.layout-2c-l .content-area {
+	float: left; }
 .layout-2c-l .sidebar__primary {
 	float: right;
-	overflow: hidden;
-	width: 25%; }
+	overflow: hidden; }
 
 .layout-2c-r .content-area {
 	float: right;
-	width: 100%; 
-	margin: 0 0 0 -25%;}
-.layout-2c-r .site-main {
-	margin: 0 0 0 25%; }
+
+	-webkit-box-ordinal-group: 2;
+	-webkit-order: 1;
+	-ms-flex-order: 1;
+	        order: 1; }
 .layout-2c-r .sidebar__primary {
 	float: left;
-	overflow: hidden;
-	width: 25%; }
+	overflow: hidden; }
 
 .site-footer {
-	clear: both;
 	width: 100%; }
 
 /*--------------------------------------------------------------
