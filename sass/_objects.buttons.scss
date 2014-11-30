@@ -14,8 +14,13 @@
  * 4. Reset/normalize some styles.
  * 5. Force all button-styled elements to appear clickable.
  * 6. Fixes odd inner spacing in IE7.
+ * 7. Corrects inability to style clickable 'input' types in iOS.
  */
-.btn {
+.btn,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
     display: inline-block; /* [1] */
     vertical-align: middle; /* [2] */
     font: inherit; /* [3] */
@@ -24,6 +29,7 @@
     margin:  0; /* [4] */
     cursor: pointer; /* [5] */
     overflow: visible; /* [6] */
+    -webkit-appearance: button; /* [7] */
     padding: halve($base-spacing-unit) $base-spacing-unit;
 
     &,
@@ -31,14 +37,6 @@
     &:active,
     &:focus {
         text-decoration: none; /* [4] */
-    }
-
-    /**
-     * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
-     */
-    &::-moz-focus-inner {
-        border:  0;
-        padding: 0;
     }
 
 }
