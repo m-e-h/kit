@@ -13,7 +13,8 @@ $kit_dir = trailingslashit( get_template_directory() );
 /**
  * Load the Hybrid Core framework.
  */
-require_once( $kit_dir . 'library/hybrid.php' );
+require_once( $kit_dir . 'library/hybrid.php' 		);
+require_once( $kit_dir . 'inc/hybrid-mods.php'         	);
 
 /**
  * Launch the Hybrid Core framework.
@@ -139,7 +140,7 @@ function kit_register_sidebars() {
 		array(
 			'id'          => 'primary',
 			'name'        => _x( 'Primary', 'sidebar', 'kit' ),
-			'description' => __( 'Add sidebar description.', 'kit' )
+			'description' => __( 'Primary Sidebar.', 'kit' )
 		)
 	);
 
@@ -147,7 +148,7 @@ function kit_register_sidebars() {
 		array(
 			'id'          => 'subsidiary',
 			'name'        => _x( 'Subsidiary', 'sidebar', 'kit' ),
-			'description' => __( 'Add sidebar description.', 'kit' )
+			'description' => __( 'Footer Widgets.', 'kit' )
 		)
 	);
 }

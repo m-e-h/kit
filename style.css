@@ -1622,32 +1622,24 @@ h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, blockquote, p, address, table, field
 ul, ol, dd {
 	margin-left: 48px; }
 
-.content-area {
+.layout-2c-l .content-area {
 	float: left;
 	width: 100%; 
 	margin: 0 -25% 0 0;}
-
-.site-main {
+.layout-2c-l .site-main {
 	margin: 0 25% 0 0; }
-
-.site-content .widget-area {
+.layout-2c-l .sidebar__primary {
 	float: right;
 	overflow: hidden;
 	width: 25%; }
 
-.site-footer {
-	clear: both;
-	width: 100%; }
-
-.content-area {
+.layout-2c-r .content-area {
 	float: right;
 	width: 100%; 
 	margin: 0 0 0 -25%;}
-
-.site-main {
+.layout-2c-r .site-main {
 	margin: 0 0 0 25%; }
-
-.site-content .widget-area {
+.layout-2c-r .sidebar__primary {
 	float: left;
 	overflow: hidden;
 	width: 25%; }
