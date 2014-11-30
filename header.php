@@ -16,17 +16,19 @@
 <body <?php hybrid_attr( 'body' ); ?>>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'kit' ); ?></a>
-	
+
+		<?php hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template. ?>
+		
 	<header <?php hybrid_attr( 'header' ); ?>>
 	        	<div <?php hybrid_attr( 'branding' ); ?>>
 			<?php hybrid_site_title(); ?>
 			<?php hybrid_site_description(); ?>
 		</div><!-- #branding -->
 
-		<?php hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template. ?>
+		<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>
 		
 	</header><!-- #header -->
 
-	<div <?php hybrid_attr( 'content' ); ?>>
-
   <?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>
+
+	<div <?php hybrid_attr( 'content' ); ?>>

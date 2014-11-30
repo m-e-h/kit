@@ -30,7 +30,7 @@ input[type="submit"] {
     cursor: pointer; /* [5] */
     overflow: visible; /* [6] */
     -webkit-appearance: button; /* [7] */
-    padding: halve($base-spacing-unit) $base-spacing-unit;
+    padding: half($base-spacing-unit) $base-spacing-unit;
 
     &,
     &:hover,

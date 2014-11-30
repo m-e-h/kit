@@ -27,7 +27,8 @@ $color__border-abbr: #666;
 // Literal color variables.
 
 $color-primary:         #f43059;
-$color-pink:            #f43059;
+
+$color-brand:        $color-primary;
 
 /* ==========  Blacks  ========== */
 
@@ -46,8 +47,18 @@ $color-white: #fff;
 
 // Text-level
 $color-text:            $color-gray-dark;
-$color-links:           $color-pink;
+$color-links:           $color-primary;
+$color-links-hover:     darken($color-links, 10);
+$dark-bg-color-links:           lighten($color-links, 10);
+$dark-bg-color-links-hover:     lighten($dark-bg-color-links, 10);
 
 // Buttons
 $color-btn-text:        #fff;
-$color-btn-background:  $color-pink;
+$color-btn-background:  $color-primary;
+
+
+//Alerts
+$color-error:  #ec7063;
+$color-valid: #58d68d;
+$color-warning: #f4d313;
+$color-information: #5dade2;

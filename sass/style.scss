@@ -67,10 +67,12 @@ This theme, like WordPress, is licensed under the GPL.
 @import "generic.normalize";
 @import "generic.box-sizing";
 @import "generic.h5bp";
+@import "generic.accessibility";
 
 @import "base.page";
 @import "base.headings";
 @import "base.links";
+@import "base.lists";
 
 @import "objects.grid";
 @import "objects.forms";
