@@ -20,3 +20,9 @@ html {
     overflow-y: scroll; /* [2] */
     min-height: 100%; /* [3] */
 }
+
+.content {
+	word-wrap:   break-word;
+	word-break:  normal;
+	hyphens: auto;
+}

@@ -63,8 +63,8 @@ input[type="tel"]:hover,
 input[type="color"]:hover,
 select:hover,
 textarea:hover {
-    background:   $color-gray-lighter;
-    border-color: $color-gray-lighter;
+    background:   $color-gray-light;
+    border-color: $color-gray-light;
 }
 
 input[type="text"]:focus,
@@ -193,5 +193,5 @@ legend {
     padding: 0.3em 0;
     margin-bottom: 0.3em;
     color: $color-gray;
-    border-bottom: 1px solid $color-gray-lighter;
+    border-bottom: 1px solid $color-gray-light;
 }

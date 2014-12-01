@@ -1,62 +1,48 @@
 /*------------------------------------*\
     #MENUS
 \*------------------------------------*/
-
 .menu {
     clear: both;
     display: block;
     float: left;
     width: 100%;
+    word-wrap: break-word;
+		word-break: normal;
+		hyphens: auto;
+
+            	li {
+            		@include md {
+							float: left;
+							position: relative;
+						}
+						}
 
     ul {
         list-style: none;
         margin: 0;
         padding-left: 0;
 
-        // ul {
-        //     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-        //     float: left;
-        //     position: absolute;
-        //     top: 1.5em;
-        //     left: -999em;
-        //     z-index: 99999;
+        ul {
 
-        //     ul {
-        //         left: -999em;
-        //         top: 0;
-        //     }
+            a {
+                width: 200px;
+            }
 
-        //     li {
-        //         &:hover > ul {
-        //             left: 100%;
-        //         }
-        //     }
+            :hover > a {
+            }
 
-        //     a {
-        //         width: 200px;
-        //     }
-
-        //     :hover > a {
-        //     }
-
-        //     a:hover {
-        //     }
-        // }
-
-        // li:hover > ul {
-        //     left: auto;
-        // }
-    }
-    li {
-        float: left;
-        position: relative;
-
-        &:hover > a {
+            a:hover {
+            }
         }
     }
+
     a {
-        display: block;
-        text-decoration: none;
+	    display: block;
+	    color: inherit;
+	    line-height: 1.5em;
+	    padding: 5px 20px;
+	    text-decoration: none;
+	    white-space: nowrap;
     }
 
     .current_page_item > a,
@@ -70,7 +56,7 @@
     display: none;
 }
 
-@media screen and (max-width: 600px) {
+@include sm-only {
     .menu-toggle,
     .menu.toggled .nav-menu {
         display: block;

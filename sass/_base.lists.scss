@@ -2,8 +2,18 @@
     #LISTS
 \*------------------------------------*/
 
-ul, ol {
-	margin: 0 0 1.5em 3em;
+/**
+ * Where `margin-left` is concerned we want to try and indent certain elements
+ * by a consistent amount. Define that amount once,here.
+ */
+ul, ol,
+%margin-left {
+    margin-left: $base-spacing-unit;
+}
+
+ul, ol,
+%margin-bottom {
+    margin-bottom: 2 * $base-spacing-unit;
 }
 
 ul {
@@ -17,7 +27,6 @@ ol {
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
 }
 
 dt {
@@ -25,5 +34,5 @@ dt {
 }
 
 dd {
-	margin: 0 1.5em 1.5em;
+	margin: 0 $base-spacing-unit $base-spacing-unit;
 }
