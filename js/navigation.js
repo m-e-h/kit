@@ -329,7 +329,8 @@
 jQuery( document ).ready( function() {
     jQuery(function () {
 
-jQuery('.menu-item-has-children').attr('data-dropdown', '222');
+jQuery('.menu-item-has-children').attr('data-dropdown', '');
+jQuery('.sub-menu').attr('data-dropdown', '');
 
     });
 });
