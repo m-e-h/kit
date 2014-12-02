@@ -11,10 +11,14 @@
 }
 
 .sidebar, .site-main {
-	margin: $base-spacing-unit;
+	margin: $base-spacing-unit-sm;
 	padding: $base-spacing-unit;
 	background-color: $color-gray-lighter;
 	width: 100%;
+
+	@include md {
+		margin: $base-spacing-unit;
+	}
 }
 
 .layout-1c {
@@ -40,6 +44,16 @@
 .sidebar__primary {
 	float: right;
 	overflow: hidden;
+@include md {
+	.sidebar {
+		margin-left: 0;
+	}
+}
+@include sm-only {
+	.sidebar {
+		margin-top: 0;
+	}
+}
 }
 
 }
