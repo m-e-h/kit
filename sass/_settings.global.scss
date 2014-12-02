@@ -7,9 +7,11 @@ $base-line-height:  24px;
 
 $base-radius: 2px;
 
-$base-spacing-unit-lg: $base-line-height * 2;
+$base-transition-speed: 0.1s;
+
 $base-spacing-unit: $base-line-height;
-$base-spacing-unit-sm: $base-line-height / 2;
+$base-spacing-unit-sm: $base-spacing-unit / 2;
+$base-spacing-unit-lg: $base-spacing-unit * 2;
 
 $font__main: sans-serif;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
@@ -21,5 +23,3 @@ $font__line-height-pre: 1.6;
     #STRUCTURE
 \*------------------------------------*/
 
-$size__site-main: 100%;
-$size__site-sidebar: 25%;

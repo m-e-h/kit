@@ -13,7 +13,7 @@ table,
 fieldset, figure,
 pre,
 %margin-bottom {
-    margin-bottom: 2 * $base-spacing-unit;
+    margin-bottom: $base-spacing-unit;
 }
 
 
@@ -30,7 +30,7 @@ pre,
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 0 0 $base-spacing-unit;
 }
 
 .byline,
@@ -46,12 +46,12 @@ pre,
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: $base-spacing-unit 0 0;
 }
 
 .page-links {
 	clear: both;
-	margin: 0 0 1.5em;
+	margin: 0 0 $base-spacing-unit;
 }
 
 /*--------------------------------------------------------------
@@ -85,7 +85,7 @@ pre,
 
 
 .widget {
-	margin: 0 0 1.5em;
+	margin: 0 0 $base-spacing-unit;
 
 	/* Make sure select elements fit in widgets */
 	select {

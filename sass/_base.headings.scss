@@ -1,0 +1,48 @@
+/*------------------------------------*\
+    #HEADINGS
+\*------------------------------------*/
+
+h1,
+.alpha {
+    @include typo-display-2();
+    color: inherit;
+}
+
+h2,
+h1.entry-title {
+    @include typo-display-1();
+}
+
+h3,
+h2.entry-title{
+    @include typo-headline();
+}
+
+h4,
+.delta {
+    @include typo-title();
+}
+
+h5,
+.epsilon {
+    @include typo-subhead();
+}
+
+h6,
+.zeta {
+    @include typo-body-2();
+}
+
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+text-decoration: none;
+	&:visited {
+		color: inherit;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: inherit;
+		opacity: 0.8;
+	}
+}

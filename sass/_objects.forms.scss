@@ -20,9 +20,9 @@ select,
 textarea {
     padding: 0.5em 0.6em;
     display: inline-block;
-    background: $color-gray-light;
+    background: $color-gray-lighter;
     width: 100%;
-    border: 1px solid $color-gray-light;
+    border: 1px solid $color-gray-lighter;
     border-radius: $base-radius;
     box-sizing: border-box;
     @include base-transition;
@@ -35,7 +35,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 input:not([type]) {
     padding: 0.5em 0.6em;
     display: inline-block;
-    border: 1px solid $color-gray-light;
+    border: 1px solid $color-gray-lighter;
     border-radius: $base-radius;
     box-sizing: border-box;
 }
@@ -63,8 +63,8 @@ input[type="tel"]:hover,
 input[type="color"]:hover,
 select:hover,
 textarea:hover {
-    background:   $color-gray-light;
-    border-color: $color-gray-light;
+    background:   $color-gray-lighter;
+    border-color: $color-gray-lighter;
 }
 
 input[type="text"]:focus,
@@ -84,10 +84,10 @@ input[type="color"]:focus,
 select:focus,
 textarea:focus {
     color:        $color-gray-dark;
-    background:   lighten($color-gray-lighter, 2);
+    background:   lighten($color-gray-lighter, 10);
     outline: 0;
     outline: thin dotted \9; /* IE6-9 */
-    border-color: lighten($color-brand, 10);
+    border-color: lighten($color-links, 10);
 }
 
 /*
@@ -129,7 +129,7 @@ input[type="color"][disabled],
 select[disabled],
 textarea[disabled] {
     cursor: not-allowed;
-    background-color: $color-gray-light;
+    background-color: $color-gray-lighter;
     color: $color-gray;
 }
 
@@ -139,7 +139,7 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 */
 input:not([type])[disabled] {
     cursor: not-allowed;
-    background-color: $color-gray-light;
+    background-color: $color-gray-lighter;
     color: $color-gray;
 }
 input[readonly],
@@ -147,7 +147,7 @@ select[readonly],
 textarea[readonly] {
     background: #eee; /* menu hover bg color */
     color: #777; /* menu text color */
-    border-color: $color-gray-light;
+    border-color: $color-gray-lighter;
 }
 
 input:invalid,
@@ -173,7 +173,7 @@ input[type="checkbox"]:focus:invalid:focus {
     outline-color: #e9322d;
 }
 select {
-    border: 1px solid $color-gray-light;
+    border: 1px solid $color-gray-lighter;
     background-color: white;
 }
 select[multiple] {
@@ -184,14 +184,14 @@ label {
 }
 fieldset {
     margin: 0;
-    padding: 0.35em 0 0.75em;
+    padding: $base-spacing-unit-sm / 2 0 $base-spacing-unit-sm;
     border: 0;
 }
 legend {
     display: block;
     width: 100%;
-    padding: 0.3em 0;
-    margin-bottom: 0.3em;
+    padding: $base-spacing-unit-sm / 2 0;
+    margin-bottom: $base-spacing-unit-sm / 2;
     color: $color-gray;
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid $color-gray-lighter;
 }

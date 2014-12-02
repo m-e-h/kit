@@ -31,6 +31,7 @@ input[type="submit"] {
     overflow: visible; /* [6] */
     -webkit-appearance: button; /* [7] */
     padding: half($base-spacing-unit) $base-spacing-unit;
+    outline: 0;
 
     &,
     &:hover,

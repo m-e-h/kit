@@ -215,7 +215,7 @@ h1, h2, h3 {
   @include typo-display-4($colorContrast:true);
 }
 
-h1, .Typography--display-3 {
+.Typography--display-3 {
   @include typo-display-3();
 }
 
@@ -223,7 +223,7 @@ h1, .Typography--display-3 {
   @include typo-display-3($colorContrast:true);
 }
 
-h2, .Typography--display-2 {
+.Typography--display-2 {
   @include typo-display-2();
 }
 
@@ -231,7 +231,7 @@ h2, .Typography--display-2 {
   @include typo-display-2($colorContrast:true);
 }
 
-h3, .Typography--display-1 {
+.Typography--display-1 {
   @include typo-display-1();
 }
 
@@ -239,7 +239,7 @@ h3, .Typography--display-1 {
   @include typo-display-1($colorContrast:true);
 }
 
-h4, .Typography--headline {
+.Typography--headline {
   @include typo-headline();
 }
 
@@ -247,7 +247,7 @@ h4, .Typography--headline {
   @include typo-headline($colorContrast:true);
 }
 
-h5, .Typography--title a, .Typography--title {
+.Typography--title a, .Typography--title {
   @include typo-title();
 }
 
@@ -255,7 +255,7 @@ h5, .Typography--title a, .Typography--title {
   @include typo-title($colorContrast:true);
 }
 
-h6, .Typography--subhead a, .Typography--subhead {
+.Typography--subhead a, .Typography--subhead {
   @include typo-subhead();
 }
 

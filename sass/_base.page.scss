@@ -17,7 +17,7 @@ html {
     @include font-size($base-font-size); /* [1] */
     background-color: #fff;
     color: $color-text;
-    overflow-y: scroll; /* [2] */
+    //overflow-y: scroll; /* [2] */
     min-height: 100%; /* [3] */
 }
 

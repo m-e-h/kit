@@ -1,15 +1,15 @@
 <?php if ( has_nav_menu( 'secondary' ) ) : // Check if there's a menu assigned to the 'secondary' location. ?>
 
 	<nav <?php hybrid_attr( 'menu', 'secondary' ); ?>>
+      <button class="menu-toggle"><?php _e( 'Menu 2', 'kit' ); ?></button>
 
 		<?php wp_nav_menu(
 			array(
 				'theme_location'  => 'secondary',
 				'container'       => '',
 				'menu_id'         => 'menu-secondary-items',
-				'menu_class'      => 'menu-items',
-				'fallback_cb'     => '',
-				'items_wrap'      => '<div class="wrap"><ul id="%s" class="%s">%s</ul></div>'
+				'menu_class'      => 'menu__secondary--items nav-menu',
+				'fallback_cb'     => ''
 			)
 		); ?>
 

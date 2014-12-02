@@ -18,15 +18,15 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'kit' ); ?></a>
 
 		<?php hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template. ?>
-		
+
 	<header <?php hybrid_attr( 'header' ); ?>>
 	        	<div <?php hybrid_attr( 'branding' ); ?>>
-			<?php hybrid_site_title(); ?>
-			<?php hybrid_site_description(); ?>
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</div><!-- #branding -->
 
 		<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>
-		
+
 	</header><!-- #header -->
 
   <?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>
