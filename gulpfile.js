@@ -67,10 +67,10 @@ gulp.task('styles', function () {
     .pipe(csscomb())
     .pipe(gulp.dest('./'))
     //Concatenate And Minify Styles
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('./'))
-    .pipe($.if('*.css', $.csso()))
-    .pipe(gulp.dest('./'));
+    // .pipe(rename({ suffix: '.min' }))
+    // .pipe(gulp.dest('./'))
+    // .pipe($.if('*.css', $.csso()))
+    // .pipe(gulp.dest('./'));
 });
 
 

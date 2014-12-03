@@ -1,34 +1,28 @@
 <?php
 /**
- * The header for our theme.
- *
- * Displays all of the <head> section and everything up till <div id="content">
- *
- * @package kit
+ * @package Kit One
  */
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <?php wp_head(); ?>
 </head>
 
 <body <?php hybrid_attr( 'body' ); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'kit' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'kit-one' ); ?></a>
 
-		<?php hybrid_get_menu( 'primary' ); // Loads the menu/primary.php template. ?>
+	<?php hybrid_get_menu( 'primary' ); // menu/primary.php ?>
 
 	<header <?php hybrid_attr( 'header' ); ?>>
-	        	<div <?php hybrid_attr( 'branding' ); ?>>
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		</div><!-- #branding -->
-
-		<?php hybrid_get_menu( 'secondary' ); // Loads the menu/secondary.php template. ?>
-
+		<?php hybrid_get_menu( 'secondary' ); // menu/secondary.php ?>
+		<div class="site-branding">
+			<?php hybrid_site_title(); ?>
+			<?php hybrid_site_description(); ?>
+		</div><!-- .site-branding -->
 	</header><!-- #header -->
 
-  <?php hybrid_get_menu( 'breadcrumbs' ); // Loads the menu/breadcrumbs.php template. ?>
+	<?php hybrid_get_menu( 'breadcrumbs' ); // menu/breadcrumbs.php ?>
 
 	<div <?php hybrid_attr( 'content' ); ?>>

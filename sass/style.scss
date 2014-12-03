@@ -1,10 +1,10 @@
 /*
-Theme Name: Kit
+Theme Name: Kit Three
 Theme URI: http://martyhelmick.com/
 Author: Marty Helmick
 Author URI: http://martyhelmick.com/
 Description: Hi. I'm a starter theme called <code>Kit</code>.
-Version: 1.0-wpcom
+Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: Kit
@@ -63,11 +63,9 @@ This theme, like WordPress, is licensed under the GPL.
 @import "tools.functions";
 @import "tools.mixins";
 
-@import "generic.reset";
 @import "generic.normalize";
-@import "generic.box-sizing";
-@import "generic.h5bp";
-@import "generic.accessibility";
+@import "generic.wp";
+@import "generic.plugins";
 
 @import "base.grid";
 @import "base.page";
@@ -77,13 +75,15 @@ This theme, like WordPress, is licensed under the GPL.
 @import "base.layouts";
 @import "base.headings";
 
-@import "objects.forms";
-@import "objects.images";
+@import "objects.icons";
+@import "objects.media";
 @import "objects.buttons";
+@import "objects.forms";
 @import "objects.menus";
 @import "objects.tables";
 
 @import "components.buttons";
+@import "components.quotes";
 
 @import "trumps.widths";
 

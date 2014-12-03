@@ -72,3 +72,16 @@ function doc_attr_site_description( $attr ) {
 
 	return $attr;
 }
+
+
+
+
+
+add_action( 'init', 'kit_clean_head' );
+function kit_clean_head() {
+remove_action( 'wp_head', 'wp_generator', 			1 );
+remove_action( 'wp_head', 'hybrid_doctitle',      	0 );
+remove_action( 'wp_head', 'hybrid_link_pingback', 	3 );
+remove_action( 'wp_head', 'wlwmanifest_link'		  );
+remove_action('wp_head', 'rsd_link'					  );
+}

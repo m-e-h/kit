@@ -25,11 +25,11 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php hybrid_get_content_template(); // Loads the content/*.php template. ?>
+				<?php hybrid_get_content_template(); // content/*.php ?>
 
 				<?php if ( is_singular() ) : ?>
 
-	            			<?php comments_template( '', true ); // Loads the comments.php template. ?>
+	            			<?php comments_template( '', true ); // comments.php ?>
 
 	        			<?php endif; // End check for single post. ?>
 

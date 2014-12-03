@@ -17,18 +17,14 @@ $color__link-visited: purple;
 $color__link-hover: midnightblue;
 $color__text-main: #404040;
 
-$color__border-button: #ccc #ccc #bbb;
-$color__border-button-hover: #ccc #bbb #aaa;
-$color__border-button-focus: #aaa #bbb #bbb;
-$color__border-input: #ccc;
-$color__border-abbr: #666;
 
 
 // Literal color variables.
 
-$color-primary:         royalblue;
-
-$color-brand:        $color-primary;
+$color-primary:         #2980b9;
+$color1:         		#2980b9;
+$color2:         		#1abc9c;
+$color-brand:        	$color1;
 
 /* ==========  Blacks  ========== */
 
@@ -46,6 +42,8 @@ $color-white: #fff;
 
 // Assign colors to more meaningful variables.
 
+$color-hr: #ccc;
+
 // Text-level
 $color-text:            $color-gray-dark;
 $color-links:           $color-primary;
@@ -59,7 +57,7 @@ $color-btn-background:  $color-primary;
 
 
 //Alerts
-$color-error:  #ec7063;
-$color-valid: #58d68d;
-$color-warning: #f4d313;
-$color-information: #5dade2;
+$color-error:  #e74c3c;
+$color-valid: #1abc9c;
+$color-warning: #f1c40f;
+$color-information: #3498db;

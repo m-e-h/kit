@@ -1,0 +1,24 @@
+/*------------------------------------*\
+    #BLOCKQUOTES
+\*------------------------------------*/
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+}
+
+blockquote,
+q {
+	quotes: "" "";
+}
+
+blockquote {
+	margin: 0 $base-spacing-unit;
+}
+
+blockquote.alignleft,
+blockquote.alignright {
+	width: 33%;
+}
