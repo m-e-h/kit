@@ -2,6 +2,23 @@
     #PAGE
 \*------------------------------------*/
 
+/**
+* Set the default font to something native. These can be over-ridden in the
+* theme settings.
+*
+* FreeSans: Ships with many Linux distros, including Ubuntu
+*
+* Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and Arial.
+*
+* Droid Sans: Ships with all versions of Android.
+*
+* Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+*/
+
+body {
+    font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+}
+
 
 
 

@@ -1,8 +1,8 @@
 <?php
 /**
- * Kit One functions and definitions
+ * Kit functions and definitions
  *
- * @package Kit One
+ * @package Kit
  */
 
 /* Get the template directory. */

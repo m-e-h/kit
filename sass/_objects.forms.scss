@@ -25,7 +25,6 @@ textarea {
     border: 1px solid $color-gray-lighter;
     border-radius: $base-radius;
     box-sizing: border-box;
-    @include base-transition;
 }
 
 /*

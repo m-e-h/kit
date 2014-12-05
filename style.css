@@ -1,5 +1,5 @@
 /*
-Theme Name: Kit Three
+Theme Name: Kit
 Theme URI: http://martyhelmick.com/
 Author: Marty Helmick
 Author URI: http://martyhelmick.com/
@@ -756,52 +756,65 @@ img.wp-smiley {
 
 		*display: inline;
 		text-rendering: auto; }
+
 	.grid-item-sm-1-12 {
 		width: 8.3333%;
 
 		*width: 8.3023%; }
+
 	.grid-item-sm-1-6, .grid-item-sm-2-12 {
 		width: 16.6667%;
 
 		*width: 16.6357%; }
+
 	.grid-item-sm-1-4, .grid-item-sm-3-12 {
 		width: 25%;
 
 		*width: 24.969%; }
+
 	.grid-item-sm-1-3, .grid-item-sm-4-12 {
 		width: 33.3333%;
 
 		*width: 33.3023%; }
+
 	.grid-item-sm-5-12 {
 		width: 41.6667%;
 
 		*width: 41.6357%; }
+
 	.grid-item-sm-1-2, .grid-item-sm-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
+
 	.grid-item-sm-7-12 {
 		width: 58.3333%;
 
 		*width: 58.3023%; }
+
 	.grid-item-sm-2-3, .grid-item-sm-8-12 {
 		width: 66.6667%;
 
 		*width: 66.6357%; }
+
 	.grid-item-sm-3-4, .grid-item-sm-9-12 {
 		width: 75%;
 
 		*width: 74.969%; }
+
 	.grid-item-sm-5-6, .grid-item-sm-10-12 {
 		width: 83.3333%;
 
 		*width: 83.3023%; }
+
 	.grid-item-sm-11-12 {
 		width: 91.6667%;
 
 		*width: 91.6357%; }
+
 	.grid-item-sm-1, .grid-item-sm-1-1, .grid-item-sm-12-12 {
-		width: 100%; } }
+		width: 100%; }
+	}
 
 @media only screen and (min-width: 48em) {
 	.grid-item-md-1, .grid-item-md-1-1, .grid-item-md-1-2, .grid-item-md-1-3, .grid-item-md-2-3, .grid-item-md-1-4, .grid-item-md-3-4, .grid-item-md-1-6, .grid-item-md-5-6, .grid-item-md-1-12, .grid-item-md-2-12, .grid-item-md-3-12, .grid-item-md-4-12, .grid-item-md-5-12, .grid-item-md-6-12, .grid-item-md-7-12, .grid-item-md-8-12, .grid-item-md-9-12, .grid-item-md-10-12, .grid-item-md-11-12, .grid-item-md-12-12 {
@@ -813,52 +826,65 @@ img.wp-smiley {
 
 		*display: inline;
 		text-rendering: auto; }
+
 	.grid-item-md-1-12 {
 		width: 8.3333%;
 
 		*width: 8.3023%; }
+
 	.grid-item-md-1-6, .grid-item-md-2-12 {
 		width: 16.6667%;
 
 		*width: 16.6357%; }
+
 	.grid-item-md-1-4, .grid-item-md-3-12 {
 		width: 25%;
 
 		*width: 24.969%; }
+
 	.grid-item-md-1-3, .grid-item-md-4-12 {
 		width: 33.3333%;
 
 		*width: 33.3023%; }
+
 	.grid-item-md-5-12 {
 		width: 41.6667%;
 
 		*width: 41.6357%; }
+
 	.grid-item-md-1-2, .grid-item-md-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
+
 	.grid-item-md-7-12 {
 		width: 58.3333%;
 
 		*width: 58.3023%; }
+
 	.grid-item-md-2-3, .grid-item-md-8-12 {
 		width: 66.6667%;
 
 		*width: 66.6357%; }
+
 	.grid-item-md-3-4, .grid-item-md-9-12 {
 		width: 75%;
 
 		*width: 74.969%; }
+
 	.grid-item-md-5-6, .grid-item-md-10-12 {
 		width: 83.3333%;
 
 		*width: 83.3023%; }
+
 	.grid-item-md-11-12 {
 		width: 91.6667%;
 
 		*width: 91.6357%; }
+
 	.grid-item-md-1, .grid-item-md-1-1, .grid-item-md-12-12 {
-		width: 100%; } }
+		width: 100%; }
+	}
 
 @media only screen and (min-width: 64em) {
 	.grid-item-lg-1, .grid-item-lg-1-1, .grid-item-lg-1-2, .grid-item-lg-1-3, .grid-item-lg-2-3, .grid-item-lg-1-4, .grid-item-lg-3-4, .grid-item-lg-1-6, .grid-item-lg-5-6, .grid-item-lg-1-12, .grid-item-lg-2-12, .grid-item-lg-3-12, .grid-item-lg-4-12, .grid-item-lg-5-12, .grid-item-lg-6-12, .grid-item-lg-7-12, .grid-item-lg-8-12, .grid-item-lg-9-12, .grid-item-lg-10-12, .grid-item-lg-11-12, .grid-item-lg-12-12 {
@@ -870,52 +896,65 @@ img.wp-smiley {
 
 		*display: inline;
 		text-rendering: auto; }
+
 	.grid-item-lg-1-12 {
 		width: 8.3333%;
 
 		*width: 8.3023%; }
+
 	.grid-item-lg-1-6, .grid-item-lg-2-12 {
 		width: 16.6667%;
 
 		*width: 16.6357%; }
+
 	.grid-item-lg-1-4, .grid-item-lg-3-12 {
 		width: 25%;
 
 		*width: 24.969%; }
+
 	.grid-item-lg-1-3, .grid-item-lg-4-12 {
 		width: 33.3333%;
 
 		*width: 33.3023%; }
+
 	.grid-item-lg-5-12 {
 		width: 41.6667%;
 
 		*width: 41.6357%; }
+
 	.grid-item-lg-1-2, .grid-item-lg-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
+
 	.grid-item-lg-7-12 {
 		width: 58.3333%;
 
 		*width: 58.3023%; }
+
 	.grid-item-lg-2-3, .grid-item-lg-8-12 {
 		width: 66.6667%;
 
 		*width: 66.6357%; }
+
 	.grid-item-lg-3-4, .grid-item-lg-9-12 {
 		width: 75%;
 
 		*width: 74.969%; }
+
 	.grid-item-lg-5-6, .grid-item-lg-10-12 {
 		width: 83.3333%;
 
 		*width: 83.3023%; }
+
 	.grid-item-lg-11-12 {
 		width: 91.6667%;
 
 		*width: 91.6357%; }
+
 	.grid-item-lg-1, .grid-item-lg-1-1, .grid-item-lg-12-12 {
-		width: 100%; } }
+		width: 100%; }
+	}
 
 @media only screen and (min-width: 80em) {
 	.grid-item-xl-1, .grid-item-xl-1-1, .grid-item-xl-1-2, .grid-item-xl-1-3, .grid-item-xl-2-3, .grid-item-xl-1-4, .grid-item-xl-3-4, .grid-item-xl-1-6, .grid-item-xl-5-6, .grid-item-xl-1-12, .grid-item-xl-2-12, .grid-item-xl-3-12, .grid-item-xl-4-12, .grid-item-xl-5-12, .grid-item-xl-6-12, .grid-item-xl-7-12, .grid-item-xl-8-12, .grid-item-xl-9-12, .grid-item-xl-10-12, .grid-item-xl-11-12, .grid-item-xl-12-12 {
@@ -927,56 +966,84 @@ img.wp-smiley {
 
 		*display: inline;
 		text-rendering: auto; }
+
 	.grid-item-xl-1-12 {
 		width: 8.3333%;
 
 		*width: 8.3023%; }
+
 	.grid-item-xl-1-6, .grid-item-xl-2-12 {
 		width: 16.6667%;
 
 		*width: 16.6357%; }
+
 	.grid-item-xl-1-4, .grid-item-xl-3-12 {
 		width: 25%;
 
 		*width: 24.969%; }
+
 	.grid-item-xl-1-3, .grid-item-xl-4-12 {
 		width: 33.3333%;
 
 		*width: 33.3023%; }
+
 	.grid-item-xl-5-12 {
 		width: 41.6667%;
 
 		*width: 41.6357%; }
+
 	.grid-item-xl-1-2, .grid-item-xl-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
+
 	.grid-item-xl-7-12 {
 		width: 58.3333%;
 
 		*width: 58.3023%; }
+
 	.grid-item-xl-2-3, .grid-item-xl-8-12 {
 		width: 66.6667%;
 
 		*width: 66.6357%; }
+
 	.grid-item-xl-3-4, .grid-item-xl-9-12 {
 		width: 75%;
 
 		*width: 74.969%; }
+
 	.grid-item-xl-5-6, .grid-item-xl-10-12 {
 		width: 83.3333%;
 
 		*width: 83.3023%; }
+
 	.grid-item-xl-11-12 {
 		width: 91.6667%;
 
 		*width: 91.6357%; }
+
 	.grid-item-xl-1, .grid-item-xl-1-1, .grid-item-xl-12-12 {
-		width: 100%; } }
+		width: 100%; }
+	}
 
 /*------------------------------------*\
     #PAGE
 \*------------------------------------*/
+/**
+* Set the default font to something native. These can be over-ridden in the
+* theme settings.
+*
+* FreeSans: Ships with many Linux distros, including Ubuntu
+*
+* Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and Arial.
+*
+* Droid Sans: Ships with all versions of Android.
+*
+* Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+*/
+body {
+	font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif; }
+
 /*------------------------------------*\
     ##Box-Sizing
 \*------------------------------------*/
@@ -1137,14 +1204,6 @@ textarea {
     ###Print-Styles
 \*------------------------------------*/
 @media print {
-	/**
-     * Don't show links that are fragment identifiers,
-     * or use the `javascript:` pseudo protocol
-     */
-	/**
-     * Printing Tables:
-     * http://css-discuss.incutio.com/wiki/Printing_Tables
-     */
 	*, *:before, *:after {
 		color: #000 !important;
 		background: transparent !important;
@@ -1152,29 +1211,48 @@ textarea {
                                    http://www.sanbeiji.com/archives/953 */
 		box-shadow: none !important;
 		text-shadow: none !important; }
+
 	a, a:visited {
 		text-decoration: underline; }
+
 	a[href]:after {
 		content: " (" attr(href) ")"; }
+
 	abbr[title]:after {
 		content: " (" attr(title) ")"; }
+
+	/**
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
 	a[href^="#"]:after, a[href^="javascript:"]:after {
 		content: ""; }
+
 	pre, blockquote {
 		border: 1px solid #999;
 
 		page-break-inside: avoid; }
+
+	/**
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
 	thead {
 		display: table-header-group; }
+
 	tr, img {
 		page-break-inside: avoid; }
+
 	img {
 		max-width: 100% !important; }
+
 	p, h2, h3 {
 		orphans: 3;
 		widows: 3; }
+
 	h2, h3 {
-		page-break-after: avoid; } }
+		page-break-after: avoid; }
+	}
 
 .content {
 	word-wrap: break-word;
@@ -1452,13 +1530,15 @@ h1 a, h2 a, h3 a {
     #LINKS
 \*------------------------------------*/
 a {
-	color: royalblue;
-	-webkit-transition: all 0.1s ease-in-out;
-	        transition: all 0.1s ease-in-out; }
+	color: royalblue; }
 a:visited {
 	color: purple; }
 a:hover, a:focus, a:active {
 	color: midnightblue; }
+
+a, button, input:focus, input[type="button"], input[type="reset"], input[type="submit"], textarea:focus, .button, .gallery img {
+	-webkit-transition: all 0.1s ease-in-out;
+	        transition: all 0.1s ease-in-out; }
 
 /*------------------------------------*\
     #LISTS
@@ -1521,10 +1601,12 @@ dd {
 	overflow: hidden; }
 @media only screen and (min-width: 48em) {
 	.layout-2c-l .sidebar__primary .sidebar {
-		margin-left: 0; } }
+		margin-left: 0; }
+	}
 @media only screen and (max-width: 47em) {
 	.layout-2c-l .sidebar__primary .sidebar {
-		margin-top: 0; } }
+		margin-top: 0; }
+	}
 
 .layout-2c-r .content-area {
 	float: right;
@@ -1729,14 +1811,12 @@ embed, iframe, object {
 \*------------------------------------*/
 input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="date"], input[type="month"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="week"], input[type="number"], input[type="search"], input[type="tel"], input[type="color"], select, textarea {
 	display: inline-block;
-	box-sizing: border-box;
+	box-sizing: border-box; 
 	width: 100%;
 	padding: 0.5em 0.6em;
 	border: 1px solid #eee;
 	border-radius: 2px;
-	background: #eee;
-	-webkit-transition: all 0.1s ease-in-out;
-	        transition: all 0.1s ease-in-out; }
+	background: #eee;}
 
 /*
 Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
@@ -1760,7 +1840,7 @@ input[type="text"]:hover, input[type="password"]:hover, input[type="email"]:hove
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, select:focus, textarea:focus {
 	/* IE6-9 */
-	border-color: #409cd5; 
+	border-color: #409ad5; 
 	outline: 0;
 	outline: thin dotted \9;
 	color: #616161;
@@ -1772,13 +1852,13 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 */
 input:not([type]):focus {
 	/* IE6-9 */
-	border-color: #20658f; 
+	border-color: #20638f; 
 	outline: 0;
 	outline: thin dotted \9;}
 
 input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
 	outline: thin dotted #9e9e9e;
-	outline: 1px auto #20658f; }
+	outline: 1px auto #20638f; }
 
 .form-checkbox, .form-radio {
 	display: block; 
@@ -1881,8 +1961,10 @@ legend {
 @media only screen and (max-width: 47em) {
 	.menu-toggle, .menu.toggled .nav-menu {
 		display: block; }
+
 	.menu ul {
-		display: none; } }
+		display: none; }
+	}
 
 .site-main .comment-navigation, .site-main .paging-navigation, .site-main .post-navigation {
 	overflow: hidden; 
@@ -1955,8 +2037,10 @@ legend {
 		border: none;
 		background-color: #fafafa;
 		box-shadow: none; }
+
 	.js-drop .menu-item-has-children > a.active {
-		background-color: #eee; } }
+		background-color: #eee; }
+	}
 
 /*------------------------------------*\
     #TABLES

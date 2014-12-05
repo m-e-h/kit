@@ -12,37 +12,37 @@
 	<?php endif; // End header image check. ?>
 
  *
- * @package Kit One
+ * @package Kit
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses kit_one_header_style()
- * @uses kit_one_admin_header_style()
- * @uses kit_one_admin_header_image()
+ * @uses kit_header_style()
+ * @uses kit_admin_header_style()
+ * @uses kit_admin_header_image()
  */
-function kit_one_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'kit_one_custom_header_args', array(
+function kit_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'kit_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'kit_one_header_style',
-		'admin-head-callback'    => 'kit_one_admin_header_style',
-		'admin-preview-callback' => 'kit_one_admin_header_image',
+		'wp-head-callback'       => 'kit_header_style',
+		'admin-head-callback'    => 'kit_admin_header_style',
+		'admin-preview-callback' => 'kit_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'kit_one_custom_header_setup' );
+add_action( 'after_setup_theme', 'kit_custom_header_setup' );
 
-if ( ! function_exists( 'kit_one_header_style' ) ) :
+if ( ! function_exists( 'kit_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see kit_one_custom_header_setup().
+ * @see kit_custom_header_setup().
  */
-function kit_one_header_style() {
+function kit_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -75,15 +75,15 @@ function kit_one_header_style() {
 	</style>
 	<?php
 }
-endif; // kit_one_header_style
+endif; // kit_header_style
 
-if ( ! function_exists( 'kit_one_admin_header_style' ) ) :
+if ( ! function_exists( 'kit_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see kit_one_custom_header_setup().
+ * @see kit_custom_header_setup().
  */
-function kit_one_admin_header_style() {
+function kit_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -103,15 +103,15 @@ function kit_one_admin_header_style() {
 	</style>
 <?php
 }
-endif; // kit_one_admin_header_style
+endif; // kit_admin_header_style
 
-if ( ! function_exists( 'kit_one_admin_header_image' ) ) :
+if ( ! function_exists( 'kit_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see kit_one_custom_header_setup().
+ * @see kit_custom_header_setup().
  */
-function kit_one_admin_header_image() {
+function kit_admin_header_image() {
 	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
 ?>
 	<div id="headimg">
@@ -123,4 +123,4 @@ function kit_one_admin_header_image() {
 	</div>
 <?php
 }
-endif; // kit_one_admin_header_image
+endif; // kit_admin_header_image

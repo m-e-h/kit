@@ -4,20 +4,22 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package Kit One
+ * @package Kit
  */
 ?>
 
-	</div><!-- #content -->
+	</div><!-- .content -->
+
 	<?php hybrid_get_sidebar( 'subsidiary' ); // sidebar/subsidiary.php ?>
-	<footer id="colophon" class="site-footer" role="contentinfo">
+
+	<footer <?php hybrid_attr( 'footer' ); ?>>
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'kit-one' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'kit-one' ), 'WordPress' ); ?></a>
+			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'kit' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'kit' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'kit-one' ), 'Kit One', '<a href="http://martyhelmick.com" rel="designer">Marty Helmick</a>' ); ?>
+			<?php printf( __( 'Theme: %1$s by %2$s.', 'kit' ), 'Kit', '<a href="http://martyhelmick.com" rel="designer">Marty Helmick</a>' ); ?>
 		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+	</footer><!-- #footer -->
+</div><!-- .site -->
 
 <?php wp_footer(); ?>
 

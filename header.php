@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Kit One
+ * @package Kit
  */
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
@@ -11,7 +11,7 @@
 
 <body <?php hybrid_attr( 'body' ); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'kit-one' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'kit' ); ?></a>
 
 	<?php hybrid_get_menu( 'primary' ); // menu/primary.php ?>
 

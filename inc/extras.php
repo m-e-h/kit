@@ -2,7 +2,7 @@
 /**
  * Sets up custom filters and actions for the theme.
  *
- * @package Kit One
+ * @package Kit
  */
 
 /* Register custom image sizes. */
@@ -62,7 +62,7 @@ function kit_sidebars() {
  */
 function kit_scripts() {
 
-	/* $suffix = hybrid_get_min_suffix(); */
+	$suffix = hybrid_get_min_suffix();
 
 	wp_enqueue_script( 'kit-main', trailingslashit( get_template_directory_uri() ) . "js/main.js", array(), null, true );
 	wp_enqueue_script( 'kit-navigation', trailingslashit( get_template_directory_uri() ) . "js/navigation.js", array( 'jquery' ), null, true );
@@ -74,10 +74,9 @@ function kit_scripts() {
  */
 function kit_styles() {
 
-	/* $suffix = hybrid_get_min_suffix(); */
+	$suffix = hybrid_get_min_suffix();
 
 	wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' );
-	wp_enqueue_style( 'kit-fonts', '//fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Playfair+Display:400,700,900,400italic,700italic,900italic' );
 
 	if ( is_child_theme() )
 		wp_enqueue_style( 'parent', trailingslashit( get_template_directory_uri() ) . "style.css" );

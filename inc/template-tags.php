@@ -4,29 +4,29 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Kit One
+ * @package Kit
  */
 
-if ( ! function_exists( 'kit_one_paging_nav' ) ) :
+if ( ! function_exists( 'kit_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  */
-function kit_one_paging_nav() {
+function kit_paging_nav() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
 	}
 	?>
 	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'kit-one' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'kit' ); ?></h1>
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'kit-one' ) ); ?></div>
+			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'kit' ) ); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'kit-one' ) ); ?></div>
+			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'kit' ) ); ?></div>
 			<?php endif; ?>
 
 		</div><!-- .nav-links -->
@@ -35,11 +35,11 @@ function kit_one_paging_nav() {
 }
 endif;
 
-if ( ! function_exists( 'kit_one_post_nav' ) ) :
+if ( ! function_exists( 'kit_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
  */
-function kit_one_post_nav() {
+function kit_post_nav() {
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -49,11 +49,11 @@ function kit_one_post_nav() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'kit-one' ); ?></h1>
+		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'kit' ); ?></h1>
 		<div class="nav-links">
 			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'kit-one' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'kit-one' ) );
+				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'kit' ) );
+				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'kit' ) );
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -61,11 +61,11 @@ function kit_one_post_nav() {
 }
 endif;
 
-if ( ! function_exists( 'kit_one_posted_on' ) ) :
+if ( ! function_exists( 'kit_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function kit_one_posted_on() {
+function kit_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -79,12 +79,12 @@ function kit_one_posted_on() {
 	);
 
 	$posted_on = sprintf(
-		_x( 'Posted on %s', 'post date', 'kit-one' ),
+		_x( 'Posted on %s', 'post date', 'kit' ),
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
 	$byline = sprintf(
-		_x( 'by %s', 'post author', 'kit-one' ),
+		_x( 'by %s', 'post author', 'kit' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -93,33 +93,33 @@ function kit_one_posted_on() {
 }
 endif;
 
-if ( ! function_exists( 'kit_one_entry_footer' ) ) :
+if ( ! function_exists( 'kit_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function kit_one_entry_footer() {
+function kit_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( __( ', ', 'kit-one' ) );
-		if ( $categories_list && kit_one_categorized_blog() ) {
-			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'kit-one' ) . '</span>', $categories_list );
+		$categories_list = get_the_category_list( __( ', ', 'kit' ) );
+		if ( $categories_list && kit_categorized_blog() ) {
+			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'kit' ) . '</span>', $categories_list );
 		}
 
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( ', ', 'kit-one' ) );
+		$tags_list = get_the_tag_list( '', __( ', ', 'kit' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'kit-one' ) . '</span>', $tags_list );
+			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'kit' ) . '</span>', $tags_list );
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
-		comments_popup_link( __( 'Leave a comment', 'kit-one' ), __( '1 Comment', 'kit-one' ), __( '% Comments', 'kit-one' ) );
+		comments_popup_link( __( 'Leave a comment', 'kit' ), __( '1 Comment', 'kit' ), __( '% Comments', 'kit' ) );
 		echo '</span>';
 	}
 
-	edit_post_link( __( 'Edit', 'kit-one' ), '<span class="edit-link">', '</span>' );
+	edit_post_link( __( 'Edit', 'kit' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
@@ -136,43 +136,43 @@ if ( ! function_exists( 'the_archive_title' ) ) :
  */
 function the_archive_title( $before = '', $after = '' ) {
 	if ( is_category() ) {
-		$title = sprintf( __( 'Category: %s', 'kit-one' ), single_cat_title( '', false ) );
+		$title = sprintf( __( 'Category: %s', 'kit' ), single_cat_title( '', false ) );
 	} elseif ( is_tag() ) {
-		$title = sprintf( __( 'Tag: %s', 'kit-one' ), single_tag_title( '', false ) );
+		$title = sprintf( __( 'Tag: %s', 'kit' ), single_tag_title( '', false ) );
 	} elseif ( is_author() ) {
-		$title = sprintf( __( 'Author: %s', 'kit-one' ), '<span class="vcard">' . get_the_author() . '</span>' );
+		$title = sprintf( __( 'Author: %s', 'kit' ), '<span class="vcard">' . get_the_author() . '</span>' );
 	} elseif ( is_year() ) {
-		$title = sprintf( __( 'Year: %s', 'kit-one' ), get_the_date( _x( 'Y', 'yearly archives date format', 'kit-one' ) ) );
+		$title = sprintf( __( 'Year: %s', 'kit' ), get_the_date( _x( 'Y', 'yearly archives date format', 'kit' ) ) );
 	} elseif ( is_month() ) {
-		$title = sprintf( __( 'Month: %s', 'kit-one' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'kit-one' ) ) );
+		$title = sprintf( __( 'Month: %s', 'kit' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'kit' ) ) );
 	} elseif ( is_day() ) {
-		$title = sprintf( __( 'Day: %s', 'kit-one' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'kit-one' ) ) );
+		$title = sprintf( __( 'Day: %s', 'kit' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'kit' ) ) );
 	} elseif ( is_tax( 'post_format', 'post-format-aside' ) ) {
-		$title = _x( 'Asides', 'post format archive title', 'kit-one' );
+		$title = _x( 'Asides', 'post format archive title', 'kit' );
 	} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-		$title = _x( 'Galleries', 'post format archive title', 'kit-one' );
+		$title = _x( 'Galleries', 'post format archive title', 'kit' );
 	} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-		$title = _x( 'Images', 'post format archive title', 'kit-one' );
+		$title = _x( 'Images', 'post format archive title', 'kit' );
 	} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-		$title = _x( 'Videos', 'post format archive title', 'kit-one' );
+		$title = _x( 'Videos', 'post format archive title', 'kit' );
 	} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-		$title = _x( 'Quotes', 'post format archive title', 'kit-one' );
+		$title = _x( 'Quotes', 'post format archive title', 'kit' );
 	} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-		$title = _x( 'Links', 'post format archive title', 'kit-one' );
+		$title = _x( 'Links', 'post format archive title', 'kit' );
 	} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-		$title = _x( 'Statuses', 'post format archive title', 'kit-one' );
+		$title = _x( 'Statuses', 'post format archive title', 'kit' );
 	} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-		$title = _x( 'Audio', 'post format archive title', 'kit-one' );
+		$title = _x( 'Audio', 'post format archive title', 'kit' );
 	} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-		$title = _x( 'Chats', 'post format archive title', 'kit-one' );
+		$title = _x( 'Chats', 'post format archive title', 'kit' );
 	} elseif ( is_post_type_archive() ) {
-		$title = sprintf( __( 'Archives: %s', 'kit-one' ), post_type_archive_title( '', false ) );
+		$title = sprintf( __( 'Archives: %s', 'kit' ), post_type_archive_title( '', false ) );
 	} elseif ( is_tax() ) {
 		$tax = get_taxonomy( get_queried_object()->taxonomy );
 		/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
-		$title = sprintf( __( '%1$s: %2$s', 'kit-one' ), $tax->labels->singular_name, single_term_title( '', false ) );
+		$title = sprintf( __( '%1$s: %2$s', 'kit' ), $tax->labels->singular_name, single_term_title( '', false ) );
 	} else {
-		$title = __( 'Archives', 'kit-one' );
+		$title = __( 'Archives', 'kit' );
 	}
 
 	/**
@@ -220,8 +220,8 @@ endif;
  *
  * @return bool
  */
-function kit_one_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'kit_one_categories' ) ) ) {
+function kit_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'kit_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
@@ -234,27 +234,27 @@ function kit_one_categorized_blog() {
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'kit_one_categories', $all_the_cool_cats );
+		set_transient( 'kit_categories', $all_the_cool_cats );
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so kit_one_categorized_blog should return true.
+		// This blog has more than 1 category so kit_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so kit_one_categorized_blog should return false.
+		// This blog has only 1 category so kit_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in kit_one_categorized_blog.
+ * Flush out the transients used in kit_categorized_blog.
  */
-function kit_one_category_transient_flusher() {
+function kit_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
 	// Like, beat it. Dig?
-	delete_transient( 'kit_one_categories' );
+	delete_transient( 'kit_categories' );
 }
-add_action( 'edit_category', 'kit_one_category_transient_flusher' );
-add_action( 'save_post',     'kit_one_category_transient_flusher' );
+add_action( 'edit_category', 'kit_category_transient_flusher' );
+add_action( 'save_post',     'kit_category_transient_flusher' );

@@ -39,7 +39,7 @@ get_header(); ?>
 
 		<?php else : ?>
 
-			<?php get_template_part( 'content/error.php' ); ?>
+			<?php get_template_part( 'content/none.php' ); ?>
 
 		<?php endif; // End check for posts. ?>
 
