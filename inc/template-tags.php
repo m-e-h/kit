@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package kit
+ * @package Kit
  */
 
 if ( ! function_exists( 'kit_paging_nav' ) ) :

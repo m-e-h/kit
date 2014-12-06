@@ -2,13 +2,14 @@
     #MEDIA
 \*------------------------------------*/
 
-.page-content img.wp-smiley,
-.entry-content img.wp-smiley,
-.comment-content img.wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
+/**
+ * Makes images fit within it's fluid parent wrapper while maintaining
+ * aspect ratio.
+ */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Make sure embeds and iframes fit their containers */
@@ -18,66 +19,96 @@ object {
 	max-width: 100%;
 }
 
-.wp-caption {
-	margin-bottom: 1.5em;
-	max-width: 100%;
 
-	img[class*="wp-image-"] {
-		@include center-block;
-	}
+/**
+ * Flexible media embeds
+ *
+ * For use with media embeds – such as videos, slideshows, or even images –
+ * that need to retain a specific aspect ratio but adapt to the width of their
+ * containing element.
+ *
+ * Example HTML:
+ *
+ * <div class="embed-wrap embed-wrap--4by3">
+ *   <iframe class="embed-wrap-item" src="…"></iframe>
+ * </div>
+ *
+ * <div class="embed-wrap embed-wrap--16by9">
+ *   [iframe|object|embed]
+ * </div>
+ *
+ * Based on: http://alistapart.com/article/creating-intrinsic-ratios-for-video
+ */
 
-	.wp-caption-text {
-		margin: 0.8075em 0;
-	}
+.embed-wrap {
+  display: block;
+  overflow: hidden;
+  position: relative;
 }
 
-.wp-caption-text {
-	text-align: center;
+/**
+ * The aspect-ratio hack is applied to a pseudo-element because it allows the
+ * component to respect `max-height`. Default aspect ratio is 1:1.
+ */
+
+.embed-wrap:before {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+  width: 100%;
 }
 
-.gallery {
-	margin-bottom: 1.5em;
+/**
+ * Modifier: 3:1 aspect ratio
+ */
+
+.embed-wrap--3by1:before {
+  padding-bottom: calc(100% / 3);
 }
 
-.gallery-item {
-	display: inline-block;
-	text-align: center;
-	vertical-align: top;
-	width: 100%;
+/**
+ * Modifier: 2:1 aspect ratio
+ */
+
+.embed-wrap--2by1:before {
+  padding-bottom: 50%;
 }
 
-.gallery-columns-2 .gallery-item {
-	max-width: 50%;
+/**
+ * Modifier: 16:9 aspect ratio
+ */
+
+.format-video > .embed-wrap,
+.embed-wrap--16by9:before {
+  padding-bottom: 56.25%;
 }
 
-.gallery-columns-3 .gallery-item {
-	max-width: 33.33%;
+/**
+ * Modifier: 4:3 aspect ratio
+ */
+
+.embed-wrap--4by3:before {
+  padding-bottom: 75%;
 }
 
-.gallery-columns-4 .gallery-item {
-	max-width: 25%;
+/**
+ * Works automatically for iframes, embeds, and objects to account for
+ * situations where you cannot modify the enbedded element's attributes (e.g.,
+ * 3rd party widget code).
+ */
+
+.embed-wrap-item,
+.embed-wrap iframe,
+.embed-wrap embed,
+.embed-wrap object {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
-.gallery-columns-5 .gallery-item {
-	max-width: 20%;
-}
 
-.gallery-columns-6 .gallery-item {
-	max-width: 16.66%;
-}
 
-.gallery-columns-7 .gallery-item {
-	max-width: 14.28%;
-}
 
-.gallery-columns-8 .gallery-item {
-	max-width: 12.5%;
-}
-
-.gallery-columns-9 .gallery-item {
-	max-width: 11.11%;
-}
-
-.gallery-caption {
-	display: block;
-}

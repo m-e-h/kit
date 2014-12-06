@@ -1,0 +1,184 @@
+/*------------------------------------*\
+    #WORDPRESS
+\*------------------------------------*/
+
+
+
+
+
+/*------------------------------------*\
+    ##Alignments
+\*------------------------------------*/
+
+.alignleft,
+.left {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright,
+.right {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter,
+.center {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+.alignnone {
+	float: none;
+}
+
+
+
+
+
+/*------------------------------------*\
+    ##Widgets
+\*------------------------------------*/
+
+.widget {
+	margin: 0 0 $base-spacing-unit;
+
+	/* Make sure select elements fit in widgets */
+	select {
+		max-width: 100%;
+	}
+}
+
+/* Search widget */
+.widget_search .search-submit {
+	display: none;
+}
+
+
+
+
+
+/*------------------------------------*\
+    ##Posts & Pages
+\*------------------------------------*/
+
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 $base-spacing-unit;
+}
+
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: $base-spacing-unit 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 $base-spacing-unit;
+}
+
+
+
+
+
+/*------------------------------------*\
+    ##Asides
+\*------------------------------------*/
+
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+	display: none;
+}
+
+
+
+
+
+/*------------------------------------*\
+    ##Comments
+\*------------------------------------*/
+
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+
+
+
+
+/*------------------------------------*\
+    ##Media
+\*------------------------------------*/
+
+img.wp-smiley {
+	max-height: 12px;
+	margin:     0;
+	padding:    0;
+	border:     none;
+	background: transparent;
+}
+
+.wp-audio-shortcode,
+.wp-video-shortcode,
+audio,
+video,
+object,
+embed,
+iframe {
+	max-width:     100%;
+	margin-bottom: 1.5rem;
+}
+
+.wp-audio-shortcode,
+.wp-video-shortcode,
+audio,
+video {
+	display:   block;
+}
+
+
+
+
+
+/*------------------------------------*\
+    ##Captions
+\*------------------------------------*/
+
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin: 0 auto;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}

@@ -25,7 +25,6 @@ textarea {
     border: 1px solid $color-gray-lighter;
     border-radius: $base-radius;
     box-sizing: border-box;
-    @include base-transition;
 }
 
 /*
@@ -145,8 +144,8 @@ input:not([type])[disabled] {
 input[readonly],
 select[readonly],
 textarea[readonly] {
-    background: #eee; /* menu hover bg color */
-    color: #777; /* menu text color */
+    background: $color-gray-lighter; /* menu hover bg color */
+    color: $color-text; /* menu text color */
     border-color: $color-gray-lighter;
 }
 

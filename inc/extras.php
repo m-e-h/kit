@@ -1,99 +1,85 @@
 <?php
 /**
- * Custom functions that act independently of the theme templates
+ * Sets up custom filters and actions for the theme.
  *
- * Eventually, some of the functionality here could be replaced by core features
- *
- * @package kit
+ * @package Kit
  */
+
+/* Register custom image sizes. */
+add_action( 'init', 'kit_image_sizes', 5 );
+
+/* Register menus. */
+add_action( 'init', 'kit_menus', 5 );
+
+/* Register sidebars. */
+add_action( 'widgets_init', 'kit_sidebars', 5 );
+
+/* Add custom scripts. */
+add_action( 'wp_enqueue_scripts', 'kit_scripts' );
+
+/* Add custom styles. */
+add_action( 'wp_enqueue_scripts', 'kit_styles', 5 );
 
 /**
- * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
- *
- * @param array $args Configuration arguments.
- * @return array
+ * Registers custom image sizes.
  */
-function kit_page_menu_args( $args ) {
-	$args['show_home'] = true;
-	return $args;
+function kit_image_sizes() {
+	set_post_thumbnail_size( 175, 119, true );
+	add_image_size( 'kit-huge', 1100, 9999, false );
 }
-add_filter( 'wp_page_menu_args', 'kit_page_menu_args' );
+
 
 /**
- * Adds custom classes to the array of body classes.
- *
- * @param array $classes Classes for the body element.
- * @return array
+ * Registers nav menu locations.
  */
-function kit_body_classes( $classes ) {
-	// Adds a class of group-blog to blogs with more than 1 published author.
-	if ( is_multi_author() ) {
-		$classes[] = 'group-blog';
-	}
-
-	return $classes;
+function kit_menus() {
+	register_nav_menu( 'primary',   _x( 'Primary',   'nav menu location', 'kit' ) );
+	register_nav_menu( 'secondary', _x( 'Secondary', 'nav menu location', 'kit' ) );
+	register_nav_menu( 'social',    _x( 'Social',    'nav menu location', 'kit' ) );
 }
-add_filter( 'body_class', 'kit_body_classes' );
-
-if ( ! function_exists( '_wp_render_title_tag' ) ) :
-	/**
-	 * Filters wp_title to print a neat <title> tag based on what is being viewed.
-	 *
-	 * @param string $title Default title text for current view.
-	 * @param string $sep Optional separator.
-	 * @return string The filtered title.
-	 */
-	function kit_wp_title( $title, $sep ) {
-		if ( is_feed() ) {
-			return $title;
-		}
-		global $page, $paged;
-		// Add the blog name
-		$title .= get_bloginfo( 'name', 'display' );
-		// Add the blog description for the home/front page.
-		$site_description = get_bloginfo( 'description', 'display' );
-		if ( $site_description && ( is_home() || is_front_page() ) ) {
-			$title .= " $sep $site_description";
-		}
-		// Add a page number if necessary:
-		if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-			$title .= " $sep " . sprintf( __( 'Page %s', '_s' ), max( $paged, $page ) );
-		}
-		return $title;
-	}
-	add_filter( 'wp_title', 'kit_wp_title', 10, 2 );
-endif;
-
-if ( ! function_exists( '_wp_render_title_tag' ) ) :
-	/**
-	 * Title shim for sites older than WordPress 4.1.
-	 *
-	 * @link https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
-	 * @todo Remove this function when WordPress 4.3 is released.
-	 */
-	function kit_render_title() {
-		echo '<title>' . wp_title( '|', false, 'right' ) . "</title>\n";
-	}
-	add_action( 'wp_head', 'kit_render_title' );
-endif;
+/**
+ * Registers sidebars.
+ */
+function kit_sidebars() {
+	hybrid_register_sidebar(
+		array(
+			'id'          => 'primary',
+			'name'        => _x( 'Primary', 'sidebar', 'kit' ),
+			'description' => __( 'The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.', 'kit' )
+		)
+	);
+	hybrid_register_sidebar(
+		array(
+			'id'          => 'subsidiary',
+			'name'        => _x( 'Subsidiary', 'sidebar', 'kit' ),
+			'description' => __( 'A sidebar located in the footer of the site.', 'kit' )
+		)
+	);
+}
 
 /**
- * Sets the authordata global when viewing an author archive.
- *
- * This provides backwards compatibility with
- * http://core.trac.wordpress.org/changeset/25574
- *
- * It removes the need to call the_post() and rewind_posts() in an author
- * template to print information about the author.
- *
- * @global WP_Query $wp_query WordPress Query object.
- * @return void
+ * Front end scripts.
  */
-function kit_setup_author() {
-	global $wp_query;
+function kit_scripts() {
 
-	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
-		$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
-	}
+	$suffix = hybrid_get_min_suffix();
+
+	wp_enqueue_script( 'kit-main', trailingslashit( get_template_directory_uri() ) . "js/main.js", array(), null, true );
+	wp_enqueue_script( 'kit-navigation', trailingslashit( get_template_directory_uri() ) . "js/navigation.js", array( 'jquery' ), null, true );
+	wp_enqueue_script( 'kit-skip-link-focus-fix', trailingslashit( get_template_directory_uri() ) . "js/skip-link-focus-fix.js", array(), '20130115', true );
 }
-add_action( 'wp', 'kit_setup_author' );
+
+/**
+ * Front end styles.
+ */
+function kit_styles() {
+
+	$suffix = hybrid_get_min_suffix();
+
+	wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' );
+
+	if ( is_child_theme() )
+		wp_enqueue_style( 'parent', trailingslashit( get_template_directory_uri() ) . "style.css" );
+
+	wp_enqueue_style( 'style', get_stylesheet_uri() );
+}
