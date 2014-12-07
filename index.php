@@ -45,9 +45,9 @@ get_header(); ?>
 
 	</main><!-- #main -->
 
-</div><!-- #primary -->
+</div><!-- #primary --><!--
 
-<div id="secondary" class="widget-area sidebar__primary grid-item-1 grid-item-md-1-4">
+--><div id="secondary" class="widget-area sidebar__primary grid-item-1 grid-item-md-1-4">
 <?php hybrid_get_sidebar( 'primary' );  ?>
 </div><!-- #secondary -->
 

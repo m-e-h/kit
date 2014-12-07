@@ -5,25 +5,25 @@ add_filter( 'hybrid_attr_menu', 'doc_attr_menu', 10, 2 );
 
 function doc_attr_menu( $attr, $context ) {
 
-	$attr['class'] .= " menu__{$context}";
+	$attr['class'] .= "  menu__{$context}";
 
 	return $attr;
 }
 
-// add_filter( 'hybrid_attr_sidebar', 'doc_attr_sidebar', 10, 2 );
+add_filter( 'hybrid_attr_sidebar', 'doc_attr_sidebar', 10, 2 );
 
-// function doc_attr_sidebar( $attr, $context ) {
+function doc_attr_sidebar( $attr, $context ) {
 
-// 	$attr['class'] .= "  sidebar__{$context}";
+ 	$attr['class'] .= "  sidebar__{$context}";
 
-// 	return $attr;
-// }
+ 	return $attr;
+}
 
 add_filter( 'hybrid_attr_content', 'doc_attr_content' );
 
 function doc_attr_content( $attr ) {
 
-	$attr['class'] .= "  grid";
+	$attr['class'] .= "  site-content";
 
 	return $attr;
 }
@@ -79,9 +79,9 @@ function doc_attr_site_description( $attr ) {
 
 add_action( 'init', 'kit_clean_head' );
 function kit_clean_head() {
-remove_action( 'wp_head', 'wp_generator', 			1 );
+remove_action( 'wp_head', 'wp_generator', 		1 );
 remove_action( 'wp_head', 'hybrid_doctitle',      	0 );
 remove_action( 'wp_head', 'hybrid_link_pingback', 	3 );
 remove_action( 'wp_head', 'wlwmanifest_link'		  );
-remove_action('wp_head', 'rsd_link'					  );
+remove_action('wp_head', 'rsd_link'			  );
 }
