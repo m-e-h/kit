@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 /**
- * All content must be contained within child `Grid-cell` elements.
+ * All content must be contained within child `grid-item` elements.
  *
  * 1. Account for browser defaults of elements that might be the root node of
  *    the component.
@@ -18,7 +18,7 @@
 }
 
 /**
- * Modifier: center align all grid cells
+ * Modifier: center align all grid items
  */
 
 .grid--center {
@@ -26,7 +26,7 @@
 }
 
 /**
- * Modifier: right align all grid cells
+ * Modifier: right align all grid items
  */
 
 .grid--right {
@@ -34,7 +34,7 @@
 }
 
 /**
- * Modifier: middle-align grid cells
+ * Modifier: middle-align grid items
  */
 
 .grid--middle > .grid-item {
@@ -42,7 +42,7 @@
 }
 
 /**
- * Modifier: bottom-align grid cells
+ * Modifier: bottom-align grid items
  */
 
 .grid--bottom > .grid-item {
@@ -87,7 +87,7 @@
 \*------------------------------------*/
 
 /**
- * No explicit width by default. Rely on combining `Grid-cell` with a dimension
+ * No explicit width by default. Rely on combining `grid-item` with a dimension
  * utility or a component class that extends 'grid'.
  *
  * 1. Fundamentals of the non-float grid layout.
@@ -111,7 +111,7 @@
 /**
  * Modifier: horizontally center one unit
  * Set a specific unit to be horizontally centered. Doesn't affect
- * any other units. Can still contain a child `Grid` object.
+ * any other units. Can still contain a child `grid` object.
  */
 
 .grid-item--center {
