@@ -21,7 +21,6 @@
 			<?php hybrid_site_description(); ?>
 		</div><!-- .site-branding -->
 
-
 		<?php hybrid_get_menu( 'secondary' ); // in menu/secondary.php ?>
 	</header><!-- #header -->
 

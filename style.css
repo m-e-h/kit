@@ -55,6 +55,9 @@ This theme, like WordPress, is licensed under the GPL.
  * Widths...............Width helper classes.
  */
 /*------------------------------------*\
+		#MEDIA-QUERIES
+\*------------------------------------*/
+/*------------------------------------*\
     #GLOBAL
 \*------------------------------------*/
 /*------------------------------------*\
@@ -65,9 +68,6 @@ This theme, like WordPress, is licensed under the GPL.
 \*------------------------------------*/
 /* ==========  Blacks  ========== */
 /* ==========  LIGHT  ========== */
-/*------------------------------------*\
-		#MEDIA-QUERIES
-\*------------------------------------*/
 /*------------------------------------*\
     #FUNCTIONS
 \*------------------------------------*/
@@ -421,7 +421,6 @@ td, th {
     ##Widgets
 \*------------------------------------*/
 .widget {
-	margin: 0 0 24px;
 	/* Make sure select elements fit in widgets */ }
 .widget select {
 	max-width: 100%; }
@@ -648,7 +647,7 @@ img.wp-smiley {
  *    the component.
  * 2. Ensure consistent default alignment.
  */
-.grid {
+.grid, .sidebar__subsidiary {
 	display: block;
 	/* 1 */
 	margin: 0;
@@ -673,13 +672,13 @@ img.wp-smiley {
 /**
  * Modifier: middle-align grid items
  */
-.grid--middle > .grid-item {
+.grid--middle > .grid-item, .layout-2c-l .grid--middle > .content-area, .layout-2c-l .grid--middle > .sidebar__primary {
 	vertical-align: middle; }
 
 /**
  * Modifier: bottom-align grid items
  */
-.grid--bottom > .grid-item {
+.grid--bottom > .grid-item, .layout-2c-l .grid--bottom > .content-area, .layout-2c-l .grid--bottom > .sidebar__primary {
 	vertical-align: bottom; }
 
 /**
@@ -690,7 +689,7 @@ img.wp-smiley {
 	text-align: left; 
 
 	direction: rtl;}
-.grid--rev > .grid-item {
+.grid--rev > .grid-item, .layout-2c-l .grid--rev > .content-area, .layout-2c-l .grid--rev > .sidebar__primary {
 	text-align: left; 
 
 	direction: ltr;}
@@ -704,7 +703,7 @@ img.wp-smiley {
  */
 .grid--with-gutter {
 	margin: -12px; }
-.grid--with-gutter > .grid-item {
+.grid--with-gutter > .grid-item, .layout-2c-l .grid--with-gutter > .content-area, .layout-2c-l .grid--with-gutter > .sidebar__primary {
 	padding: 0 12px; }
 
 /*------------------------------------*\
@@ -720,7 +719,7 @@ img.wp-smiley {
  * 4. Controls vertical positioning of units.
  * 5. Make cells full-width by default.
  */
-.grid-item {
+.grid-item, .layout-2c-l .content-area, .layout-2c-l .sidebar__primary {
 	display: inline-block;
 	box-sizing: border-box;
 	/* 4 */
@@ -1287,59 +1286,51 @@ dd {
 /*------------------------------------*\
     #LAYOUTS
 \*------------------------------------*/
-.content {
-	-webkit-box-align: stretch;
-	-webkit-align-items: stretch;
-	-ms-flex-align: stretch;
-	        align-items: stretch; }
+.site-content {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	padding-left: 12px; 
+	text-align: left;}
+@media only screen and (min-width: 48em) {
+	.site-content {
+		padding-left: 24px; } }
 
-.content-area, .widget-area {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display:         flex; }
+.site-content {
+	max-width: 1400px;
+	margin: 0 auto; }
 
-.sidebar, .site-main {
-	width: 100%; 
-	margin: 12px;
-	padding: 24px;
+.widget, .site-main {
+	margin: 0 12px 12px 0;
+	padding: 12px; 
 	background-color: #fafafa;}
 @media only screen and (min-width: 48em) {
-	.sidebar, .site-main {
-		margin: 24px; } }
+	.widget, .site-main {
+		margin: 0 24px 24px 0;
+		padding: 48px; } }
 
+/*------------------------------------*\
+    ##Layout 1 Column
+\*------------------------------------*/
 .layout-1c .content-area {
 	width: 100%; }
 .layout-1c .sidebar__primary {
 	width: 100%; }
 
-.layout-2c-l .content-area {
-	float: left; }
-.layout-2c-l .sidebar__primary {
-	float: right;
-	overflow: hidden; }
-@media only screen and (min-width: 48em) {
-	.layout-2c-l .sidebar__primary .sidebar {
-		margin-left: 0; }
-	}
-@media only screen and (max-width: 47em) {
-	.layout-2c-l .sidebar__primary .sidebar {
-		margin-top: 0; }
-	}
-
+/*------------------------------------*\
+    ##Layout 2 Column Left
+\*------------------------------------*/
+/*------------------------------------*\
+    ##Layout 2 Column Right
+\*------------------------------------*/
 .layout-2c-r .content-area {
-	float: right;
-
 	-webkit-box-ordinal-group: 2;
 	-webkit-order: 1;
 	-ms-flex-order: 1;
 	        order: 1; }
 .layout-2c-r .sidebar__primary {
-	float: left;
 	overflow: hidden; }
-
-.site-footer {
-	width: 100%; }
 
 /*------------------------------------*\
     #HEADINGS
@@ -1772,6 +1763,28 @@ th {
 	font-weight: bold; }
 
 /*------------------------------------*\
+    #FOOTER
+\*------------------------------------*/
+.site-footer {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: left; }
+
+.sidebar__subsidiary {
+	font-size: 0; }
+.sidebar__subsidiary .widget {
+	display: inline-block;
+	width: 100%; 
+	margin: 0;
+	font-size: 1rem;
+	text-align: left;
+	vertical-align: top;
+
+	*display: inline;}
+
+/*------------------------------------*\
     #BUTTONS
 \*------------------------------------*/
 /**
@@ -1800,301 +1813,361 @@ blockquote.alignleft, blockquote.alignright {
 /*------------------------------------*\
     #WIDTHS
 \*------------------------------------*/
-.grid-item-1-12 {
+0.1-12 {
 	width: 8.3333%;
 
 	*width: 8.3023%; }
 
-.grid-item-1-6, .grid-item-2-12 {
+0.1-6, 0.2-12 {
 	width: 16.6667%;
 
 	*width: 16.6357%; }
 
-.grid-item-1-4, .grid-item-3-12 {
+0.1-4, 0.3-12 {
 	width: 25%;
 
 	*width: 24.969%; }
 
-.grid-item-1-3, .grid-item-4-12 {
+0.1-3, 0.4-12 {
 	width: 33.3333%;
 
 	*width: 33.3023%; }
 
-.grid-item-5-12 {
+0.5-12 {
 	width: 41.6667%;
 
 	*width: 41.6357%; }
 
-.grid-item-1-2, .grid-item-6-12 {
+0.1-2, 0.6-12 {
 	width: 50%;
 
 	*width: 49.969%; }
 
-.grid-item-7-12 {
+0.7-12 {
 	width: 58.3333%;
 
 	*width: 58.3023%; }
 
-.grid-item-2-3, .grid-item-8-12 {
+0.2-3, 0.8-12 {
 	width: 66.6667%;
 
 	*width: 66.6357%; }
 
-.grid-item-3-4, .grid-item-9-12 {
+0.3-4, 0.9-12 {
 	width: 75%;
 
 	*width: 74.969%; }
 
-.grid-item-5-6, .grid-item-10-12 {
+0.5-6, 0.10-12 {
 	width: 83.3333%;
 
 	*width: 83.3023%; }
 
-.grid-item-11-12 {
+0.11-12 {
 	width: 91.6667%;
 
 	*width: 91.6357%; }
 
-.grid-item-1, .grid-item-1-1, .grid-item-12-12 {
+0.1, 0.1-1, 0.12-12 {
 	width: 100%; }
 
-@media only screen and (min-width: 80em) {
-	.grid-item-sm-1-12 {
+@media only screen and (max-width: 47em) {
+	.sm-1-12 {
 		width: 8.3333%;
 
 		*width: 8.3023%; }
 
-	.grid-item-sm-1-6, .grid-item-sm-2-12 {
+	.sm-1-6, .sm-2-12 {
 		width: 16.6667%;
 
 		*width: 16.6357%; }
 
-	.grid-item-sm-1-4, .grid-item-sm-3-12 {
+	.sm-1-4, .sm-3-12 {
 		width: 25%;
 
 		*width: 24.969%; }
 
-	.grid-item-sm-1-3, .grid-item-sm-4-12 {
+	.sm-1-3, .sm-4-12 {
 		width: 33.3333%;
 
 		*width: 33.3023%; }
 
-	.grid-item-sm-5-12 {
+	.sm-5-12 {
 		width: 41.6667%;
 
 		*width: 41.6357%; }
 
-	.grid-item-sm-1-2, .grid-item-sm-6-12 {
+	.sm-1-2, .sm-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
 
-	.grid-item-sm-7-12 {
+	.sm-7-12 {
 		width: 58.3333%;
 
 		*width: 58.3023%; }
 
-	.grid-item-sm-2-3, .grid-item-sm-8-12 {
+	.sm-2-3, .sm-8-12 {
 		width: 66.6667%;
 
 		*width: 66.6357%; }
 
-	.grid-item-sm-3-4, .grid-item-sm-9-12 {
+	.sm-3-4, .sm-9-12 {
 		width: 75%;
 
 		*width: 74.969%; }
 
-	.grid-item-sm-5-6, .grid-item-sm-10-12 {
+	.sm-5-6, .sm-10-12 {
 		width: 83.3333%;
 
 		*width: 83.3023%; }
 
-	.grid-item-sm-11-12 {
+	.sm-11-12 {
 		width: 91.6667%;
 
 		*width: 91.6357%; }
 
-	.grid-item-sm-1, .grid-item-sm-1-1, .grid-item-sm-12-12 {
+	.sm-1, .sm-1-1, .sm-12-12 {
 		width: 100%; }
 	}
 
 @media only screen and (min-width: 48em) {
-	.grid-item-md-1-12 {
+	.md-1-12 {
 		width: 8.3333%;
 
 		*width: 8.3023%; }
 
-	.grid-item-md-1-6, .grid-item-md-2-12 {
+	.md-1-6, .md-2-12 {
 		width: 16.6667%;
 
 		*width: 16.6357%; }
 
-	.grid-item-md-1-4, .grid-item-md-3-12 {
+	.md-1-4, .md-3-12 {
 		width: 25%;
 
 		*width: 24.969%; }
 
-	.grid-item-md-1-3, .grid-item-md-4-12 {
+	.md-1-3, .layout-2c-l .sidebar__primary, .sidebar-col-3 .widget, .md-4-12 {
 		width: 33.3333%;
 
 		*width: 33.3023%; }
 
-	.grid-item-md-5-12 {
+	.md-5-12 {
 		width: 41.6667%;
 
 		*width: 41.6357%; }
 
-	.grid-item-md-1-2, .grid-item-md-6-12 {
+	.md-1-2, .sidebar-col-2 .widget, .md-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
 
-	.grid-item-md-7-12 {
+	.md-7-12 {
 		width: 58.3333%;
 
 		*width: 58.3023%; }
 
-	.grid-item-md-2-3, .grid-item-md-8-12 {
+	.md-2-3, .layout-2c-l .content-area, .md-8-12 {
 		width: 66.6667%;
 
 		*width: 66.6357%; }
 
-	.grid-item-md-3-4, .grid-item-md-9-12 {
+	.md-3-4, .md-9-12 {
 		width: 75%;
 
 		*width: 74.969%; }
 
-	.grid-item-md-5-6, .grid-item-md-10-12 {
+	.md-5-6, .md-10-12 {
 		width: 83.3333%;
 
 		*width: 83.3023%; }
 
-	.grid-item-md-11-12 {
+	.md-11-12 {
 		width: 91.6667%;
 
 		*width: 91.6357%; }
 
-	.grid-item-md-1, .grid-item-md-1-1, .grid-item-md-12-12 {
+	.md-1, .md-1-1, .md-12-12 {
+		width: 100%; }
+	}
+
+@media only screen and (min-width: 48em) and (max-width: 63em) {
+	.mo-1-12 {
+		width: 8.3333%;
+
+		*width: 8.3023%; }
+
+	.mo-1-6, .mo-2-12 {
+		width: 16.6667%;
+
+		*width: 16.6357%; }
+
+	.mo-1-4, .mo-3-12 {
+		width: 25%;
+
+		*width: 24.969%; }
+
+	.mo-1-3, .mo-4-12 {
+		width: 33.3333%;
+
+		*width: 33.3023%; }
+
+	.mo-5-12 {
+		width: 41.6667%;
+
+		*width: 41.6357%; }
+
+	.mo-1-2, .mo-6-12 {
+		width: 50%;
+
+		*width: 49.969%; }
+
+	.mo-7-12 {
+		width: 58.3333%;
+
+		*width: 58.3023%; }
+
+	.mo-2-3, .mo-8-12 {
+		width: 66.6667%;
+
+		*width: 66.6357%; }
+
+	.mo-3-4, .mo-9-12 {
+		width: 75%;
+
+		*width: 74.969%; }
+
+	.mo-5-6, .mo-10-12 {
+		width: 83.3333%;
+
+		*width: 83.3023%; }
+
+	.mo-11-12 {
+		width: 91.6667%;
+
+		*width: 91.6357%; }
+
+	.mo-1, .mo-1-1, .mo-12-12 {
 		width: 100%; }
 	}
 
 @media only screen and (min-width: 64em) {
-	.grid-item-lg-1-12 {
+	.lg-1-12 {
 		width: 8.3333%;
 
 		*width: 8.3023%; }
 
-	.grid-item-lg-1-6, .grid-item-lg-2-12 {
+	.lg-1-6, .lg-2-12 {
 		width: 16.6667%;
 
 		*width: 16.6357%; }
 
-	.grid-item-lg-1-4, .grid-item-lg-3-12 {
+	.lg-1-4, .lg-3-12 {
 		width: 25%;
 
 		*width: 24.969%; }
 
-	.grid-item-lg-1-3, .grid-item-lg-4-12 {
+	.lg-1-3, .lg-4-12 {
 		width: 33.3333%;
 
 		*width: 33.3023%; }
 
-	.grid-item-lg-5-12 {
+	.lg-5-12 {
 		width: 41.6667%;
 
 		*width: 41.6357%; }
 
-	.grid-item-lg-1-2, .grid-item-lg-6-12 {
+	.lg-1-2, .lg-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
 
-	.grid-item-lg-7-12 {
+	.lg-7-12 {
 		width: 58.3333%;
 
 		*width: 58.3023%; }
 
-	.grid-item-lg-2-3, .grid-item-lg-8-12 {
+	.lg-2-3, .lg-8-12 {
 		width: 66.6667%;
 
 		*width: 66.6357%; }
 
-	.grid-item-lg-3-4, .grid-item-lg-9-12 {
+	.lg-3-4, .lg-9-12 {
 		width: 75%;
 
 		*width: 74.969%; }
 
-	.grid-item-lg-5-6, .grid-item-lg-10-12 {
+	.lg-5-6, .lg-10-12 {
 		width: 83.3333%;
 
 		*width: 83.3023%; }
 
-	.grid-item-lg-11-12 {
+	.lg-11-12 {
 		width: 91.6667%;
 
 		*width: 91.6357%; }
 
-	.grid-item-lg-1, .grid-item-lg-1-1, .grid-item-lg-12-12 {
+	.lg-1, .lg-1-1, .lg-12-12 {
 		width: 100%; }
 	}
 
 @media only screen and (min-width: 80em) {
-	.grid-item-xl-1-12 {
+	.xl-1-12 {
 		width: 8.3333%;
 
 		*width: 8.3023%; }
 
-	.grid-item-xl-1-6, .grid-item-xl-2-12 {
+	.xl-1-6, .xl-2-12 {
 		width: 16.6667%;
 
 		*width: 16.6357%; }
 
-	.grid-item-xl-1-4, .grid-item-xl-3-12 {
+	.xl-1-4, .xl-3-12 {
 		width: 25%;
 
 		*width: 24.969%; }
 
-	.grid-item-xl-1-3, .grid-item-xl-4-12 {
+	.xl-1-3, .xl-4-12 {
 		width: 33.3333%;
 
 		*width: 33.3023%; }
 
-	.grid-item-xl-5-12 {
+	.xl-5-12 {
 		width: 41.6667%;
 
 		*width: 41.6357%; }
 
-	.grid-item-xl-1-2, .grid-item-xl-6-12 {
+	.xl-1-2, .xl-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
 
-	.grid-item-xl-7-12 {
+	.xl-7-12 {
 		width: 58.3333%;
 
 		*width: 58.3023%; }
 
-	.grid-item-xl-2-3, .grid-item-xl-8-12 {
+	.xl-2-3, .xl-8-12 {
 		width: 66.6667%;
 
 		*width: 66.6357%; }
 
-	.grid-item-xl-3-4, .grid-item-xl-9-12 {
+	.xl-3-4, .xl-9-12 {
 		width: 75%;
 
 		*width: 74.969%; }
 
-	.grid-item-xl-5-6, .grid-item-xl-10-12 {
+	.xl-5-6, .xl-10-12 {
 		width: 83.3333%;
 
 		*width: 83.3023%; }
 
-	.grid-item-xl-11-12 {
+	.xl-11-12 {
 		width: 91.6667%;
 
 		*width: 91.6357%; }
 
-	.grid-item-xl-1, .grid-item-xl-1-1, .grid-item-xl-12-12 {
+	.xl-1, .xl-1-1, .xl-12-12 {
 		width: 100%; }
 	}
 

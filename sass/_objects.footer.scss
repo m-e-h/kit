@@ -1,0 +1,50 @@
+/*------------------------------------*\
+    #FOOTER
+\*------------------------------------*/
+
+.site-footer {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+}
+
+    .sidebar__subsidiary {
+    @extend .grid;
+    font-size: 0;
+
+        .widget {
+          font-size: 1rem;
+          display: inline-block;
+          *display: inline;
+          margin: 0;
+          text-align: left;
+          vertical-align: top;
+          width: 100%;
+        }
+    }
+
+.sidebar-col-1 {
+    .widget {
+    }
+}
+
+
+
+
+
+.sidebar-col-2 {
+    .widget {
+        @extend .md-1-2;
+    }
+}
+
+
+
+
+.sidebar-col-3 {
+    .widget {
+        @extend .md-1-3;
+    }
+}

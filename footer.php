@@ -10,9 +10,9 @@
 
 	</div><!-- .content -->
 
-	<?php hybrid_get_sidebar( 'subsidiary' ); // sidebar/subsidiary.php ?>
-
 	<footer <?php hybrid_attr( 'footer' ); ?>>
+
+		<?php hybrid_get_sidebar( 'subsidiary' ); // sidebar/subsidiary.php ?>
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'kit' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'kit' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
