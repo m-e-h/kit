@@ -2,33 +2,121 @@
 	#GRIDS
 \*------------------------------------*/
 
+/**
+ * All content must be contained within child `Grid-cell` elements.
+ *
+ * 1. Account for browser defaults of elements that might be the root node of
+ *    the component.
+ * 2. Ensure consistent default alignment.
+ */
 
 .grid {
-    letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
-    *letter-spacing: normal; /* reset IE < 8 */
-    *word-spacing: -0.43em; /* IE < 8: collapse white-space between units */
-    text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
-    display: flex; /* Use flexbox when possible to avoid `letter-spacing` side-effects. */
-    flex-wrap: wrap;
-    width: 100%;
+  display: block; /* 1 */
+  margin: 0; /* 1 */
+  padding: 0; /* 1 */
+  text-align: left; /* 2 */
 }
 
-/* Opera as of 12 on Windows needs word-spacing.
-   The ".opera-only" selector is used to prevent actual prefocus styling
-   and is not required in markup.
-*/
-.opera-only :-o-prefocus,
-.grid {
-    word-spacing: -0.43em;
+/**
+ * Modifier: center align all grid cells
+ */
+
+.grid--center {
+  text-align: center;
 }
+
+/**
+ * Modifier: right align all grid cells
+ */
+
+.grid--right {
+  text-align: right;
+}
+
+/**
+ * Modifier: middle-align grid cells
+ */
+
+.grid--middle > .grid-item {
+  vertical-align: middle;
+}
+
+/**
+ * Modifier: bottom-align grid cells
+ */
+
+.grid--bottom > .grid-item {
+  vertical-align: bottom;
+}
+
+/**
+ * Reversed grids allow you to structure your source in the opposite order to
+ * how your rendered layout will appear. Extends `.grid`.
+ */
+.grid--rev {
+    direction:rtl;
+    text-align:left;
+
+    > .grid-item {
+        direction:ltr;
+        text-align:left;
+    }
+}
+
+/**
+ * Modifier: gutters
+ *
+ * NOTE: this can trigger a horizontal scrollbar if the component is as wide as
+ * the viewport. Use padding on a container, or `overflow-x:hidden` to protect
+ * against it.
+ */
+
+.grid--with-gutter {
+  margin: 0 -$base-spacing-unit-sm;
+}
+
+.grid--with-gutter > .grid-item {
+  padding: 0 $base-spacing-unit-sm;
+}
+
+
+
+
+/*------------------------------------*\
+	##Grid-items
+\*------------------------------------*/
+
+/**
+ * No explicit width by default. Rely on combining `Grid-cell` with a dimension
+ * utility or a component class that extends 'grid'.
+ *
+ * 1. Fundamentals of the non-float grid layout.
+ * 2. IE < 8: fake inline-block
+ * 3. Keeps content correctly aligned with the grid direction.
+ * 4. Controls vertical positioning of units.
+ * 5. Make cells full-width by default.
+ */
 
 .grid-item {
-    display: inline-block;
-    *display: inline; /* IE < 8: fake inline-block */
-    zoom: 1;
-    letter-spacing: normal;
-    word-spacing: normal;
-    vertical-align: top;
+  box-sizing: border-box;
+  display: inline-block; /* 1 */
+  *display: inline; /* 2 */
+  margin: 0;
+  padding: 0;
+  text-align: left; /* 3 */
+  vertical-align: top; /* 4 */
+  width: 100%; /* 5 */
+}
+
+/**
+ * Modifier: horizontally center one unit
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `Grid` object.
+ */
+
+.grid-item--center {
+  display: block;
+  margin: 0 auto;
 }
 
 .grid-item-1,
@@ -52,13 +140,13 @@
 .grid-item-10-12,
 .grid-item-11-12,
 .grid-item-12-12 {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    letter-spacing: normal;
-    word-spacing: normal;
-    vertical-align: top;
-    text-rendering: auto;
+  box-sizing: border-box;
+  display: inline-block;
+  *display: inline;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
 }
 
 .grid-item-1-12 {
@@ -151,13 +239,14 @@
     .grid-item-sm-10-12,
     .grid-item-sm-11-12,
     .grid-item-sm-12-12 {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
+      box-sizing: border-box;
+      display: inline-block;
+      *display: inline;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      vertical-align: top;
+      width: 100%;
     }
 
     .grid-item-sm-1-12 {
@@ -251,13 +340,13 @@
     .grid-item-md-10-12,
     .grid-item-md-11-12,
     .grid-item-md-12-12 {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
+      box-sizing: border-box;
+      display: inline-block;
+      *display: inline;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      vertical-align: top;
     }
 
     .grid-item-md-1-12 {
@@ -351,13 +440,13 @@
     .grid-item-lg-10-12,
     .grid-item-lg-11-12,
     .grid-item-lg-12-12 {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
+      box-sizing: border-box;
+      display: inline-block;
+      *display: inline;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      vertical-align: top;
     }
 
     .grid-item-lg-1-12 {
@@ -451,13 +540,13 @@
     .grid-item-xl-10-12,
     .grid-item-xl-11-12,
     .grid-item-xl-12-12 {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
+      box-sizing: border-box;
+      display: inline-block;
+      *display: inline;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      vertical-align: top;
     }
 
     .grid-item-xl-1-12 {
