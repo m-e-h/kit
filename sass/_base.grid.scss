@@ -73,10 +73,10 @@
 
 .grid--with-gutter {
   margin: 0 -$base-spacing-unit-sm;
-}
 
-.grid--with-gutter > .grid-item {
-  padding: 0 $base-spacing-unit-sm;
+    > .grid-item {
+        padding: 0 $base-spacing-unit-sm;
+    }
 }
 
 
