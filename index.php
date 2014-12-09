@@ -45,7 +45,7 @@ get_header(); ?>
 
 	</main><!-- #main -->
 
-</div><!-- #primary --><!--
+</div><!-- #primary -->
 <?php hybrid_get_sidebar( 'primary' );  ?>
 
 <?php get_footer(); ?>

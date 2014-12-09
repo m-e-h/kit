@@ -12,10 +12,8 @@
 
     .sidebar__subsidiary {
     @extend .grid;
-    font-size: 0;
 
         .widget {
-          font-size: 1rem;
           display: inline-block;
           *display: inline;
           margin: 0;

@@ -517,22 +517,6 @@ img.wp-smiley {
 	margin: 0 auto 24px;
 	text-align: center; }
 
-.gallery-row {
-	display: block;
-	clear: both;
-	overflow: hidden;
-	margin: 0; }
-
-.gallery-item {
-	float: left;
-	overflow: hidden;
-	margin: 0;
-	padding: 0;
-	border: none;
-	background: transparent; 
-	text-align: center;
-	list-style: none;}
-
 .gallery-icon img {
 	width: auto;
 	max-width: 89%;
@@ -541,7 +525,8 @@ img.wp-smiley {
 	padding: 1%; }
 
 .gallery-caption {
-	margin-left: 0; }
+	margin-left: 0;
+	text-align: center; }
 
 /* Gallery item sizes depending on the number of columns */
 .gallery-col-0 .gallery-item {
@@ -549,15 +534,6 @@ img.wp-smiley {
 
 .gallery-col-1 .gallery-item {
 	width: 100%; }
-
-.gallery-col-2 .gallery-item {
-	width: 50%; }
-
-.gallery-col-3 .gallery-item {
-	width: 33.33%; }
-
-.gallery-col-4 .gallery-item {
-	width: 25%; }
 
 .gallery-col-5 .gallery-item {
 	width: 20%; }
@@ -579,9 +555,6 @@ img.wp-smiley {
 
 .gallery-col-11 .gallery-item {
 	width: 9.09%; }
-
-.gallery-col-12 .gallery-item {
-	width: 8.33%; }
 
 .gallery-col-13 .gallery-item {
 	width: 7.69%; }
@@ -647,7 +620,7 @@ img.wp-smiley {
  *    the component.
  * 2. Ensure consistent default alignment.
  */
-.grid, .sidebar__subsidiary {
+.grid, .gallery-row, .sidebar__subsidiary {
 	display: block;
 	/* 1 */
 	margin: 0;
@@ -672,13 +645,13 @@ img.wp-smiley {
 /**
  * Modifier: middle-align grid items
  */
-.grid--middle > .grid-item, .layout-2c-l .grid--middle > .content-area, .layout-2c-l .grid--middle > .sidebar__primary {
+.grid--middle > .grid-item, .grid--middle > .gallery-item, .layout-2c-l .grid--middle > .content-area, .layout-2c-l .grid--middle > .sidebar__primary {
 	vertical-align: middle; }
 
 /**
  * Modifier: bottom-align grid items
  */
-.grid--bottom > .grid-item, .layout-2c-l .grid--bottom > .content-area, .layout-2c-l .grid--bottom > .sidebar__primary {
+.grid--bottom > .grid-item, .grid--bottom > .gallery-item, .layout-2c-l .grid--bottom > .content-area, .layout-2c-l .grid--bottom > .sidebar__primary {
 	vertical-align: bottom; }
 
 /**
@@ -689,7 +662,7 @@ img.wp-smiley {
 	text-align: left; 
 
 	direction: rtl;}
-.grid--rev > .grid-item, .layout-2c-l .grid--rev > .content-area, .layout-2c-l .grid--rev > .sidebar__primary {
+.grid--rev > .grid-item, .grid--rev > .gallery-item, .layout-2c-l .grid--rev > .content-area, .layout-2c-l .grid--rev > .sidebar__primary {
 	text-align: left; 
 
 	direction: ltr;}
@@ -703,7 +676,7 @@ img.wp-smiley {
  */
 .grid--with-gutter {
 	margin: -12px; }
-.grid--with-gutter > .grid-item, .layout-2c-l .grid--with-gutter > .content-area, .layout-2c-l .grid--with-gutter > .sidebar__primary {
+.grid--with-gutter > .grid-item, .grid--with-gutter > .gallery-item, .layout-2c-l .grid--with-gutter > .content-area, .layout-2c-l .grid--with-gutter > .sidebar__primary {
 	padding: 0 12px; }
 
 /*------------------------------------*\
@@ -719,7 +692,7 @@ img.wp-smiley {
  * 4. Controls vertical positioning of units.
  * 5. Make cells full-width by default.
  */
-.grid-item, .layout-2c-l .content-area, .layout-2c-l .sidebar__primary {
+.grid-item, .gallery-item, .layout-2c-l .content-area, .layout-2c-l .sidebar__primary {
 	display: inline-block;
 	box-sizing: border-box;
 	/* 4 */
@@ -1398,6 +1371,11 @@ img {
 	max-width: 100%;
 	height: auto;}
 
+.plural .post-thumbnail {
+	float: left;
+	margin-right: 12px;
+	border-radius: 2px; }
+
 /* Make sure embeds and iframes fit their containers */
 embed, iframe, object {
 	max-width: 100%; }
@@ -1772,13 +1750,10 @@ th {
 	padding: 0;
 	text-align: left; }
 
-.sidebar__subsidiary {
-	font-size: 0; }
 .sidebar__subsidiary .widget {
 	display: inline-block;
 	width: 100%; 
 	margin: 0;
-	font-size: 1rem;
 	text-align: left;
 	vertical-align: top;
 
@@ -1871,7 +1846,7 @@ blockquote.alignleft, blockquote.alignright {
 0.1, 0.1-1, 0.12-12 {
 	width: 100%; }
 
-@media only screen and (max-width: 47em) {
+@media only screen and (min-width: 35.5em) {
 	.sm-1-12 {
 		width: 8.3333%;
 
@@ -1897,7 +1872,7 @@ blockquote.alignleft, blockquote.alignright {
 
 		*width: 41.6357%; }
 
-	.sm-1-2, .sm-6-12 {
+	.sm-1-2, .gallery-col-4 .gallery-item, .sm-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
@@ -1931,13 +1906,73 @@ blockquote.alignleft, blockquote.alignright {
 		width: 100%; }
 	}
 
+@media only screen and (max-width: 47em) {
+	.so-1-12 {
+		width: 8.3333%;
+
+		*width: 8.3023%; }
+
+	.so-1-6, .so-2-12 {
+		width: 16.6667%;
+
+		*width: 16.6357%; }
+
+	.so-1-4, .so-3-12 {
+		width: 25%;
+
+		*width: 24.969%; }
+
+	.so-1-3, .so-4-12 {
+		width: 33.3333%;
+
+		*width: 33.3023%; }
+
+	.so-5-12 {
+		width: 41.6667%;
+
+		*width: 41.6357%; }
+
+	.so-1-2, .so-6-12 {
+		width: 50%;
+
+		*width: 49.969%; }
+
+	.so-7-12 {
+		width: 58.3333%;
+
+		*width: 58.3023%; }
+
+	.so-2-3, .so-8-12 {
+		width: 66.6667%;
+
+		*width: 66.6357%; }
+
+	.so-3-4, .so-9-12 {
+		width: 75%;
+
+		*width: 74.969%; }
+
+	.so-5-6, .so-10-12 {
+		width: 83.3333%;
+
+		*width: 83.3023%; }
+
+	.so-11-12 {
+		width: 91.6667%;
+
+		*width: 91.6357%; }
+
+	.so-1, .so-1-1, .so-12-12 {
+		width: 100%; }
+	}
+
 @media only screen and (min-width: 48em) {
 	.md-1-12 {
 		width: 8.3333%;
 
 		*width: 8.3023%; }
 
-	.md-1-6, .md-2-12 {
+	.md-1-6, .gallery-col-12 .gallery-item, .md-2-12 {
 		width: 16.6667%;
 
 		*width: 16.6357%; }
@@ -1947,7 +1982,7 @@ blockquote.alignleft, blockquote.alignright {
 
 		*width: 24.969%; }
 
-	.md-1-3, .layout-2c-l .sidebar__primary, .sidebar-col-3 .widget, .md-4-12 {
+	.md-1-3, .gallery-col-3 .gallery-item, .layout-2c-l .sidebar__primary, .sidebar-col-3 .widget, .md-4-12 {
 		width: 33.3333%;
 
 		*width: 33.3023%; }
@@ -1957,7 +1992,7 @@ blockquote.alignleft, blockquote.alignright {
 
 		*width: 41.6357%; }
 
-	.md-1-2, .sidebar-col-2 .widget, .md-6-12 {
+	.md-1-2, .gallery-col-2 .gallery-item, .sidebar-col-2 .widget, .md-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
@@ -2052,7 +2087,7 @@ blockquote.alignleft, blockquote.alignright {
 	}
 
 @media only screen and (min-width: 64em) {
-	.lg-1-12 {
+	.lg-1-12, .gallery-col-12 .gallery-item {
 		width: 8.3333%;
 
 		*width: 8.3023%; }
@@ -2062,7 +2097,7 @@ blockquote.alignleft, blockquote.alignright {
 
 		*width: 16.6357%; }
 
-	.lg-1-4, .lg-3-12 {
+	.lg-1-4, .gallery-col-4 .gallery-item, .lg-3-12 {
 		width: 25%;
 
 		*width: 24.969%; }

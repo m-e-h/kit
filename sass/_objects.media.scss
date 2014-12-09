@@ -12,6 +12,12 @@ img {
     display: block;
 }
 
+.plural .post-thumbnail {
+  float: left;
+  margin-right: $base-spacing-unit-sm;
+  border-radius: $base-radius;
+}
+
 /* Make sure embeds and iframes fit their containers */
 embed,
 iframe,

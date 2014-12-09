@@ -1,6 +1,8 @@
 <article <?php hybrid_attr( 'post' ); ?>>
 
-	<?php if ( is_singular( get_post_type() ) ) : // If viewing a single post. ?>
+	<?php get_the_image(); ?>
+
+	<?php if ( is_singular( get_post_type() ) ) : ?>
 
 		<header class="entry-header">
 
@@ -19,8 +21,6 @@
 		</div><!-- .entry-content -->
 
 	<?php else : // If not viewing a single post. ?>
-
-		<?php get_the_image(); ?>
 
 		<header class="entry-header">
 
@@ -42,7 +42,8 @@
 	<?php endif; // End single post check. ?>
 
 		<footer class="entry-footer">
-			<?php kit_entry_footer(); ?>
+		<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'sep' => ' ' ) ); ?>
+		<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'sep' => ' ' ) ); ?>
 		</footer><!-- .entry-footer -->
 
 </article><!-- .entry -->
