@@ -17,10 +17,6 @@
 			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
 
-		<footer class="entry-footer">
-			<?php kit_entry_footer(); ?>
-		</footer><!-- .entry-footer -->
-
 	<?php else : // If not viewing a single post. ?>
 
 		<?php get_the_image(); ?>
@@ -45,10 +41,10 @@
 			?>
 		</div><!-- .entry-summary -->
 
+	<?php endif; // End single post check. ?>
+
 		<footer class="entry-footer">
 			<?php kit_entry_footer(); ?>
 		</footer><!-- .entry-footer -->
-
-	<?php endif; // End single post check. ?>
 
 </article><!-- .entry -->
