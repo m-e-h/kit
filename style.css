@@ -1274,12 +1274,12 @@ dd {
 	max-width: 1400px;
 	margin: 0 auto; }
 
-.widget, .site-main {
+.widget, .entry {
 	margin: 0 12px 12px 0;
 	padding: 12px; 
 	background-color: #fafafa;}
 @media only screen and (min-width: 48em) {
-	.widget, .site-main {
+	.widget, .entry {
 		margin: 0 24px 24px 0;
 		padding: 48px; } }
 
@@ -1453,48 +1453,6 @@ embed, iframe, object {
 	height: 100%;}
 
 /*------------------------------------*\
-    #BUTTONS
-\*------------------------------------*/
-/**
- * Extend `.btn` in _components.buttons.scss.
- */
-/**
- * 1. Allow us to style box model properties.
- * 2. Line different sized buttons up a little nicer.
- * 3. Make buttons inherit font styles (often necessary when styling `input`s as
- *    buttons).
- * 4. Reset/normalize some styles.
- * 5. Force all button-styled elements to appear clickable.
- * 6. Fixes odd inner spacing in IE7.
- * 7. Corrects inability to style clickable 'input' types in iOS.
- */
-.btn, button, input[type="button"], input[type="reset"], input[type="submit"] {
-	display: inline-block;
-	/* [5] */
-	overflow: visible;
-	/* [4] */
-	margin: 0;
-	/* [7] */
-	padding: 12px 24px;
-	/* [4] */
-	border: none;
-	outline: 0; 
-	/* [2] */
-	font: inherit;
-	/* [3] */
-	text-align: center;
-	/* [1] */
-	vertical-align: middle;
-	/* [4] */
-	cursor: pointer;
-	/* [6] */
-
-	-webkit-appearance: button;}
-.btn, .btn:hover, .btn:active, .btn:focus, button, button:hover, button:active, button:focus, input[type="button"], input[type="button"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"], input[type="reset"]:hover, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"], input[type="submit"]:hover, input[type="submit"]:active, input[type="submit"]:focus {
-	text-decoration: none;
-	/* [4] */ }
-
-/*------------------------------------*\
     #FORMS
 \*------------------------------------*/
 input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="date"], input[type="month"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="week"], input[type="number"], input[type="search"], input[type="tel"], input[type="color"], select, textarea {
@@ -1654,19 +1612,6 @@ legend {
 		display: none; }
 	}
 
-.site-main .comment-navigation, .site-main .paging-navigation, .site-main .post-navigation {
-	overflow: hidden; 
-	margin: 0 0 24px;}
-
-.comment-navigation .nav-previous, .paging-navigation .nav-previous, .post-navigation .nav-previous {
-	float: left;
-	width: 50%; }
-
-.comment-navigation .nav-next, .paging-navigation .nav-next, .post-navigation .nav-next {
-	float: right;
-	width: 50%; 
-	text-align: right;}
-
 /*  Sets dropdown link to relative positioning */
 .menu-item-has-children {
 	position: relative; }
@@ -1730,6 +1675,33 @@ legend {
 		background-color: #eee; }
 	}
 
+.pagination {
+	margin: 24px; 
+	text-align: center;}
+.pagination .page-numbers {
+	border-radius: 0; }
+.pagination .page-numbers.current {
+	background-color: #fafafa; }
+.pagination .page-numbers.dots, .pagination .page-numbers.dots:hover {
+	background-color: transparent;
+	cursor: default; }
+.pagination .page-numbers.next, .pagination .page-numbers.prev {
+	display: inline-block;
+	font-family: FontAwesome;
+	font-size: inherit;
+
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale; }
+.pagination .page-numbers:first-child {
+	margin-left: 0;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px; }
+.pagination .page-numbers:last-child {
+	margin-left: 0;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px; }
+
 /*------------------------------------*\
     #TABLES
 \*------------------------------------*/
@@ -1763,12 +1735,42 @@ th {
     #BUTTONS
 \*------------------------------------*/
 /**
- * Extends `.btn` in _objects.buttons.scss.
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ * 6. Fixes odd inner spacing in IE7.
+ * 7. Corrects inability to style clickable 'input' types in iOS.
  */
-.btn {
-	background-color: #2980b9; }
-.btn, .btn:hover, .btn:active, .btn:focus {
-	color: #fff; }
+.btn, a.page-numbers, span.page-numbers, button, input[type="button"], input[type="reset"], input[type="submit"] {
+	display: inline-block;
+	/* [5] */
+	overflow: visible;
+	/* [4] */
+	margin: 0;
+	padding: 12px 24px;
+	/* [4] */
+	border: none;
+	border-radius: 2px; 
+	outline: 0;
+	color: #616161;
+	background-color: #e0e0e0;
+	/* [2] */
+	font: inherit;
+	/* [3] */
+	text-align: center;
+	/* [1] */
+	vertical-align: middle;
+	/* [6] */
+	text-decoration: none;
+	/* [4] */
+	cursor: pointer;}
+.btn:hover, a.page-numbers:hover, span.page-numbers:hover, .btn:active, a.page-numbers:active, span.page-numbers:active, .btn:focus, a.page-numbers:focus, span.page-numbers:focus, button:hover, button:active, button:focus, input[type="button"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:active, input[type="submit"]:focus {
+	color: #616161; 
+	background-color: #fafafa;
+	text-decoration: none;}
 
 /*------------------------------------*\
     #BLOCKQUOTES
@@ -1872,7 +1874,7 @@ blockquote.alignleft, blockquote.alignright {
 
 		*width: 41.6357%; }
 
-	.sm-1-2, .gallery-col-4 .gallery-item, .sm-6-12 {
+	.sm-1-2, .gallery-col-4 .gallery-item, .sidebar-col-2 .widget, .sm-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
@@ -1992,7 +1994,7 @@ blockquote.alignleft, blockquote.alignright {
 
 		*width: 41.6357%; }
 
-	.md-1-2, .gallery-col-2 .gallery-item, .sidebar-col-2 .widget, .md-6-12 {
+	.md-1-2, .gallery-col-2 .gallery-item, .md-6-12 {
 		width: 50%;
 
 		*width: 49.969%; }
@@ -2215,4 +2217,4 @@ blockquote.alignleft, blockquote.alignright {
  * As per: csswizardry.com/2012/06/single-direction-margin-declarations
  */
 h1, h2, h3, h4, h5, h6, hgroup, dl, blockquote, p, address, table, fieldset, figure, pre {
-	margin-bottom: 24px; }
+	margin-bottom: 12px; }

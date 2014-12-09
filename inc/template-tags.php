@@ -7,56 +7,30 @@
  * @package Kit
  */
 
-if ( ! function_exists( 'kit_paging_nav' ) ) :
+if ( ! function_exists( 'kit_loop_nav' ) ) :
 /**
- * Display navigation to next/previous set of posts when applicable.
+ * Display paginated navigation to next/previous set of posts when applicable.
+ *
+ * http://themehybrid.com/docs/loop-pagination
  */
-function kit_paging_nav() {
-	// Don't print empty markup if there's only one page.
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-		return;
-	}
-	?>
-	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'kit' ); ?></h1>
-		<div class="nav-links">
+function kit_loop_nav() {
+  if ( is_singular( 'post' ) ) : ?>
 
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'kit' ) ); ?></div>
-			<?php endif; ?>
+	<div class="loop-nav">
+		<?php previous_post_link( '<div class="prev">' . __( 'Previous Post: %link', 'kit' ) . '</div>', '%title' ); ?>
+		<?php next_post_link(     '<div class="next">' . __( 'Next Post: %link',     'kit' ) . '</div>', '%title' ); ?>
+	</div><!-- .loop-nav -->
 
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'kit' ) ); ?></div>
-			<?php endif; ?>
+<?php elseif ( is_home() || is_archive() || is_search() ) : ?>
 
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
-}
-endif;
+	<?php loop_pagination(
+		array(
+			'prev_text' => _x( '&#xf053;', 'posts navigation', 'kit' ),
+			'next_text' => _x( '&#xf054;',     'posts navigation', 'kit' ),
+		)
+	); ?>
 
-if ( ! function_exists( 'kit_post_nav' ) ) :
-/**
- * Display navigation to next/previous post when applicable.
- */
-function kit_post_nav() {
-	// Don't print empty markup if there's nowhere to navigate.
-	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
-	$next     = get_adjacent_post( false, '', false );
-
-	if ( ! $next && ! $previous ) {
-		return;
-	}
-	?>
-	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'kit' ); ?></h1>
-		<div class="nav-links">
-			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'kit' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'kit' ) );
-			?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
+<?php endif; // End check for type of page being viewed. ?>
 	<?php
 }
 endif;

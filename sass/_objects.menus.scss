@@ -76,50 +76,6 @@
 
 
 
-
-
-
-.site-main .comment-navigation,
-.site-main .paging-navigation,
-.site-main .post-navigation {
-    margin: 0 0 $base-spacing-unit;
-    overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
-    float: left;
-    width: 50%;
-}
-
-.comment-navigation .nav-next,
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-    float: right;
-    text-align: right;
-    width: 50%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*  Sets dropdown link to relative positioning */
 .menu-item-has-children {
   position: relative;
@@ -202,4 +158,49 @@ content: " \2212";
   .js-drop .menu-item-has-children > a.active {
   	background-color: $color-gray-lighter;
 	}
+}
+
+
+
+
+
+
+
+
+a.page-numbers,
+span.page-numbers {
+  @extend .btn;
+}
+
+.pagination {
+  text-align: center;
+  margin: $base-spacing-unit;
+  .page-numbers{
+    border-radius: 0;
+
+    &.current {
+      background-color: $btn-bg-hover;
+    }
+
+    &.dots, &.dots:hover {
+      background-color: transparent;
+      cursor: default;
+    }
+
+    &.next, &.prev {
+      @include font-icon();
+    }
+
+    &:first-child {
+      margin-left: 0;
+      border-top-left-radius: $base-radius;
+      border-bottom-left-radius: $base-radius;
+      }
+
+    &:last-child {
+      margin-left: 0;
+      border-top-right-radius: $base-radius;
+      border-bottom-right-radius: $base-radius;
+      }
+  }
 }

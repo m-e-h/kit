@@ -77,3 +77,14 @@ $animation-curve-default: $animation-curve-fast-out-slow-in;
 @mixin base-transition($attr:all, $speed:$base-transition-speed) {
   transition: $attr $speed ease-in-out;
 }
+
+
+
+@mixin font-icon($font-family: FontAwesome) {
+display: inline-block;
+font-family: $font-family;
+font-size: inherit;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}

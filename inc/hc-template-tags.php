@@ -7,33 +7,6 @@
  * @package kit
  */
 
-if ( ! function_exists( 'kit_loop_nav' ) ) :
-/**
- * Display navigation to next/previous set of posts when applicable.
- */
-function kit_loop_nav() {
-  if ( is_singular( 'post' ) ) : ?>
-
-	<div class="loop-nav">
-		<?php previous_post_link( '<div class="prev">' . __( 'Previous Post: %link', 'kit' ) . '</div>', '%title' ); ?>
-		<?php next_post_link(     '<div class="next">' . __( 'Next Post: %link',     'kit' ) . '</div>', '%title' ); ?>
-	</div><!-- .loop-nav -->
-
-<?php elseif ( is_home() || is_archive() || is_search() ) : ?>
-
-	<?php loop_pagination(
-		array(
-			'prev_text' => _x( '&larr; Previous', 'posts navigation', 'kit' ),
-			'next_text' => _x( 'Next &rarr;',     'posts navigation', 'kit' )
-		)
-	); ?>
-
-<?php endif; // End check for type of page being viewed. ?>
-	<?php
-}
-endif;
-
-
 if ( ! function_exists( 'kit_byline' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.

@@ -35,6 +35,8 @@ $color-gray-light: #E0E0E0;
 $color-gray-lighter: #EEEEEE;
 $color-gray-lightest: #FAFAFA;
 
+$color-gray-ui: $color-gray-light;
+
 
 /* ==========  LIGHT  ========== */
 
@@ -48,13 +50,15 @@ $color-hr: #ccc;
 $color-text:            $color-gray-dark;
 $color-links:           $color-primary;
 $color-links-hover:     darken($color-links, 10);
-$dark-bg-color-links:           lighten($color-links, 10);
+$dark-bg-color-links:   lighten($color-links, 10);
 $dark-bg-color-links-hover:     lighten($dark-bg-color-links, 10);
 
 // Buttons
-$color-btn-text:        #fff;
-$color-btn-background:  $color-primary;
-
+$btn-text:        $color-text;
+$btn-bg:  $color-gray-ui;
+$btn-bg-hover:  lighten($btn-bg, 10);
+$btn-primary-bg:  $color-primary;
+$btn-primary-text:  #fff;
 
 //Alerts
 $color-error:  #e74c3c;
