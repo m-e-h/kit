@@ -4,22 +4,19 @@
 
 .site-content {
 	display: block;
-	margin: 0;
+	max-width: 1400px;
+	margin: 0 auto;
 	padding: 0;
 	width: 100%;
 	text-align: left;
 	padding-left: $base-spacing-unit-sm;
 	@include md {
 		padding-left: $base-spacing-unit;
+		padding-top: $base-spacing-unit-lg;
 	}
 }
 
-.site-content {
-	max-width: 1400px;
-	margin: 0 auto;
-}
-
-.widget, .entry {
+.comment-respond, .widget, .entry {
 	background-color: $color-gray-lightest;
 	margin: 0 $base-spacing-unit-sm $base-spacing-unit-sm 0;
 	padding: $base-spacing-unit-sm;

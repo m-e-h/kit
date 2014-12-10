@@ -29,6 +29,7 @@ $color-brand:        	$color1;
 /* ==========  Blacks  ========== */
 
 $color-black: #212121;
+$color-gray-darker: #424242;
 $color-gray-dark: #616161;
 $color-gray: #9E9E9E;
 $color-gray-light: #E0E0E0;
@@ -38,6 +39,7 @@ $color-gray-lightest: #FAFAFA;
 $color-gray-ui: $color-gray-light;
 
 
+$color-header: $color-primary;
 /* ==========  LIGHT  ========== */
 
 $color-white: #fff;
@@ -47,7 +49,7 @@ $color-white: #fff;
 $color-hr: #ccc;
 
 // Text-level
-$color-text:            $color-gray-dark;
+$color-text:            $color-gray-darker;
 $color-links:           $color-primary;
 $color-links-hover:     darken($color-links, 10);
 $dark-bg-color-links:   lighten($color-links, 10);

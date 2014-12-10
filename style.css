@@ -436,7 +436,7 @@ td, th {
 	display: block; }
 
 .hentry {
-	margin: 0 0 24px; }
+	margin: 0 0 20px; }
 
 .byline, .updated:not(.published) {
 	display: none; }
@@ -445,11 +445,11 @@ td, th {
 	display: inline; }
 
 .page-content, .entry-content, .entry-summary {
-	margin: 24px 0 0; }
+	margin: 20px 0 0; }
 
 .page-links {
 	clear: both;
-	margin: 0 0 24px; }
+	margin: 0 0 20px; }
 
 /*------------------------------------*\
     ##Asides
@@ -514,7 +514,7 @@ img.wp-smiley {
 	display: block;
 	clear: both;
 	overflow: hidden;
-	margin: 0 auto 24px;
+	margin: 0 auto 20px;
 	text-align: center; }
 
 .gallery-icon img {
@@ -675,9 +675,9 @@ img.wp-smiley {
  * against it.
  */
 .grid--with-gutter {
-	margin: -12px; }
+	margin: -10px; }
 .grid--with-gutter > .grid-item, .grid--with-gutter > .gallery-item, .layout-2c-l .grid--with-gutter > .content-area, .layout-2c-l .grid--with-gutter > .sidebar__primary {
-	padding: 0 12px; }
+	padding: 0 10px; }
 
 /*------------------------------------*\
 	##Grid-items
@@ -764,11 +764,11 @@ html {
 \*------------------------------------*/
 html {
 	min-height: 100%; 
-	color: #616161;
+	color: #424242;
 	background-color: #fff;
-	font-size: 16px;
-	font-size: 1rem;
-	line-height: 1.5;}
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;}
 
 /**
  * Remove text-shadow in selection highlight:
@@ -822,8 +822,8 @@ textarea {
  * Browser Upgrade Prompt
  */
 .browserupgrade {
-	margin: 24px 0;
-	padding: 24px 0; 
+	margin: 20px 0;
+	padding: 20px 0; 
 	color: #000;
 	background: #f1c40f;}
 
@@ -957,236 +957,182 @@ textarea {
 /*------------------------------------*\
     #TYPOGRAPHY
 \*------------------------------------*/
-h1, h2, h3, h4, h5, h6, p {
-	margin: 0;
-	padding: 0; }
-
-/**
- * Styles for HTML elements
- */
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-	opacity: 0.54;
-	font-size: 58px;
-	font-size: 3.625rem;
-	font-size: 0.6em; 
-	font-weight: 400;
-	line-height: 1.2413793103;
-	letter-spacing: -0.02em;}
-
-p {
-	margin: 0 0 16px 0; 
-	font-size: 16px;
-	font-size: 1rem;
-	font-weight: 400;
-	line-height: 1.5;
-	letter-spacing: 0.04em;}
-
-article a {
-	font-weight: bold; }
-
-blockquote p {
-	font-size: 26px;
-	font-size: 1.625rem;
-	font-weight: 300;
-	font-style: italic;
-	line-height: 1.8461538462;
-	letter-spacing: 0.08em; }
-blockquote p:before {
-	opacity: 0.54; 
-	content: "“";}
-blockquote p:after {
-	opacity: 0.54; 
-	content: "”";}
-
-mark {
-	background-color: #e0e0e0; }
-
-code {
-	background-color: #e0e0e0; }
-
-dt {
-	font-weight: 900; }
-
-h1 a, h2 a, h3 a {
-	color: inherit; 
-	font-weight: inherit;}
-
 /**
  * Class Name Styles
  */
 .Typography--display-4 {
-	font-size: 114px;
-	font-size: 7.125rem;
+	font-size: 84px;
+	font-size: 6rem;
 	font-weight: 300;
-	line-height: 1.0526315789;
+	line-height: 1.1904761905;
 	letter-spacing: -0.04em; }
 
 .Typography--display-4--colorContrast {
 	opacity: 0.54; 
-	font-size: 114px;
-	font-size: 7.125rem;
+	font-size: 84px;
+	font-size: 6rem;
 	font-weight: 300;
-	line-height: 1.0526315789;
+	line-height: 1.1904761905;
 	letter-spacing: -0.04em;}
 
 .Typography--display-3 {
-	font-size: 58px;
-	font-size: 3.625rem;
+	font-size: 42px;
+	font-size: 3rem;
 	font-weight: 400;
-	line-height: 1.2413793103;
+	line-height: 1.4285714286;
 	letter-spacing: -0.02em; }
 
 .Typography--display-3--colorContrast {
 	opacity: 0.54; 
-	font-size: 58px;
-	font-size: 3.625rem;
+	font-size: 42px;
+	font-size: 3rem;
 	font-weight: 400;
-	line-height: 1.2413793103;
+	line-height: 1.4285714286;
 	letter-spacing: -0.02em;}
 
 .Typography--display-2 {
-	font-size: 47px;
-	font-size: 2.9375rem;
-	line-height: 1.0212765957; }
+	font-size: 33px;
+	font-size: 2.3571428571rem;
+	line-height: 1.2121212121; }
 
 .Typography--display-2--colorContrast {
 	opacity: 0.54; 
-	font-size: 47px;
-	font-size: 2.9375rem;
-	line-height: 1.0212765957;}
+	font-size: 33px;
+	font-size: 2.3571428571rem;
+	line-height: 1.2121212121;}
 
 .Typography--display-1 {
-	font-size: 36px;
-	font-size: 2.25rem;
-	line-height: 1.3333333333; }
+	font-size: 24px;
+	font-size: 1.7142857143rem;
+	line-height: 1.6666666667; }
 
 .Typography--display-1--colorContrast {
 	opacity: 0.54; 
-	font-size: 36px;
-	font-size: 2.25rem;
-	line-height: 1.3333333333;}
+	font-size: 24px;
+	font-size: 1.7142857143rem;
+	line-height: 1.6666666667;}
 
 .Typography--headline {
-	font-size: 26px;
-	font-size: 1.625rem;
+	font-size: 20px;
+	font-size: 1.4285714286rem;
 	font-weight: 400;
-	line-height: 1.8461538462;
+	line-height: 1;
 
 	-moz-osx-font-smoothing: grayscale; }
 
 .Typography--headline--colorContrast {
 	opacity: 0.87; 
-	font-size: 26px;
-	font-size: 1.625rem;
+	font-size: 20px;
+	font-size: 1.4285714286rem;
 	font-weight: 400;
-	line-height: 1.8461538462;
+	line-height: 1;
 
 	-moz-osx-font-smoothing: grayscale;}
 
 .Typography--title a, .Typography--title {
-	font-size: 22px;
-	font-size: 1.375rem;
+	font-size: 18px;
+	font-size: 1.2857142857rem;
 	font-weight: 700;
-	line-height: 1.0909090909;
+	line-height: 1.1111111111;
 	letter-spacing: 0.02em; }
 
 .Typography--title--colorContrast {
 	opacity: 0.87; 
-	font-size: 22px;
-	font-size: 1.375rem;
+	font-size: 18px;
+	font-size: 1.2857142857rem;
 	font-weight: 700;
-	line-height: 1.0909090909;
+	line-height: 1.1111111111;
 	letter-spacing: 0.02em;}
 
 .Typography--subhead a, .Typography--subhead {
-	font-size: 18px;
-	font-size: 1.125rem;
+	font-size: 16px;
+	font-size: 1.1428571429rem;
 	font-weight: 400;
-	line-height: 1.3333333333;
+	line-height: 1.25;
 	letter-spacing: 0.04em; }
 
-.entry-meta, .Typography--subhead--colorContrast {
+.Typography--subhead--colorContrast {
 	opacity: 0.87; 
-	font-size: 18px;
-	font-size: 1.125rem;
+	font-size: 16px;
+	font-size: 1.1428571429rem;
 	font-weight: 400;
-	line-height: 1.3333333333;
+	line-height: 1.25;
 	letter-spacing: 0.04em;}
 
 .Typography--body-2 {
-	font-size: 16px;
+	font-size: 14px;
 	font-size: 1rem;
 	font-weight: 700;
-	line-height: 1.5;
+	line-height: 1.4285714286;
 	letter-spacing: 0.04em; }
 
 .Typography--body-2 a, .Typography--body-2--colorContrast {
 	opacity: 0.87; 
-	font-size: 16px;
+	font-size: 14px;
 	font-size: 1rem;
 	font-weight: 700;
-	line-height: 1.5;
+	line-height: 1.4285714286;
 	letter-spacing: 0.04em;}
 
 .Typography--body-1 a, .Typography--body-1 {
-	font-size: 16px;
+	font-size: 14px;
 	font-size: 1rem;
 	font-weight: 400;
-	line-height: 1.5;
+	line-height: 1.4285714286;
 	letter-spacing: 0.04em; }
 
 .Typography--body-1--colorContrast {
 	opacity: 0.87; 
-	font-size: 16px;
+	font-size: 14px;
 	font-size: 1rem;
 	font-weight: 400;
-	line-height: 1.5;
+	line-height: 1.4285714286;
 	letter-spacing: 0.04em;}
 
 .Typography--caption {
-	font-size: 14px;
-	font-size: 0.875rem;
+	font-size: 12px;
+	font-size: 0.8571428571rem;
 	font-weight: 400;
-	line-height: 1.7142857143;
+	line-height: 1.6666666667;
 	letter-spacing: 0.08em; }
 
 .Typography--caption--colorContrast {
 	opacity: 0.54; 
-	font-size: 14px;
-	font-size: 0.875rem;
+	font-size: 12px;
+	font-size: 0.8571428571rem;
 	font-weight: 400;
-	line-height: 1.7142857143;
+	line-height: 1.6666666667;
 	letter-spacing: 0.08em;}
 
 .Typography--menu {
-	font-size: 16px;
+	font-size: 14px;
 	font-size: 1rem;
 	font-weight: 700;
-	line-height: 1.5;
+	line-height: 1.4285714286;
 	letter-spacing: 0.04em; }
 
 .Typography--menu--colorContrast {
 	opacity: 0.87; 
-	font-size: 16px;
+	font-size: 14px;
 	font-size: 1rem;
 	font-weight: 700;
-	line-height: 1.5;
+	line-height: 1.4285714286;
 	letter-spacing: 0.04em;}
 
 .Typography--button {
-	font-size: 16px;
+	font-size: 14px;
 	font-size: 1rem;
 	font-weight: 400;
-	line-height: 1.5;
+	line-height: 1.4285714286;
 	letter-spacing: 0.04em; 
 	text-transform: uppercase;}
 
 .Typography--button--colorContrast {
 	opacity: 0.87; 
-	font-size: 16px;
+	font-size: 14px;
 	font-size: 1rem;
 	font-weight: 400;
-	line-height: 1.5;
+	line-height: 1.4285714286;
 	letter-spacing: 0.04em;
 	text-transform: uppercase;}
 
@@ -1221,25 +1167,25 @@ h1 a, h2 a, h3 a {
     #LINKS
 \*------------------------------------*/
 a {
-	color: royalblue; }
+	color: royalblue;
+	text-decoration: none; }
 a:visited {
 	color: purple; }
 a:hover, a:focus, a:active {
 	color: midnightblue; }
 
-a, button, input:focus, input[type="button"], input[type="reset"], input[type="submit"], textarea:focus, .button, .gallery img {
-	-webkit-transition: all 0.1s ease-in-out;
-	        transition: all 0.1s ease-in-out; }
+p a {
+	font-weight: bold; }
 
 /*------------------------------------*\
     #LISTS
 \*------------------------------------*/
 h1, h2, h3, h4, h5, h6, hgroup, ul, ol, dl, dd, blockquote, p, address, table, fieldset, figure, pre {
-	margin: 0 0 24px 0;
+	margin: 0 0 20px 0;
 	padding: 0; }
 
 ul, ol {
-	margin-left: 24px; }
+	margin-left: 20px; }
 
 ul {
 	list-style: disc; }
@@ -1254,7 +1200,7 @@ dt {
 	font-weight: bold; }
 
 dd {
-	margin: 0 24px 24px; }
+	margin: 0 20px 20px; }
 
 /*------------------------------------*\
     #LAYOUTS
@@ -1262,26 +1208,24 @@ dd {
 .site-content {
 	display: block;
 	width: 100%;
-	margin: 0;
+	max-width: 1400px;
+	margin: 0 auto;
 	padding: 0;
-	padding-left: 12px; 
+	padding-left: 10px; 
 	text-align: left;}
 @media only screen and (min-width: 48em) {
 	.site-content {
-		padding-left: 24px; } }
+		padding-top: 40px; 
+		padding-left: 20px;} }
 
-.site-content {
-	max-width: 1400px;
-	margin: 0 auto; }
-
-.widget, .entry {
-	margin: 0 12px 12px 0;
-	padding: 12px; 
+.comment-respond, .widget, .entry {
+	margin: 0 10px 10px 0;
+	padding: 10px; 
 	background-color: #fafafa;}
 @media only screen and (min-width: 48em) {
-	.widget, .entry {
-		margin: 0 24px 24px 0;
-		padding: 48px; } }
+	.comment-respond, .widget, .entry {
+		margin: 0 20px 20px 0;
+		padding: 40px; } }
 
 /*------------------------------------*\
     ##Layout 1 Column
@@ -1308,53 +1252,123 @@ dd {
 /*------------------------------------*\
     #HEADINGS
 \*------------------------------------*/
-h1, .alpha {
-	color: inherit; 
-	font-size: 47px;
-	font-size: 2.9375rem;
-	line-height: 1.0212765957;}
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0; }
 
-h2, h1.entry-title {
-	font-size: 36px;
-	font-size: 2.25rem;
-	line-height: 1.3333333333; }
-
-h3, h2.entry-title {
-	font-size: 26px;
-	font-size: 1.625rem;
+.home #site-title, h1 {
+	font-size: 42px;
+	font-size: 3rem;
 	font-weight: 400;
-	line-height: 1.8461538462;
+	line-height: 1.4285714286;
+	letter-spacing: -0.02em; }
+
+h2 {
+	font-size: 33px;
+	font-size: 2.3571428571rem;
+	line-height: 1.2121212121; }
+
+#site-title, h3 {
+	font-size: 24px;
+	font-size: 1.7142857143rem;
+	line-height: 1.6666666667; }
+
+h4 {
+	font-size: 20px;
+	font-size: 1.4285714286rem;
+	font-weight: 400;
+	line-height: 1;
 
 	-moz-osx-font-smoothing: grayscale; }
 
-h4, .delta {
-	font-size: 22px;
-	font-size: 1.375rem;
+h5 {
+	font-size: 18px;
+	font-size: 1.2857142857rem;
 	font-weight: 700;
-	line-height: 1.0909090909;
+	line-height: 1.1111111111;
 	letter-spacing: 0.02em; }
 
-h5, .epsilon {
-	font-size: 18px;
-	font-size: 1.125rem;
-	font-weight: 400;
-	line-height: 1.3333333333;
-	letter-spacing: 0.04em; }
-
-h6, .zeta {
+h6 {
 	font-size: 16px;
-	font-size: 1rem;
-	font-weight: 700;
-	line-height: 1.5;
+	font-size: 1.1428571429rem;
+	font-weight: 400;
+	line-height: 1.25;
 	letter-spacing: 0.04em; }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-	text-decoration: none; }
+	color: inherit; 
+	font-weight: inherit;
+	text-decoration: none;}
 h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
 	color: inherit; }
 h1 a:hover, h1 a:focus, h1 a:active, h2 a:hover, h2 a:focus, h2 a:active, h3 a:hover, h3 a:focus, h3 a:active, h4 a:hover, h4 a:focus, h4 a:active, h5 a:hover, h5 a:focus, h5 a:active, h6 a:hover, h6 a:focus, h6 a:active {
 	opacity: 0.8; 
 	color: inherit;}
+
+/**
+ * Styles for HTML elements
+ */
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+	opacity: 0.54;
+	font-size: 42px;
+	font-size: 3rem;
+	font-size: 0.6em; 
+	font-weight: 400;
+	line-height: 1.4285714286;
+	letter-spacing: -0.02em;}
+
+p {
+	margin: 0 0 16px 0; 
+	font-size: 14px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.4285714286;
+	letter-spacing: 0.04em;}
+
+blockquote p {
+	font-size: 24px;
+	font-size: 1.7142857143rem;
+	font-weight: 300;
+	font-style: italic;
+	line-height: 1.6666666667;
+	letter-spacing: 0.08em; }
+blockquote p:before {
+	opacity: 0.54; 
+	content: "“";}
+blockquote p:after {
+	opacity: 0.54; 
+	content: "”";}
+
+mark {
+	background-color: #e0e0e0; }
+
+code {
+	background-color: #e0e0e0; }
+
+dt {
+	font-weight: 700; }
+
+.wp-caption-text {
+	font-size: 12px;
+	font-size: 0.8571428571rem;
+	font-weight: 400;
+	line-height: 1.6666666667;
+	letter-spacing: 0.08em; }
+
+.entry-meta {
+	opacity: 0.87; 
+	font-size: 14px;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.4285714286;
+	letter-spacing: 0.04em;}
+
+.menu-item {
+	font-size: 14px;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 1.4285714286;
+	letter-spacing: 0.04em; }
 
 /*------------------------------------*\
     #ICONS
@@ -1373,7 +1387,7 @@ img {
 
 .plural .post-thumbnail {
 	float: left;
-	margin-right: 12px;
+	margin-right: 10px;
 	border-radius: 2px; }
 
 /* Make sure embeds and iframes fit their containers */
@@ -1528,7 +1542,7 @@ input[readonly], select[readonly], textarea[readonly] {
 	/* menu text color */
 	border-color: #eee; 
 	/* menu hover bg color */
-	color: #616161;
+	color: #424242;
 	background: #eee;}
 
 input:invalid, textarea:invalid, select:invalid, input:hover:invalid, textarea:hover:invalid, select:hover:invalid, input:focus:invalid, textarea:focus:invalid, select:focus:invalid {
@@ -1553,45 +1567,21 @@ label {
 
 fieldset {
 	margin: 0;
-	padding: 6px 0 12px;
+	padding: 5px 0 10px;
 	border: 0; }
 
 legend {
 	display: block;
 	width: 100%;
-	margin-bottom: 6px;
-	padding: 6px 0;
+	margin-bottom: 5px;
+	padding: 5px 0;
 	border-bottom: 1px solid #eee; 
 	color: #9e9e9e;}
 
 /*------------------------------------*\
     #MENUS
 \*------------------------------------*/
-.menu {
-	display: block; }
-@media only screen and (min-width: 48em) {
-	.menu li {
-		display: inline-block;
-		zoom: 1;
-		vertical-align: middle; } }
-.menu li a {
-	display: block;
-	padding: 6px 24px;
-	color: inherit;
-	white-space: nowrap; 
-	text-decoration: none;}
-.menu li a:hover {
-	background: #eee; }
-.menu li a.active {
-	background: #eee; }
-.menu li li {
-	display: block; }
-.menu li li a {
-	padding-left: 48px; }
-@media only screen and (min-width: 48em) {
-	.menu li li a {
-		padding-left: 24px; } }
-.menu ul {
+.menu ul, .menu li {
 	margin: 0; 
 	list-style: none;}
 
@@ -1613,9 +1603,6 @@ legend {
 	}
 
 /*  Sets dropdown link to relative positioning */
-.menu-item-has-children {
-	position: relative; }
-
 /*  Display a caret after each dropdown link when JavaScript is supported.
  *  You can remove this or change it to a different symbol.
  *  (For example, a "+" symbol.) */
@@ -1646,7 +1633,7 @@ legend {
 /*  Remove list-style and margin-left
  *  from dropdown menu lists */
 .sub-menu ul, .sub-menu ol {
-	margin-left: 24px;
+	margin-left: 20px;
 	list-style: none; }
 
 /*  When a dropdown is active, display it. */
@@ -1676,7 +1663,7 @@ legend {
 	}
 
 .pagination {
-	margin: 24px; 
+	margin: 20px; 
 	text-align: center;}
 .pagination .page-numbers {
 	border-radius: 0; }
@@ -1689,6 +1676,7 @@ legend {
 	display: inline-block;
 	font-family: FontAwesome;
 	font-size: inherit;
+	font-weight: normal;
 
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
@@ -1701,6 +1689,76 @@ legend {
 	margin-left: 0;
 	border-top-right-radius: 2px;
 	border-bottom-right-radius: 2px; }
+
+.menu__primary {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	        flex-direction: row;
+	height: 60px;
+	margin: 0;
+	padding: 0;
+	/* display: inline-block; */
+
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	-webkit-flex-wrap: nowrap;
+	    -ms-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	        align-items: center; }
+
+.menu__primary--items {
+	display: inline-block;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 0; 
+	list-style-type: none;}
+
+.menu-item {
+	display: inline-block;
+	height: 100%;
+	margin: 0; }
+@media only screen and (max-width: 47em) {
+	.menu-item {
+		display: block; } }
+.menu-item a {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+	        flex-direction: row;
+	height: 100%;
+	margin: 0; 
+	padding: 0 16px;
+	color: #eee;
+	font-size: 14px;
+	font-weight: 700;
+	text-decoration: none;
+
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	-webkit-flex-wrap: nowrap;
+	    -ms-flex-wrap: nowrap;
+	        flex-wrap: nowrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	        align-items: center;}
+.menu-item a:hover {
+	background-color: rgba(97, 97, 97, 0.6); }
+
+.sub-menu.active .menu-item {
+	display: block; }
+.sub-menu.active .menu-item a {
+	color: #424242; }
 
 /*------------------------------------*\
     #TABLES
@@ -1732,45 +1790,125 @@ th {
 	*display: inline;}
 
 /*------------------------------------*\
+    #HEADER
+\*------------------------------------*/
+.trail-begin {
+	display: none; }
+
+.site-header {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+	position: relative;
+	height: 60px;
+	min-height: 60px;
+	margin: 0;
+	padding-left: 16px;
+	border: 0;
+	color: #eee;
+	background-color: #2980b9;
+	box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+	-webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	-webkit-transition-duration: 0.2s;
+	        transition-duration: 0.2s;
+	-webkit-transition-property: min-height, box-shadow;
+	        transition-property: min-height, box-shadow;
+
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	        justify-content: space-between; }
+
+.site-branding {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display:         flex;
+	font-size: 20px;
+	font-size: 1.4285714286rem;
+	font-weight: 400;
+	line-height: 1;
+
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	        align-items: center; }
+@media only screen and (max-width: 47em) {
+	.site-branding {
+		display: block; 
+		font-size: 14px;
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.4285714286;
+		letter-spacing: 0.04em;}
+	.site-branding .trail-begin {
+		display: inline-block; } }
+
+.breadcrumbs {
+	padding-left: 10px; }
+.breadcrumbs .sep {
+	display: inline-block;
+	opacity: 0.5; 
+	font-family: FontAwesome;
+	font-size: inherit;
+	font-weight: normal;
+
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;}
+.breadcrumbs a {
+	color: inherit; }
+.breadcrumbs a:hover {
+	opacity: 0.8; }
+
+/*------------------------------------*\
     #BUTTONS
 \*------------------------------------*/
-/**
- * 1. Allow us to style box model properties.
- * 2. Line different sized buttons up a little nicer.
- * 3. Make buttons inherit font styles (often necessary when styling `input`s as
- *    buttons).
- * 4. Reset/normalize some styles.
- * 5. Force all button-styled elements to appear clickable.
- * 6. Fixes odd inner spacing in IE7.
- * 7. Corrects inability to style clickable 'input' types in iOS.
- */
-.btn, a.page-numbers, span.page-numbers, button, input[type="button"], input[type="reset"], input[type="submit"] {
+.btn, a.page-numbers, span.page-numbers, .btn--flat, .entry-terms a, button, input[type="button"], input[type="reset"], input[type="submit"] {
 	display: inline-block;
-	/* [5] */
-	overflow: visible;
-	/* [4] */
-	margin: 0;
-	padding: 12px 24px;
-	/* [4] */
+	overflow: hidden;
+	position: relative;
+	min-width: 64px;
+	height: 36px;
+	margin: 0 4px;
+	padding: 0 8px;
 	border: none;
-	border-radius: 2px; 
-	outline: 0;
-	color: #616161;
-	background-color: #e0e0e0;
-	/* [2] */
-	font: inherit;
-	/* [3] */
-	text-align: center;
-	/* [1] */
-	vertical-align: middle;
-	/* [6] */
+	border-radius: 2px;
+	outline: none; 
+	color: #424242;
+	background: rgba(153, 153, 153, 0.2);
+	box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+	font-size: 14px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.4285714286;
 	text-decoration: none;
-	/* [4] */
-	cursor: pointer;}
-.btn:hover, a.page-numbers:hover, span.page-numbers:hover, .btn:active, a.page-numbers:active, span.page-numbers:active, .btn:focus, a.page-numbers:focus, span.page-numbers:focus, button:hover, button:active, button:focus, input[type="button"]:hover, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:active, input[type="submit"]:focus {
-	color: #616161; 
-	background-color: #fafafa;
-	text-decoration: none;}
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	-webkit-transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	        transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+	will-change: box-shadow, transform;}
+.btn::-moz-focus-inner, a.page-numbers::-moz-focus-inner, span.page-numbers::-moz-focus-inner, .btn--flat::-moz-focus-inner, .entry-terms a::-moz-focus-inner, button::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="reset"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner {
+	border: 0; }
+.btn:hover, a.page-numbers:hover, span.page-numbers:hover, .btn--flat:hover, .entry-terms a:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
+	background-color: rgba(153, 153, 153, 0.15); }
+.btn:focus:not(:active), a.page-numbers:focus:not(:active), span.page-numbers:focus:not(:active), .btn--flat:focus:not(:active), .entry-terms a:focus:not(:active), button:focus:not(:active), input[type="button"]:focus:not(:active), input[type="reset"]:focus:not(:active), input[type="submit"]:focus:not(:active) {
+	background-color: rgba(153, 153, 153, 0.4); 
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);}
+.btn:active, a.page-numbers:active, span.page-numbers:active, .btn--flat:active, .entry-terms a:active, button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active {
+	background-color: rgba(153, 153, 153, 0.4); 
+	box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);}
+
+.btn--flat, .entry-terms a {
+	box-shadow: none; }
+
+.entry-terms a {
+	height: auto; 
+	padding: 4px 6px;}
 
 /*------------------------------------*\
     #BLOCKQUOTES
@@ -1782,7 +1920,7 @@ blockquote, q {
 	quotes: "" ""; }
 
 blockquote {
-	margin: 0 24px; }
+	margin: 0 20px; }
 
 blockquote.alignleft, blockquote.alignright {
 	width: 33%; }
@@ -2216,5 +2354,3 @@ blockquote.alignleft, blockquote.alignright {
  * base line-height. This allows us to keep a consistent vertical rhythm.
  * As per: csswizardry.com/2012/06/single-direction-margin-declarations
  */
-h1, h2, h3, h4, h5, h6, hgroup, dl, blockquote, p, address, table, fieldset, figure, pre {
-	margin-bottom: 12px; }

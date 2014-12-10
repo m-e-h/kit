@@ -2,45 +2,73 @@
     #BUTTONS
 \*------------------------------------*/
 
-/**
- * 1. Allow us to style box model properties.
- * 2. Line different sized buttons up a little nicer.
- * 3. Make buttons inherit font styles (often necessary when styling `input`s as
- *    buttons).
- * 4. Reset/normalize some styles.
- * 5. Force all button-styled elements to appear clickable.
- * 6. Fixes odd inner spacing in IE7.
- * 7. Corrects inability to style clickable 'input' types in iOS.
- */
+// Default button colors
+$default-btn-color: rgba(#999999, 0.20);
+$default-btn-hover-color: rgba($default-btn-color, 0.15);
+$default-btn-active-color: rgba($default-btn-color, 0.40);
+$default-btn-text-color: #000;
+$default-flat-btn-focus-color: rgba(black, 0.12);
+
+// Focus shadow
+@mixin focus-shadow() {
+  box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
+}
 
 .btn,
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    display: inline-block; /* [1] */
-    vertical-align: middle; /* [2] */
-    font: inherit; /* [3] */
-    text-align: center; /* [4] */
-    border: none; /* [4] */
-    margin:  0; /* [4] */
-    cursor: pointer; /* [5] */
-    overflow: visible; /* [6] */
-    //-webkit-appearance: button; /* [7] */
     text-decoration: none;
-    padding: half($base-spacing-unit) $base-spacing-unit;
-    outline: 0;
-    background-color: $btn-bg;
-    color: $btn-text;
+    background: $default-btn-color;
+    border: none;
     border-radius: $base-radius;
+    color: $btn-text;
+    position: relative;
+    height: 36px;
+    min-width: 64px;
+    padding: 0 8px;
+    margin: 0 4px;
+    display: inline-block;
+    @include typo-button();
+    @include shadow-z1();
+    overflow: hidden;
+    will-change: box-shadow, transform;
+    transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
+              background-color 0.2s $animation-curve-default,
+              color 0.2s $animation-curve-default;
+    outline: none;
 
-    &:hover,
-    &:active,
-    &:focus {
-        text-decoration: none;
-    	background-color: $btn-bg-hover;
-        color: $btn-text;
+    &::-moz-focus-inner {
+      border: 0;
     }
+
+    &:hover {
+        background-color: $default-btn-hover-color;
+    }
+
+    &:focus:not(:active) {
+        @include focus-shadow();
+        background-color: $default-btn-active-color;
+    }
+
+    &:active {
+        @include shadow-z3();
+        background-color: $default-btn-active-color;
+    }
+
+
 
 }
 
+.btn--flat {
+    @extend .btn;
+    box-shadow: none;
+}
+
+
+.entry-terms a {
+  @extend .btn--flat;
+  padding: 4px 6px;
+  height: auto;
+}

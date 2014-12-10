@@ -43,8 +43,7 @@
 	<?php endif; // End single post check. ?>
 
 		<footer class="entry-footer">
-		<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'sep' => ' ' ) ); ?>
-		<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'sep' => ' ' ) ); ?>
+			<?php kit_entry_footer(); ?>
 		</footer><!-- .entry-footer -->
 
 </article><!-- .entry -->

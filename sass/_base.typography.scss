@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 @mixin typo-display-4($colorContrast:false) {
-  @include font-size($base-font-size + 98px);
+  @include font-size($base-font-size + 70px);
   font-weight: 300;
   letter-spacing: -0.04em;
 
@@ -13,7 +13,7 @@
 }
 
 @mixin typo-display-3($colorContrast:false) {
-  @include font-size($base-font-size + 42px);
+  @include font-size($base-font-size + 28px);
   font-weight: 400;
   letter-spacing: -0.02em;
 
@@ -23,7 +23,7 @@
 }
 
 @mixin typo-display-2($colorContrast:false) {
-  @include font-size($base-font-size + 31px);
+  @include font-size($base-font-size + 19px);
 
   @if $colorContrast {
     opacity: 0.54;
@@ -31,7 +31,7 @@
 }
 
 @mixin typo-display-1($colorContrast:false) {
-  @include font-size($base-font-size + 20px);
+  @include font-size($base-font-size + 10px);
   //font-size: 34px;
   //line-height: 40px;
 
@@ -41,7 +41,7 @@
 }
 
 @mixin typo-headline($colorContrast:false) {
-  @include font-size($base-font-size + 10px);
+  @include font-size($base-font-size + 6px);
   font-weight: 400;
   -moz-osx-font-smoothing: grayscale;
 
@@ -51,7 +51,7 @@
 }
 
 @mixin typo-title($colorContrast:false) {
-  @include font-size($base-font-size + 6px);
+  @include font-size($base-font-size + 4px);
   font-weight: 700;
   letter-spacing: 0.02em;
 
@@ -154,55 +154,6 @@
 }
 
 
-h1, h2, h3, h4, h5, h6, p {
-	margin: 0;
-	padding: 0;
-}
-
-/**
- * Styles for HTML elements
- */
-
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  @include typo-display-3($colorContrast:true);
-  font-size: 0.6em;
-}
-
-p {
-  @include typo-body-1();
-
-  margin: 0 0 16px 0;
-}
-
-article {
-a {
-  font-weight: bold;
-}
-}
-
-blockquote p {
-  @include typo-blockquote();
-}
-
-mark {
-  background-color: $color-gray-light;
-}
-
-code {
-	background-color: $color-gray-light;
-}
-
-dt {
-  font-weight: 900;
-}
-
-h1, h2, h3 {
-	a {
-		font-weight: inherit;
-		color: inherit;
-	}
-}
-
 /**
  * Class Name Styles
  */
@@ -259,7 +210,7 @@ h1, h2, h3 {
   @include typo-subhead();
 }
 
-.entry-meta, .Typography--subhead--colorContrast {
+.Typography--subhead--colorContrast {
   @include typo-subhead($colorContrast:true);
 }
 

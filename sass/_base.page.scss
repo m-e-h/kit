@@ -16,7 +16,7 @@
 */
 
 body {
-    font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+    font-family: $font-body;
 }
 
 
@@ -68,7 +68,9 @@ html {
 \*------------------------------------*/
 
 html {
-    @include font-size($base-font-size);
+    font-size: $base-font-size;
+    font-weight: 400;
+    line-height: $base-line-height;
     background-color: #fff;
     color: $color-text;
     min-height: 100%;

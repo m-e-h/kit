@@ -1,0 +1,56 @@
+/*------------------------------------*\
+    #HEADER
+\*------------------------------------*/
+
+.trail-begin {
+display: none;
+}
+
+.site-header {
+    margin: 0;
+    border: 0;
+    position: relative;
+    height: 60px;
+    min-height: 60px;
+    background-color: $color-header;
+    color: #eeeeee;
+    -webkit-transition-property: min-height, box-shadow;
+    transition-property: min-height, box-shadow;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    @include shadow-z1();
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    padding-left: 16px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-branding {
+@include typo-headline();
+display: flex;
+align-items: center;
+    @include sm-only {
+        @include typo-body-1();
+        display: block;
+        .trail-begin {
+            display: inline-block;
+        }
+    }
+}
+
+.breadcrumbs {
+padding-left: 10px;
+
+.sep {
+    @include font-icon();
+    opacity: 0.5;
+}
+a {
+    color: inherit;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+}
