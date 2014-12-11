@@ -1465,9 +1465,10 @@ embed, iframe, object {
 \*------------------------------------*/
 input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="date"], input[type="month"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="week"], input[type="number"], input[type="search"], input[type="tel"], input[type="color"], select, textarea {
 	display: inline-block;
+	box-sizing: border-box;
 	width: 100%;
-	height: 36px;
-	padding: 6px 10px;
+	height: 40px;
+	padding: 7px 10px;
 	border: 1px solid #cfd8dc;
 	/* The 6px vertically centers text on FF, ignored by Webkit */
 	border-radius: 2px;
@@ -1479,15 +1480,15 @@ Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
 since IE8 won't execute CSS that contains a CSS3 selector.
 */
 input:not([type]) {
-	height: 36px;
-	padding: 6px 10px;
+	height: 40px;
+	padding: 7px 10px;
 	border: 1px solid #cfd8dc;
 	border-radius: 4px;
 	background: #fff; 
 	box-shadow: none;}
 
 textarea {
-	min-height: 85px; }
+	min-height: 120px; }
 
 /* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
 /* May be able to remove this tweak as color inputs become more standardized across browsers. */
@@ -1554,7 +1555,7 @@ select[multiple] {
 
 label, legend {
 	display: block;
-	margin-bottom: 0.5rem; 
+	margin-bottom: 10px; 
 	font-weight: 600;}
 
 fieldset {
@@ -1566,7 +1567,7 @@ input[type="checkbox"], input[type="radio"] {
 
 label > .label-body {
 	display: inline-block;
-	margin-left: 0.5rem; 
+	margin-left: 10px; 
 	font-weight: normal;}
 
 /*------------------------------------*\

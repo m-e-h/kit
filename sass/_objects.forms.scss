@@ -18,11 +18,12 @@ input[type="tel"],
 input[type="color"],
 select,
 textarea {
+    box-sizing: border-box;
     display: inline-block;
     width: 100%;
     border: 1px solid $color-grey-ui;
-    height: 36px;
-    padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+    height: $base-spacing-unit-lg;
+    padding: 7px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
     border-radius: $base-radius;
     box-shadow: none;
     background: #fff;
@@ -34,15 +35,15 @@ since IE8 won't execute CSS that contains a CSS3 selector.
 */
 input:not([type]) {
     border: 1px solid $color-grey-ui;
-    height: 36px;
-    padding: 6px 10px;
+    height: $base-spacing-unit-lg;
+    padding: 7px 10px;
     border-radius: 4px;
     box-shadow: none;
     background: #fff;
 }
 
 textarea {
-  min-height: 85px;
+  min-height: $base-spacing-unit-lg * 3;
 }
 
 
@@ -163,7 +164,7 @@ label,
 legend {
   display: block;
   font-weight: 600;
-  margin-bottom: .5rem; 
+  margin-bottom: $base-spacing-unit-sm; 
 }
 
 fieldset {
@@ -179,5 +180,5 @@ input[type="radio"] {
 label > .label-body {
   display: inline-block;
   font-weight: normal;
-  margin-left: .5rem; 
+  margin-left: $base-spacing-unit-sm; 
 }
