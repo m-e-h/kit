@@ -17,8 +17,8 @@ function kit_loop_nav() {
   if ( is_singular( 'post' ) ) : ?>
 
 	<div class="loop-nav">
-		<?php previous_post_link( '<div class="prev">' . __( 'Previous Post: %link', 'kit' ) . '</div>', '%title' ); ?>
-		<?php next_post_link(     '<div class="next">' . __( 'Next Post: %link',     'kit' ) . '</div>', '%title' ); ?>
+		<?php previous_post_link( '<div class="prev">' . __( '&#xf060; %link', 'kit' ) . '</div>', '%title' ); ?>
+		<?php next_post_link(     '<div class="next">' . __( '%link &#xf061;',     'kit' ) . '</div>', '%title' ); ?>
 	</div><!-- .loop-nav -->
 
 <?php elseif ( is_home() || is_archive() || is_search() ) : ?>

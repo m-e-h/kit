@@ -7,30 +7,9 @@
  * @package kit
  */
 
-if ( ! function_exists( 'kit_byline' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time and author.
- */
-function kit_byline() { ?>
-				<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
-				<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
-	<?php
-}
-endif;
 
 
-if ( ! function_exists( 'kit_post_footer' ) ) :
-/**
- * Prints HTML with meta information for the categories, tags and comments.
- */
-function kit_post_footer() { ?>
-			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'text' => __( 'Posted in %s', 'kit' ) ) ); ?>
-			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'text' => __( 'Tagged %s', 'kit' ), 'before' => '<br />' ) ); ?>
-			<?php comments_popup_link( number_format_i18n( 0 ), number_format_i18n( 1 ), '%', 'comments-link', '' ); ?>
-			<?php edit_post_link(); ?>
-	<?php
-}
-endif;
+
 
 
 if ( ! function_exists( 'kit_comments_nav' ) ) :

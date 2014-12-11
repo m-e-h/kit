@@ -32,8 +32,6 @@
 
 @mixin typo-display-1($colorContrast:false) {
   @include font-size($base-font-size + 10px);
-  //font-size: 34px;
-  //line-height: 40px;
 
   @if $colorContrast {
     opacity: 0.54;
@@ -63,9 +61,7 @@
 @mixin typo-subhead($colorContrast:false) {
 
   @include font-size($base-font-size + 2px);
-  //font-size: 16px;
   font-weight: 400;
-  //line-height: 24px;
   letter-spacing: 0.04em;
 
   @if $colorContrast {
@@ -74,10 +70,8 @@
 }
 
 @mixin typo-body-2($colorContrast:false) {
-  //font-size: 14px;
   @include font-size($base-font-size);
   font-weight: 700;
-  //line-height: 24px;
   letter-spacing: 0.04em;
 
   @if $colorContrast {
@@ -88,7 +82,6 @@
 @mixin typo-body-1($colorContrast:false) {
 	@include font-size($base-font-size);
   font-weight: 400;
-  //line-height: 24px;
   letter-spacing: 0.04em;
 
   @if $colorContrast {
@@ -97,7 +90,7 @@
 }
 
 @mixin typo-caption($colorContrast:false) {
-	@include font-size($base-font-size - 2px);
+	@include font-size($base-font-size - 1px);
   font-weight: 400;
   letter-spacing: 0.08em;
 
@@ -129,9 +122,7 @@
 @mixin typo-menu($colorContrast:false) {
 
   @include font-size($base-font-size);
-  //font-size: 14px;
   font-weight: 700;
-  //line-height: 1;
   letter-spacing: 0.04em;
 
   @if $colorContrast {
@@ -142,10 +133,20 @@
 @mixin typo-button($colorContrast:false) {
 
   @include font-size($base-font-size);
-  //font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
-  //line-height: 1;
+  letter-spacing: 0.04em;
+
+  @if $colorContrast {
+    opacity: 0.87;
+  }
+}
+
+@mixin typo-button-sm($colorContrast:false) {
+
+  @include font-size($base-font-size - 1px);
+  font-weight: 400;
+  text-transform: capitalize;
   letter-spacing: 0.04em;
 
   @if $colorContrast {
@@ -289,5 +290,5 @@
 
 .Typography--tableStriped > tbody > tr:nth-child(odd) > td,
 .Typography--tableStriped > tbody > tr:nth-child(odd) > th {
-    background-color: $color-gray-light
+    background-color: $color-grey-light
 }
