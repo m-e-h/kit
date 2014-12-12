@@ -216,27 +216,34 @@ span.page-numbers {
 }
 
 
-.loop-nav {
+.post-navigation {
   position: relative;
-      .next, .prev {
+  width: 100%;
+  padding: 0 $base-spacing-unit-sm $base-spacing-unit-sm 0;
+  @include md {
+    padding: 0 $base-spacing-unit $base-spacing-unit 0;
+  }
+
+  .nav-links {
+    text-align: right;
+    }
+      .meta-nav {
       @include font-icon();
     }
-    a {
+    span {
       font-family: $font-body;
     }
 
-    .next {
-      float: right;
+    .nav-previous {
+      display: inline-block;
+      float: left;
+      margin: 2px;
+    }
+    .nav-next {
+      display: inline-block;
+      margin: 2px;
     }
 
-    &:before {
-content: "";
-border-left: 2px solid #e0e0e0;
-height: 100%;
-position: absolute;
-top: 0;
-left: 50%;
-}
 
 }
 

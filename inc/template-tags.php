@@ -7,33 +7,6 @@
  * @package Kit
  */
 
-if ( ! function_exists( 'kit_loop_nav' ) ) :
-/**
- * Display paginated navigation to next/previous set of posts when applicable.
- *
- * http://themehybrid.com/docs/loop-pagination
- */
-function kit_loop_nav() {
-  if ( is_singular( 'post' ) ) : ?>
-
-	<div class="loop-nav">
-		<?php previous_post_link( '<div class="prev">' . __( '&#xf060; %link', 'kit' ) . '</div>', '%title' ); ?>
-		<?php next_post_link(     '<div class="next">' . __( '%link &#xf061;',     'kit' ) . '</div>', '%title' ); ?>
-	</div><!-- .loop-nav -->
-
-<?php elseif ( is_home() || is_archive() || is_search() ) : ?>
-
-	<?php loop_pagination(
-		array(
-			'prev_text' => _x( '&#xf053;', 'posts navigation', 'kit' ),
-			'next_text' => _x( '&#xf054;',     'posts navigation', 'kit' ),
-		)
-	); ?>
-
-<?php endif; // End check for type of page being viewed. ?>
-	<?php
-}
-endif;
 
 if ( ! function_exists( 'kit_posted_on' ) ) :
 /**

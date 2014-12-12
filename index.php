@@ -7,45 +7,64 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area grid-item all-1 md-3-4">
-	<main id="main" class="site-main" role="main">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
-	<?php if ( !is_front_page() && !is_singular() && !is_404() ) : ?>
+		<?php if ( !is_front_page() && !is_singular() && !is_404() ) : ?>
 
-		<header class="page-header">
+			<header class="page-header">
+			<?php
+				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_description( '<div class="taxonomy-description">', '</div>' );
+			?>
+			</header><!-- .page-header -->
+
+		<?php endif; // End check for multi-post page. ?>
+
 		<?php
-			the_archive_title( '<h1 class="page-title">', '</h1>' );
-			the_archive_description( '<div class="taxonomy-description">', '</div>' );
-		?>
-		</header><!-- .page-header -->
+		// Start the Loop.
+		if ( have_posts() ) :
 
-	<?php endif; // End check for multi-post page. ?>
+			while ( have_posts() ) : the_post();
 
-		<?php if ( have_posts() ) : ?>
+				hybrid_get_content_template();
 
-			<?php while ( have_posts() ) : the_post(); ?>
+				if ( is_singular( 'post' ) ) :
 
-				<?php hybrid_get_content_template(); // content/*.php ?>
+	            	comments_template( '', true );
 
-				<?php if ( is_singular() ) : ?>
+					// Previous/next post navigation.
+					the_post_navigation( array(
+						'prev_text' => _x( '<button class="meta-nav">&#xf060; <span class="screen-reader-text">post: </span><span class="post-title">%title</span></button>', 'Previous post link', 'kit' ),
+						'next_text' => _x( '<button class="meta-nav"><span class="screen-reader-text">post: </span><span class="post-title">%title</span> &#xf061;</button>', 'Next post link', 'kit' )
+					) );
 
-	            			<?php comments_template( '', true ); // comments.php ?>
+				endif; // End check for single post.
 
-	        			<?php endif; // End check for single post. ?>
+			endwhile;
 
-			<?php endwhile; ?>
+				if ( is_home() || is_archive() || is_search() ) :
 
-			<?php kit_loop_nav(); ?>
+					// Previous/next page navigation.
+					the_posts_pagination( array(
+						'prev_text'          => __( '&#xf060;', 'kit' ),
+						'next_text'          => __( '&#xf061;', 'kit' ),
+						'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'kit' ) . ' </span>',
+					) ); 
 
-		<?php else : ?>
+				endif; // End check for type of page being viewed.
 
-			<?php get_template_part( 'content/none.php' ); ?>
+		// If no content, include the "No posts found" template.
+		else :
+			get_template_part( 'content/none.php' );
 
-		<?php endif; // End check for posts. ?>
+		endif; // End check for posts.
+			?>
 
-	</main><!-- #main -->
+		</main><!-- #main -->
 
-</div><!-- #primary -->
-<?php hybrid_get_sidebar( 'primary' );  ?>
+	</div><!-- #primary -->
+
+<?php hybrid_get_sidebar( 'primary' ); ?>
 
 <?php get_footer(); ?>

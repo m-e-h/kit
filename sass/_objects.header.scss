@@ -9,11 +9,13 @@ display: none;
 .site-header {
     margin: 0;
     border: 0;
-    position: relative;
-    height: 60px;
-    min-height: 60px;
+    position: fixed;
+    width: 100%;
+    height: $base-spacing-unit * 3;
+    min-height: $base-spacing-unit * 3;
     background-color: $color-header;
     color: #eeeeee;
+    z-index: 5;
     -webkit-transition-property: min-height, box-shadow;
     transition-property: min-height, box-shadow;
     -webkit-transition-duration: 0.2s;
@@ -21,7 +23,7 @@ display: none;
     @include shadow-z1();
     -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    padding-left: 16px;
+    padding: 0 $base-spacing-unit;
 
     display: flex;
     justify-content: space-between;
