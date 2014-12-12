@@ -449,9 +449,6 @@ td, th {
 .hentry {
 	margin: 0 0 20px; }
 
-.byline, .updated:not(.published) {
-	display: none; }
-
 .single .byline, .group-blog .byline {
 	display: inline; }
 
@@ -652,13 +649,13 @@ img.wp-smiley {
 /**
  * Modifier: middle-align grid items
  */
-.grid--middle > .grid-item, .grid--middle > .gallery-item, .layout-2c-l .grid--middle > .content-area, .layout-2c-l .grid--middle > .sidebar__primary {
+.grid--middle > .grid-item, .grid--middle > .gallery-item, .layout-2c-l .grid--middle > .content-area, .layout-2c-l .grid--middle > .sidebar__primary, .layout-2c-r .site-content .grid--middle > .content-area, .layout-2c-r .site-content .grid--middle > .sidebar__primary {
 	vertical-align: middle; }
 
 /**
  * Modifier: bottom-align grid items
  */
-.grid--bottom > .grid-item, .grid--bottom > .gallery-item, .layout-2c-l .grid--bottom > .content-area, .layout-2c-l .grid--bottom > .sidebar__primary {
+.grid--bottom > .grid-item, .grid--bottom > .gallery-item, .layout-2c-l .grid--bottom > .content-area, .layout-2c-l .grid--bottom > .sidebar__primary, .layout-2c-r .site-content .grid--bottom > .content-area, .layout-2c-r .site-content .grid--bottom > .sidebar__primary {
 	vertical-align: bottom; }
 
 /**
@@ -669,7 +666,7 @@ img.wp-smiley {
 	text-align: left; 
 
 	direction: rtl;}
-.grid--rev > .grid-item, .grid--rev > .gallery-item, .layout-2c-l .grid--rev > .content-area, .layout-2c-l .grid--rev > .sidebar__primary {
+.grid--rev > .grid-item, .grid--rev > .gallery-item, .layout-2c-l .grid--rev > .content-area, .layout-2c-l .grid--rev > .sidebar__primary, .layout-2c-r .site-content .grid--rev > .content-area, .layout-2c-r .site-content .grid--rev > .sidebar__primary {
 	text-align: left; 
 
 	direction: ltr;}
@@ -683,7 +680,7 @@ img.wp-smiley {
  */
 .grid--with-gutter {
 	margin: -10px; }
-.grid--with-gutter > .grid-item, .grid--with-gutter > .gallery-item, .layout-2c-l .grid--with-gutter > .content-area, .layout-2c-l .grid--with-gutter > .sidebar__primary {
+.grid--with-gutter > .grid-item, .grid--with-gutter > .gallery-item, .layout-2c-l .grid--with-gutter > .content-area, .layout-2c-l .grid--with-gutter > .sidebar__primary, .layout-2c-r .site-content .grid--with-gutter > .content-area, .layout-2c-r .site-content .grid--with-gutter > .sidebar__primary {
 	padding: 0 10px; }
 
 /*------------------------------------*\
@@ -699,7 +696,7 @@ img.wp-smiley {
  * 4. Controls vertical positioning of units.
  * 5. Make cells full-width by default.
  */
-.grid-item, .gallery-item, .layout-2c-l .content-area, .layout-2c-l .sidebar__primary {
+.grid-item, .gallery-item, .layout-2c-l .content-area, .layout-2c-l .sidebar__primary, .layout-2c-r .site-content .content-area, .layout-2c-r .site-content .sidebar__primary {
 	display: inline-block;
 	box-sizing: border-box;
 	/* 4 */
@@ -1248,13 +1245,18 @@ dd {
 /*------------------------------------*\
     ##Layout 2 Column Right
 \*------------------------------------*/
-.layout-2c-r .content-area {
-	-webkit-box-ordinal-group: 2;
-	-webkit-order: 1;
-	-ms-flex-order: 1;
-	        order: 1; }
-.layout-2c-r .sidebar__primary {
-	overflow: hidden; }
+.layout-2c-r .site-content {
+	text-align: left; 
+
+	direction: rtl;}
+.layout-2c-r .site-content .content-area {
+	text-align: left; 
+
+	direction: ltr;}
+.layout-2c-r .site-content .sidebar__primary {
+	text-align: left; 
+
+	direction: ltr;}
 
 /*------------------------------------*\
     #HEADINGS
@@ -2147,7 +2149,7 @@ blockquote.alignleft, blockquote.alignright {
 
 		*width: 24.969%; }
 
-	.md-1-3, .gallery-col-3 .gallery-item, .layout-2c-l .sidebar__primary, .sidebar-col-3 .widget, .md-4-12 {
+	.md-1-3, .gallery-col-3 .gallery-item, .layout-2c-l .sidebar__primary, .layout-2c-r .site-content .sidebar__primary, .sidebar-col-3 .widget, .md-4-12 {
 		width: 33.3333%;
 
 		*width: 33.3023%; }
@@ -2167,7 +2169,7 @@ blockquote.alignleft, blockquote.alignright {
 
 		*width: 58.3023%; }
 
-	.md-2-3, .layout-2c-l .content-area, .md-8-12 {
+	.md-2-3, .layout-2c-l .content-area, .layout-2c-r .site-content .content-area, .md-8-12 {
 		width: 66.6667%;
 
 		*width: 66.6357%; }

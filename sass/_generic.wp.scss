@@ -73,11 +73,6 @@
 	margin: 0 0 $base-spacing-unit;
 }
 
-.byline,
-.updated:not(.published){
-	display: none;
-}
-
 .single .byline,
 .group-blog .byline {
 	display: inline;

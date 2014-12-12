@@ -65,6 +65,11 @@ function kit_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	/**
+	 * Support for Post Thumbnails on posts and pages.
+	 */
+	add_theme_support( 'post-thumbnails' );
+
+	/**
 	 * WordPress manages the document title.
 	 * This theme does not use a hard-coded <title> tag.
 	 */
@@ -74,9 +79,9 @@ function kit_setup() {
 	 * Theme layouts.
 	 */
 	add_theme_support( 'theme-layouts', array(
-			'1c'        => __( '1 Column',                     'kit' ),
-			'2c-l'      => __( '2 Columns: Content / Sidebar', 'kit' ),
-			'2c-r'      => __( '2 Columns: Sidebar / Content', 'kit' )
+			'1c'  	=> __( '1 Column', 'kit' ),
+			'2c-l' 	=> __( '2 Columns: Content / Sidebar', 'kit' ),
+			'2c-r' 	=> __( '2 Columns: Sidebar / Content', 'kit' )
 		),
 		array( 'default' => is_rtl() ? '2c-r' :'2c-l' )
 	);
@@ -85,13 +90,8 @@ function kit_setup() {
 	 * Post Formats.
 	 */
 	add_theme_support( 'post-formats', array(
-		'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video'
+		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 	) );
-
-	/**
-	 * Support for Post Thumbnails on posts and pages.
-	 */
-	add_theme_support( 'post-thumbnails' );
 }
 endif; // kit_setup
 
@@ -99,7 +99,7 @@ endif; // kit_setup
  * Content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 1100; /* pixels */
+	$content_width = 660; /* pixels */
 }
 
 /**

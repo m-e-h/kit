@@ -8,11 +8,6 @@
 
 			<h1 <?php hybrid_attr( 'entry-title' ); ?>><?php single_post_title(); ?></h1>
 
-			<div class="entry-meta">
-			  <?php hybrid_post_format_link(); ?>
-				<?php kit_posted_on(); ?>
-			</div><!-- .entry-meta -->
-
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
@@ -25,10 +20,6 @@
 		<header class="entry-header">
 
 			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>
-
-			<div class="entry-meta">
-				<?php kit_posted_on(); ?>
-			</div><!-- .entry-meta -->
 
 		</header><!-- .entry-header -->
 

@@ -76,12 +76,41 @@
 \*------------------------------------*/
 .layout-2c-r {
 
-	.content-area {
-		order: 1;
-	}
+	// .content-area {
+	// 	order: 1;
+	// 	@extend .grid-item;
+	// 	@extend .md-2-3;
+	// 	float: right;
+	// }
+
+	// .sidebar__primary {
+	// 	@extend .grid-item;
+	// 	@extend .md-1-3;
+	// 	float: left;
+	// }
+
+// 	.site-footer {
+// 	clear: both;
+// 	width: 100%;
+// }
+
+.site-content {
+    direction:rtl;
+    text-align:left;
+
+    	.content-area {
+        direction:ltr;
+        text-align:left;
+        @extend .grid-item;
+        @extend .md-2-3;
+    }
 
 	.sidebar__primary {
-		overflow: hidden;
-	}
+        direction:ltr;
+        text-align:left;
+        @extend .grid-item;
+        @extend .md-1-3;
+    }
+}
 
 }

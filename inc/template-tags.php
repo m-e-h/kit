@@ -44,16 +44,27 @@ if ( ! function_exists( 'kit_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function kit_entry_footer() {
-			hybrid_post_terms( array( 
-			'taxonomy' => 'category',
-			'sep' => ' ' 
+function kit_entry_footer() {  ?>
+	<div class="entry-meta">
+		<?php hybrid_post_format_link(); ?>
+	<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
+	<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
+	<?php edit_post_link(); ?>
+	<?php comments_popup_link( false, false, false, 'comments-link' ); ?>
+	</div>
+	<?php
+		hybrid_post_terms( array( 
+			'taxonomy'	=> 'category',
+			'sep' 		=> ' ',
+			'before' 	=> '<br />'
 			) );
-			hybrid_post_terms( array( 
-			'taxonomy' => 'post_tag', 
-			'sep' => ' ' 
-			) ); 
-}
+		hybrid_post_terms( array( 
+			'taxonomy' 	=> 'post_tag', 
+			'sep' 		=> ' ',
+			'before' 	=> '<br />' 
+			) );
+	?>
+<?php }
 endif;
 
 if ( ! function_exists( 'the_archive_title' ) ) :

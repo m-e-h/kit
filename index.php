@@ -62,7 +62,6 @@ get_header(); ?>
 			?>
 
 		</main><!-- #main -->
-
 	</div><!-- #primary -->
 
 <?php hybrid_get_sidebar( 'primary' ); ?>
