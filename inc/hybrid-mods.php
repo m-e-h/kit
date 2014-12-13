@@ -77,6 +77,16 @@ function doc_attr_site_description( $attr ) {
 
 
 
+add_filter( 'comment_form_defaults', 'remove_comment_form_allowed_tags' );
+function remove_comment_form_allowed_tags( $defaults ) {
+
+	$defaults['comment_notes_after'] = '';
+	return $defaults;
+
+}
+
+
+
 add_action( 'init', 'kit_clean_head' );
 function kit_clean_head() {
 remove_action( 'wp_head', 'wp_generator', 		1 );
