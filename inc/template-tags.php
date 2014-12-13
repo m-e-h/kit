@@ -7,59 +7,6 @@
  * @package Kit
  */
 
-if ( ! function_exists( 'kit_paging_nav' ) ) :
-/**
- * Display navigation to next/previous set of posts when applicable.
- */
-function kit_paging_nav() {
-	// Don't print empty markup if there's only one page.
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-		return;
-	}
-	?>
-	<nav class="navigation paging-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'kit' ); ?></h1>
-		<div class="nav-links">
-
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'kit' ) ); ?></div>
-			<?php endif; ?>
-
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'kit' ) ); ?></div>
-			<?php endif; ?>
-
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
-}
-endif;
-
-if ( ! function_exists( 'kit_post_nav' ) ) :
-/**
- * Display navigation to next/previous post when applicable.
- */
-function kit_post_nav() {
-	// Don't print empty markup if there's nowhere to navigate.
-	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
-	$next     = get_adjacent_post( false, '', false );
-
-	if ( ! $next && ! $previous ) {
-		return;
-	}
-	?>
-	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'kit' ); ?></h1>
-		<div class="nav-links">
-			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'kit' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'kit' ) );
-			?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
-	<?php
-}
-endif;
 
 if ( ! function_exists( 'kit_posted_on' ) ) :
 /**
@@ -97,30 +44,27 @@ if ( ! function_exists( 'kit_entry_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function kit_entry_footer() {
-	// Hide category and tag text for pages.
-	if ( 'post' == get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( __( ', ', 'kit' ) );
-		if ( $categories_list && kit_categorized_blog() ) {
-			printf( '<span class="cat-links">' . __( 'Posted in %1$s', 'kit' ) . '</span>', $categories_list );
-		}
-
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', __( ', ', 'kit' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . __( 'Tagged %1$s', 'kit' ) . '</span>', $tags_list );
-		}
-	}
-
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( __( 'Leave a comment', 'kit' ), __( '1 Comment', 'kit' ), __( '% Comments', 'kit' ) );
-		echo '</span>';
-	}
-
-	edit_post_link( __( 'Edit', 'kit' ), '<span class="edit-link">', '</span>' );
-}
+function kit_entry_footer() {  ?>
+	<div class="entry-meta">
+		<?php hybrid_post_format_link(); ?>
+	<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
+	<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
+	<?php edit_post_link(); ?>
+	<?php comments_popup_link( false, false, false, 'comments-link' ); ?>
+	</div>
+	<?php
+		hybrid_post_terms( array( 
+			'taxonomy'	=> 'category',
+			'sep' 		=> ' ',
+			'before' 	=> '<br />'
+			) );
+		hybrid_post_terms( array( 
+			'taxonomy' 	=> 'post_tag', 
+			'sep' 		=> ' ',
+			'before' 	=> '<br />' 
+			) );
+	?>
+<?php }
 endif;
 
 if ( ! function_exists( 'the_archive_title' ) ) :

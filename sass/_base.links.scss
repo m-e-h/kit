@@ -3,15 +3,16 @@
 \*------------------------------------*/
 
 a {
-	color: $color__link;
+	color: $color-links;
+	text-decoration: none;
 
 	&:visited {
-		color: $color__link-visited;
+		color: $color-links-visited;
 	}
 	&:hover,
 	&:focus,
 	&:active {
-		color: $color__link-hover;
+		color: $color-links-hover;
 	}
 }
 
@@ -24,5 +25,11 @@ input[type="submit"],
 textarea:focus,
 .button,
 .gallery img {
-	@include base-transition;
+	//@include base-transition;
+}
+
+p {
+a {
+  font-weight: bold;
+}
 }

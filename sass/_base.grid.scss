@@ -2,529 +2,119 @@
 	#GRIDS
 \*------------------------------------*/
 
+/**
+ * All content must be contained within child `grid-item` elements.
+ *
+ * 1. Account for browser defaults of elements that might be the root node of
+ *    the component.
+ * 2. Ensure consistent default alignment.
+ */
 
 .grid {
-    letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
-    *letter-spacing: normal; /* reset IE < 8 */
-    *word-spacing: -0.43em; /* IE < 8: collapse white-space between units */
-    text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
-    display: flex; /* Use flexbox when possible to avoid `letter-spacing` side-effects. */
-    flex-wrap: wrap;
-    width: 100%;
+  display: block; /* 1 */
+  margin: 0; /* 1 */
+  padding: 0; /* 1 */
+  text-align: left; /* 2 */
 }
 
-/* Opera as of 12 on Windows needs word-spacing.
-   The ".opera-only" selector is used to prevent actual prefocus styling
-   and is not required in markup.
-*/
-.opera-only :-o-prefocus,
-.grid {
-    word-spacing: -0.43em;
+/**
+ * Modifier: center align all grid items
+ */
+
+.grid--center {
+  text-align: center;
 }
+
+/**
+ * Modifier: right align all grid items
+ */
+
+.grid--right {
+  text-align: right;
+}
+
+/**
+ * Modifier: middle-align grid items
+ */
+
+.grid--middle > .grid-item {
+  vertical-align: middle;
+}
+
+/**
+ * Modifier: bottom-align grid items
+ */
+
+.grid--bottom > .grid-item {
+  vertical-align: bottom;
+}
+
+/**
+ * Reversed grids allow you to structure your source in the opposite order to
+ * how your rendered layout will appear. Extends `.grid`.
+ */
+.grid--rev {
+    direction:rtl;
+    text-align:left;
+
+    > .grid-item {
+        direction:ltr;
+        text-align:left;
+    }
+}
+
+/**
+ * Modifier: gutters
+ *
+ * NOTE: this can trigger a horizontal scrollbar if the component is as wide as
+ * the viewport. Use padding on a container, or `overflow-x:hidden` to protect
+ * against it.
+ */
+
+.grid--with-gutter {
+  margin: 0 -$base-spacing-unit-sm;
+
+    > .grid-item {
+        padding: 0 $base-spacing-unit-sm;
+    }
+}
+
+
+
+
+/*------------------------------------*\
+	##Grid-items
+\*------------------------------------*/
+
+/**
+ * No explicit width by default. Rely on combining `grid-item` with a dimension
+ * utility or a component class that extends 'grid'.
+ *
+ * 1. Fundamentals of the non-float grid layout.
+ * 2. IE < 8: fake inline-block
+ * 3. Keeps content correctly aligned with the grid direction.
+ * 4. Controls vertical positioning of units.
+ * 5. Make cells full-width by default.
+ */
 
 .grid-item {
-    display: inline-block;
-    *display: inline; /* IE < 8: fake inline-block */
-    zoom: 1;
-    letter-spacing: normal;
-    word-spacing: normal;
-    vertical-align: top;
+  box-sizing: border-box;
+  display: inline-block; /* 1 */
+  *display: inline; /* 2 */
+  margin: 0;
+  padding: 0;
+  text-align: left; /* 3 */
+  vertical-align: top; /* 4 */
+  width: 100%; /* 5 */
 }
 
-.grid-item-1,
-.grid-item-1-1,
-.grid-item-1-2,
-.grid-item-1-3,
-.grid-item-2-3,
-.grid-item-1-4,
-.grid-item-3-4,
-.grid-item-1-6,
-.grid-item-5-6,
-.grid-item-1-12,
-.grid-item-2-12,
-.grid-item-3-12,
-.grid-item-4-12,
-.grid-item-5-12,
-.grid-item-6-12,
-.grid-item-7-12,
-.grid-item-8-12,
-.grid-item-9-12,
-.grid-item-10-12,
-.grid-item-11-12,
-.grid-item-12-12 {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    letter-spacing: normal;
-    word-spacing: normal;
-    vertical-align: top;
-    text-rendering: auto;
-}
-
-.grid-item-1-12 {
-    width: 8.3333%;
-    *width: 8.3023%;
-}
-
-.grid-item-1-6,
-.grid-item-2-12 {
-    width: 16.6667%;
-    *width: 16.6357%;
-}
-
-.grid-item-1-4,
-.grid-item-3-12 {
-    width: 25%;
-    *width: 24.9690%;
-}
-
-.grid-item-1-3,
-.grid-item-4-12 {
-    width: 33.3333%;
-    *width: 33.3023%;
-}
-
-.grid-item-5-12 {
-    width: 41.6667%;
-    *width: 41.6357%;
-}
-
-.grid-item-1-2,
-.grid-item-6-12 {
-    width: 50%;
-    *width: 49.9690%;
-}
-
-.grid-item-7-12 {
-    width: 58.3333%;
-    *width: 58.3023%;
-}
-
-.grid-item-2-3,
-.grid-item-8-12 {
-    width: 66.6667%;
-    *width: 66.6357%;
-}
-
-.grid-item-3-4,
-.grid-item-9-12 {
-    width: 75%;
-    *width: 74.9690%;
-}
-
-.grid-item-5-6,
-.grid-item-10-12 {
-    width: 83.3333%;
-    *width: 83.3023%;
-}
-
-.grid-item-11-12 {
-    width: 91.6667%;
-    *width: 91.6357%;
-}
-
-.grid-item-1,
-.grid-item-1-1,
-.grid-item-12-12 {
-    width: 100%;
-}
-
-@include xl {
-    .grid-item-sm-1,
-    .grid-item-sm-1-1,
-    .grid-item-sm-1-2,
-    .grid-item-sm-1-3,
-    .grid-item-sm-2-3,
-    .grid-item-sm-1-4,
-    .grid-item-sm-3-4,
-    .grid-item-sm-1-6,
-    .grid-item-sm-5-6,
-    .grid-item-sm-1-12,
-    .grid-item-sm-2-12,
-    .grid-item-sm-3-12,
-    .grid-item-sm-4-12,
-    .grid-item-sm-5-12,
-    .grid-item-sm-6-12,
-    .grid-item-sm-7-12,
-    .grid-item-sm-8-12,
-    .grid-item-sm-9-12,
-    .grid-item-sm-10-12,
-    .grid-item-sm-11-12,
-    .grid-item-sm-12-12 {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
-    }
-
-    .grid-item-sm-1-12 {
-        width: 8.3333%;
-        *width: 8.3023%;
-    }
-
-    .grid-item-sm-1-6,
-    .grid-item-sm-2-12 {
-        width: 16.6667%;
-        *width: 16.6357%;
-    }
-
-    .grid-item-sm-1-4,
-    .grid-item-sm-3-12 {
-        width: 25%;
-        *width: 24.9690%;
-    }
-
-    .grid-item-sm-1-3,
-    .grid-item-sm-4-12 {
-        width: 33.3333%;
-        *width: 33.3023%;
-    }
-
-    .grid-item-sm-5-12 {
-        width: 41.6667%;
-        *width: 41.6357%;
-    }
-
-    .grid-item-sm-1-2,
-    .grid-item-sm-6-12 {
-        width: 50%;
-        *width: 49.9690%;
-    }
-
-    .grid-item-sm-7-12 {
-        width: 58.3333%;
-        *width: 58.3023%;
-    }
-
-    .grid-item-sm-2-3,
-    .grid-item-sm-8-12 {
-        width: 66.6667%;
-        *width: 66.6357%;
-    }
-
-    .grid-item-sm-3-4,
-    .grid-item-sm-9-12 {
-        width: 75%;
-        *width: 74.9690%;
-    }
-
-    .grid-item-sm-5-6,
-    .grid-item-sm-10-12 {
-        width: 83.3333%;
-        *width: 83.3023%;
-    }
-
-    .grid-item-sm-11-12 {
-        width: 91.6667%;
-        *width: 91.6357%;
-    }
-
-    .grid-item-sm-1,
-    .grid-item-sm-1-1,
-    .grid-item-sm-12-12 {
-        width: 100%;
-    }
-}
-
-@include md {
-    .grid-item-md-1,
-    .grid-item-md-1-1,
-    .grid-item-md-1-2,
-    .grid-item-md-1-3,
-    .grid-item-md-2-3,
-    .grid-item-md-1-4,
-    .grid-item-md-3-4,
-    .grid-item-md-1-6,
-    .grid-item-md-5-6,
-    .grid-item-md-1-12,
-    .grid-item-md-2-12,
-    .grid-item-md-3-12,
-    .grid-item-md-4-12,
-    .grid-item-md-5-12,
-    .grid-item-md-6-12,
-    .grid-item-md-7-12,
-    .grid-item-md-8-12,
-    .grid-item-md-9-12,
-    .grid-item-md-10-12,
-    .grid-item-md-11-12,
-    .grid-item-md-12-12 {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
-    }
-
-    .grid-item-md-1-12 {
-        width: 8.3333%;
-        *width: 8.3023%;
-    }
-
-    .grid-item-md-1-6,
-    .grid-item-md-2-12 {
-        width: 16.6667%;
-        *width: 16.6357%;
-    }
-
-    .grid-item-md-1-4,
-    .grid-item-md-3-12 {
-        width: 25%;
-        *width: 24.9690%;
-    }
-
-    .grid-item-md-1-3,
-    .grid-item-md-4-12 {
-        width: 33.3333%;
-        *width: 33.3023%;
-    }
-
-    .grid-item-md-5-12 {
-        width: 41.6667%;
-        *width: 41.6357%;
-    }
-
-    .grid-item-md-1-2,
-    .grid-item-md-6-12 {
-        width: 50%;
-        *width: 49.9690%;
-    }
-
-    .grid-item-md-7-12 {
-        width: 58.3333%;
-        *width: 58.3023%;
-    }
-
-    .grid-item-md-2-3,
-    .grid-item-md-8-12 {
-        width: 66.6667%;
-        *width: 66.6357%;
-    }
-
-    .grid-item-md-3-4,
-    .grid-item-md-9-12 {
-        width: 75%;
-        *width: 74.9690%;
-    }
-
-    .grid-item-md-5-6,
-    .grid-item-md-10-12 {
-        width: 83.3333%;
-        *width: 83.3023%;
-    }
-
-    .grid-item-md-11-12 {
-        width: 91.6667%;
-        *width: 91.6357%;
-    }
-
-    .grid-item-md-1,
-    .grid-item-md-1-1,
-    .grid-item-md-12-12 {
-        width: 100%;
-    }
-}
-
-@include lg {
-    .grid-item-lg-1,
-    .grid-item-lg-1-1,
-    .grid-item-lg-1-2,
-    .grid-item-lg-1-3,
-    .grid-item-lg-2-3,
-    .grid-item-lg-1-4,
-    .grid-item-lg-3-4,
-    .grid-item-lg-1-6,
-    .grid-item-lg-5-6,
-    .grid-item-lg-1-12,
-    .grid-item-lg-2-12,
-    .grid-item-lg-3-12,
-    .grid-item-lg-4-12,
-    .grid-item-lg-5-12,
-    .grid-item-lg-6-12,
-    .grid-item-lg-7-12,
-    .grid-item-lg-8-12,
-    .grid-item-lg-9-12,
-    .grid-item-lg-10-12,
-    .grid-item-lg-11-12,
-    .grid-item-lg-12-12 {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
-    }
-
-    .grid-item-lg-1-12 {
-        width: 8.3333%;
-        *width: 8.3023%;
-    }
-
-    .grid-item-lg-1-6,
-    .grid-item-lg-2-12 {
-        width: 16.6667%;
-        *width: 16.6357%;
-    }
-
-    .grid-item-lg-1-4,
-    .grid-item-lg-3-12 {
-        width: 25%;
-        *width: 24.9690%;
-    }
-
-    .grid-item-lg-1-3,
-    .grid-item-lg-4-12 {
-        width: 33.3333%;
-        *width: 33.3023%;
-    }
-
-    .grid-item-lg-5-12 {
-        width: 41.6667%;
-        *width: 41.6357%;
-    }
-
-    .grid-item-lg-1-2,
-    .grid-item-lg-6-12 {
-        width: 50%;
-        *width: 49.9690%;
-    }
-
-    .grid-item-lg-7-12 {
-        width: 58.3333%;
-        *width: 58.3023%;
-    }
-
-    .grid-item-lg-2-3,
-    .grid-item-lg-8-12 {
-        width: 66.6667%;
-        *width: 66.6357%;
-    }
-
-    .grid-item-lg-3-4,
-    .grid-item-lg-9-12 {
-        width: 75%;
-        *width: 74.9690%;
-    }
-
-    .grid-item-lg-5-6,
-    .grid-item-lg-10-12 {
-        width: 83.3333%;
-        *width: 83.3023%;
-    }
-
-    .grid-item-lg-11-12 {
-        width: 91.6667%;
-        *width: 91.6357%;
-    }
-
-    .grid-item-lg-1,
-    .grid-item-lg-1-1,
-    .grid-item-lg-12-12 {
-        width: 100%;
-    }
-}
-
-@include xl {
-    .grid-item-xl-1,
-    .grid-item-xl-1-1,
-    .grid-item-xl-1-2,
-    .grid-item-xl-1-3,
-    .grid-item-xl-2-3,
-    .grid-item-xl-1-4,
-    .grid-item-xl-3-4,
-    .grid-item-xl-1-6,
-    .grid-item-xl-5-6,
-    .grid-item-xl-1-12,
-    .grid-item-xl-2-12,
-    .grid-item-xl-3-12,
-    .grid-item-xl-4-12,
-    .grid-item-xl-5-12,
-    .grid-item-xl-6-12,
-    .grid-item-xl-7-12,
-    .grid-item-xl-8-12,
-    .grid-item-xl-9-12,
-    .grid-item-xl-10-12,
-    .grid-item-xl-11-12,
-    .grid-item-xl-12-12 {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
-    }
-
-    .grid-item-xl-1-12 {
-        width: 8.3333%;
-        *width: 8.3023%;
-    }
-
-    .grid-item-xl-1-6,
-    .grid-item-xl-2-12 {
-        width: 16.6667%;
-        *width: 16.6357%;
-    }
-
-    .grid-item-xl-1-4,
-    .grid-item-xl-3-12 {
-        width: 25%;
-        *width: 24.9690%;
-    }
-
-    .grid-item-xl-1-3,
-    .grid-item-xl-4-12 {
-        width: 33.3333%;
-        *width: 33.3023%;
-    }
-
-    .grid-item-xl-5-12 {
-        width: 41.6667%;
-        *width: 41.6357%;
-    }
-
-    .grid-item-xl-1-2,
-    .grid-item-xl-6-12 {
-        width: 50%;
-        *width: 49.9690%;
-    }
-
-    .grid-item-xl-7-12 {
-        width: 58.3333%;
-        *width: 58.3023%;
-    }
-
-    .grid-item-xl-2-3,
-    .grid-item-xl-8-12 {
-        width: 66.6667%;
-        *width: 66.6357%;
-    }
-
-    .grid-item-xl-3-4,
-    .grid-item-xl-9-12 {
-        width: 75%;
-        *width: 74.9690%;
-    }
-
-    .grid-item-xl-5-6,
-    .grid-item-xl-10-12 {
-        width: 83.3333%;
-        *width: 83.3023%;
-    }
-
-    .grid-item-xl-11-12 {
-        width: 91.6667%;
-        *width: 91.6357%;
-    }
-
-    .grid-item-xl-1,
-    .grid-item-xl-1-1,
-    .grid-item-xl-12-12 {
-        width: 100%;
-    }
+/**
+ * Modifier: horizontally center one unit
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child `grid` object.
+ */
+
+.grid-item--center {
+  display: block;
+  margin: 0 auto;
 }

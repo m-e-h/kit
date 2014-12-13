@@ -2,12 +2,6 @@
 //    #MIXINS
 //\*------------------------------------*/
 
-// inuitcss has a number of default mixins that the framework, and developers
-// working with it, can make use of.
-
-
-
-
 
 // Create a fully formed type style (sizing and vertical rhythm) by passing in a
 // single value, e.g.:
@@ -25,6 +19,18 @@
     }
 
 }
+
+
+@mixin font-icon($font-family: FontAwesome) {
+display: inline-block;
+font-family: $font-family;
+font-size: inherit;
+font-weight: normal;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
 
 // Center block
 @mixin center-block {
@@ -45,7 +51,21 @@
 
 
 
-
+@mixin shadow-z1() {
+  box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
+}
+@mixin shadow-z2() {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 5px 0 rgba(0,0,0,0.23);
+}
+@mixin shadow-z3() {
+  box-shadow: 0 10px 10px 0 rgba(0,0,0,0.19), 0 6px 3px 0 rgba(0,0,0,0.23);
+}
+@mixin shadow-z4() {
+  box-shadow: 0 14px 14px 0 rgba(0,0,0,0.25), 0 10px 5px 0 rgba(0,0,0,0.22);
+}
+@mixin shadow-z5() {
+  box-shadow: 0 19px 19px 0 rgba(0,0,0,0.30), 0 15px 6px 0 rgba(0,0,0,0.22);
+}
 
 $animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1);
 $animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
@@ -53,27 +73,28 @@ $animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1);
 
 $animation-curve-default: $animation-curve-fast-out-slow-in;
 
-@mixin material-animation-fast-out-slow-in($duration:$base-transition-speed) {
+@mixin material-animation-fast-out-slow-in($duration:0.2s) {
   transition-duration: $duration;
   transition-timing-function: $animation-curve-fast-out-slow-in;
 }
 
-@mixin material-animation-linear-out-slow-in($duration:$base-transition-speed) {
+@mixin material-animation-linear-out-slow-in($duration:0.2s) {
   transition-duration: $duration;
   transition-timing-function: $animation-curve-linear-out-slow-in;
 }
 
-@mixin material-animation-fast-out-linear-in($duration:$base-transition-speed) {
+@mixin material-animation-fast-out-linear-in($duration:0.2s) {
   transition-duration: $duration;
   transition-timing-function: $animation-curve-fast-out-linear-in;
 }
 
-@mixin material-animation-default($duration:$base-transition-speed) {
+@mixin material-animation-default($duration:0.2s) {
   transition-duration: $duration;
   transition-timing-function: $animation-curve-default;
 }
 
-
 @mixin base-transition($attr:all, $speed:$base-transition-speed) {
   transition: $attr $speed ease-in-out;
 }
+
+

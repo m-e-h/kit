@@ -1,0 +1,58 @@
+/*------------------------------------*\
+    #HEADER
+\*------------------------------------*/
+
+.trail-begin {
+display: none;
+}
+
+.site-header {
+    margin: 0;
+    border: 0;
+    position: fixed;
+    width: 100%;
+    height: $base-spacing-unit * 3;
+    min-height: $base-spacing-unit * 3;
+    background-color: $color-header;
+    color: #eeeeee;
+    z-index: 5;
+    -webkit-transition-property: min-height, box-shadow;
+    transition-property: min-height, box-shadow;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    @include shadow-z1();
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 $base-spacing-unit;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-branding {
+@include typo-display-1();
+display: flex;
+align-items: center;
+    @include sm-only {
+        @include typo-body-1();
+        display: block;
+        .trail-begin {
+            display: inline-block;
+        }
+    }
+}
+
+.breadcrumbs {
+padding-left: 10px;
+
+.sep {
+    @include font-icon();
+    opacity: 0.8;
+}
+a {
+    color: inherit;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+}

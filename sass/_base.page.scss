@@ -16,7 +16,7 @@
 */
 
 body {
-    font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+    font-family: $font-body;
 }
 
 
@@ -68,7 +68,9 @@ html {
 \*------------------------------------*/
 
 html {
-    @include font-size($base-font-size);
+    font-size: $base-font-size;
+    font-weight: 400;
+    line-height: $base-line-height;
     background-color: #fff;
     color: $color-text;
     min-height: 100%;
@@ -83,12 +85,12 @@ html {
  */
 
 ::-moz-selection {
-    background: lighten($color2, 20);;
+    background: lighten($color-secondary, 20);;
     text-shadow: none;
 }
 
 ::selection {
-    background: lighten($color2, 20);;
+    background: lighten($color-secondary, 20);;
     text-shadow: none;
 }
 
@@ -316,7 +318,7 @@ textarea {
 
 
 
-.content {
+.site  {
 	word-wrap:   break-word;
 	word-break:  normal;
 	hyphens: auto;

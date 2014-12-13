@@ -24,43 +24,56 @@
 }
 
 	.gallery-row {
-		display:  block;
-		clear:    both;
-		overflow: hidden;
-		margin:   0;
+		@extend .grid;
+		// display:  block;
+		// clear:    both;
+		// overflow: hidden;
+		// margin:   0;
 	}
 
 		.gallery-item {
-			overflow:   hidden;
-			float:      left;
-			margin:     0;
-			padding:    0;
-			text-align: center;
-			list-style: none;
-			border:     none;
-			background: transparent;
+			@extend .grid-item;
+			// overflow:   hidden;
+			// float:      left;
+			// margin:     0;
+			// padding:    0;
+			// text-align: center;
+			// list-style: none;
+			// border:     none;
+			// background: transparent;
 		}
 
 			.gallery-icon {}
 
 				.gallery-icon img {
-					width:     auto;
-					max-width: 89%;
-					height:    auto;
-					margin:    0 auto;
-					padding:   1%;;
+				width:     auto;
+				max-width: 89%;
+				height:    auto;
+				margin:    0 auto;
+				padding:   1%;;
 				}
 
 			.gallery-caption {
 				margin-left: 0;
+				text-align: center;
 			}
 
 /* Gallery item sizes depending on the number of columns */
 .gallery-col-0 .gallery-item  { width: 100%;   }
 .gallery-col-1 .gallery-item  { width: 100%;   }
-.gallery-col-2 .gallery-item  { width: 50%;    }
-.gallery-col-3 .gallery-item  { width: 33.33%; }
-.gallery-col-4 .gallery-item  { width: 25%;    }
+.gallery-col-2 .gallery-item  { 
+	@extend .all-1;
+	@extend .md-1-2;
+}
+.gallery-col-3 .gallery-item  { 
+	@extend .all-1;
+	@extend .md-1-3; 
+}
+.gallery-col-4 .gallery-item  { 
+	@extend .all-1;
+	@extend .sm-1-2;
+	@extend .lg-1-4;  
+}
 .gallery-col-5 .gallery-item  { width: 20%;    }
 .gallery-col-6 .gallery-item  { width: 16.66%; }
 .gallery-col-7 .gallery-item  { width: 14.28%; }
@@ -68,7 +81,11 @@
 .gallery-col-9 .gallery-item  { width: 11.11%; }
 .gallery-col-10 .gallery-item { width: 10%;    }
 .gallery-col-11 .gallery-item { width: 9.09%;  }
-.gallery-col-12 .gallery-item { width: 8.33%;  }
+.gallery-col-12 .gallery-item { 
+	@extend .all-1-2;
+	@extend .md-1-6;
+	@extend .lg-1-12;  
+}
 .gallery-col-13 .gallery-item { width: 7.69%;  }
 .gallery-col-14 .gallery-item { width: 7.14%;  }
 .gallery-col-15 .gallery-item { width: 6.66%;  }
@@ -87,3 +104,7 @@
 .gallery-col-28 .gallery-item { width: 3.57%;  }
 .gallery-col-29 .gallery-item { width: 3.44%;  }
 .gallery-col-30 .gallery-item { width: 3.33%;  }
+
+.plural .format-gallery img.post-thumbnail {
+
+}

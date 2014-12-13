@@ -1,5 +1,7 @@
 <article <?php hybrid_attr( 'post' ); ?>>
 
+		<?php get_the_image(); ?>
+
 	<?php if ( is_page() ) : // If viewing a single page. ?>
 
 		<header class="entry-header">
@@ -16,8 +18,6 @@
 		</footer><!-- .entry-footer -->
 
 	<?php else : // If not viewing a single page. ?>
-
-		<?php get_the_image(); ?>
 
 		<header class="entry-header">
 			<?php the_title( '<h2 ' . hybrid_get_attr( 'entry-title' ) . '><a href="' . get_permalink() . '" rel="bookmark" itemprop="url">', '</a></h2>' ); ?>

@@ -2,47 +2,95 @@
     #HEADINGS
 \*------------------------------------*/
 
-h1,
-.alpha {
-    @include typo-display-2();
-    color: inherit;
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
 }
 
-h2,
-h1.entry-title {
-    @include typo-display-1();
+.home #site-title, h1 {
+  @include typo-display-3();
 }
 
-h3,
-h2.entry-title{
-    @include typo-headline();
+h2 {
+  @include typo-display-2();
 }
 
-h4,
-.delta {
-    @include typo-title();
+#site-title, h3 {
+  @include typo-display-1();
 }
 
-h5,
-.epsilon {
-    @include typo-subhead();
+h4 {
+  @include typo-headline();
 }
 
-h6,
-.zeta {
-    @include typo-body-2();
+h5 {
+  @include typo-title();
+}
+
+h6 {
+  @include typo-subhead();
 }
 
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-text-decoration: none;
-	&:visited {
+h1, h2, h3, h4, h5, h6 {
+
+	a {
+		text-decoration: none;
+		font-weight: inherit;
 		color: inherit;
+
+		&:visited {
+			color: inherit;
+		}
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: inherit;
+			opacity: 0.8;
+		}
 	}
-	&:hover,
-	&:focus,
-	&:active {
-		color: inherit;
-		opacity: 0.8;
-	}
+}
+
+/**
+ * Styles for HTML elements
+ */
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  @include typo-display-3($colorContrast:true);
+  font-size: 0.6em;
+}
+
+p {
+  @include typo-body-1();
+
+  margin: 0 0 16px 0;
+}
+
+blockquote p {
+  @include typo-blockquote();
+}
+
+mark {
+  background-color: $color-grey-light;
+}
+
+code {
+	background-color: $color-grey-light;
+}
+
+dt {
+  font-weight: 700;
+}
+
+.wp-caption-text {
+	@include typo-caption();
+}
+
+.entry-meta {
+	@include typo-body-2($colorContrast:true);
+}
+
+.menu-item {
+	@include typo-menu();
 }

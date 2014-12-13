@@ -3,11 +3,9 @@
 	<?php breadcrumb_trail(
 		array( 
 			'container'     => 'nav', 
-			'separator'     => '>', 
+			'separator'     => '&#xf105;', 
+			'show_browse'   => false,
 			'show_on_front' => false,
-			'labels'        => array( 
-				'browse' => __( 'You are here:', 'kit' ) 
-			) 
 		) 
 	); ?>
 

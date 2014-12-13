@@ -1,48 +1,58 @@
 /*------------------------------------*\
     #MENUS
 \*------------------------------------*/
+
 .menu {
-    display: block;
-
-            	li {
-            		@include md {
-							display: inline-block;
-							zoom: 1;
-							vertical-align: middle;
-						}
-
-									a {
-								    display: block;
-								    color: inherit;
-								    padding: $base-spacing-unit-sm / 2 $base-spacing-unit;
-								    text-decoration: none;
-								    white-space: nowrap;
-
-								    &:hover {
-								    	background: $color-gray-lighter;
-								    }
-								    &.active {
-								    	background: $color-gray-lighter;
-								    }
-								  }
-
-									li {
-										display: block;
-
-										a {
-											padding-left: $base-spacing-unit-lg;
-												@include md {
-													padding-left: $base-spacing-unit;
-												}
-								    }
-							    }
-						}
-
-    ul {
-        list-style: none;
-        margin: 0;
-    }
+  ul, li {
+    list-style: none;
+    margin: 0;
+  }
 }
+
+
+
+// .menu {
+//     display: block;
+
+//             	li {
+//             		@include md {
+// 							display: inline-block;
+// 							zoom: 1;
+// 							vertical-align: middle;
+// 						}
+
+// 									a {
+// 								    display: block;
+// 								    color: inherit;
+// 								    padding: $base-spacing-unit-sm / 2 $base-spacing-unit;
+// 								    text-decoration: none;
+// 								    white-space: nowrap;
+
+// 								    &:hover {
+// 								    	background: $color-grey-lighter;
+// 								    }
+// 								    &.active {
+// 								    	background: $color-grey-lighter;
+// 								    }
+// 								  }
+
+// 									li {
+// 										display: block;
+
+// 										a {
+// 											padding-left: $base-spacing-unit-lg;
+// 												@include md {
+// 													padding-left: $base-spacing-unit;
+// 												}
+// 								    }
+// 							    }
+// 						}
+
+//     ul {
+//         list-style: none;
+//         margin: 0;
+//     }
+// }
 
 .menu__secondary--items {
 	text-align: right;
@@ -76,53 +86,9 @@
 
 
 
-
-
-
-.site-main .comment-navigation,
-.site-main .paging-navigation,
-.site-main .post-navigation {
-    margin: 0 0 $base-spacing-unit;
-    overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
-    float: left;
-    width: 50%;
-}
-
-.comment-navigation .nav-next,
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-    float: right;
-    text-align: right;
-    width: 50%;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*  Sets dropdown link to relative positioning */
 .menu-item-has-children {
-  position: relative;
+  //position: relative;
 }
 
 /*  Display a caret after each dropdown link when JavaScript is supported.
@@ -193,13 +159,159 @@ content: " \2212";
     position: relative;
     float: none;
     min-width: 100%;
-    background-color: $color-gray-lightest;
+    background-color: $color-grey-lightest;
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none;
   }
 
   .js-drop .menu-item-has-children > a.active {
-  	background-color: $color-gray-lighter;
+  	background-color: $color-grey-lighter;
 	}
+}
+
+
+
+
+
+
+
+
+a.page-numbers,
+span.page-numbers {
+  @extend .btn;
+}
+
+.pagination {
+  text-align: center;
+  margin: $base-spacing-unit;
+  .page-numbers{
+    border-radius: 0;
+
+    &.current {
+      background-color: $btn-bg-hover;
+    }
+
+    &.dots, &.dots:hover {
+      background-color: transparent;
+      cursor: default;
+    }
+
+    &.next, &.prev {
+      @include font-icon();
+    }
+
+    &:first-child {
+      margin-left: 0;
+      border-top-left-radius: $base-radius;
+      border-bottom-left-radius: $base-radius;
+      }
+
+    &:last-child {
+      margin-left: 0;
+      border-top-right-radius: $base-radius;
+      border-bottom-right-radius: $base-radius;
+      }
+  }
+}
+
+
+.post-navigation {
+  position: relative;
+  width: 100%;
+  padding: 0 $base-spacing-unit-sm $base-spacing-unit-sm 0;
+  @include md {
+    padding: 0 $base-spacing-unit $base-spacing-unit 0;
+  }
+
+  .nav-links {
+    text-align: right;
+    }
+      .meta-nav {
+      @include font-icon();
+    }
+    span {
+      font-family: $font-body;
+    }
+
+    .nav-previous {
+      display: inline-block;
+      float: left;
+      margin: 2px;
+    }
+    .nav-next {
+      display: inline-block;
+      margin: 2px;
+    }
+
+
+}
+
+
+.menu__primary {
+margin: 0;
+padding: 0;
+height: 60px;
+display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+/* display: inline-block; */
+-webkit-box-orient: horizontal;
+-webkit-box-direction: normal;
+-webkit-flex-direction: row;
+-ms-flex-direction: row;
+flex-direction: row;
+-webkit-flex-wrap: nowrap;
+-ms-flex-wrap: nowrap;
+flex-wrap: nowrap;
+-webkit-box-align: center;
+-webkit-align-items: center;
+-ms-flex-align: center;
+align-items: center;
+}
+
+
+.menu__primary--items{
+display: inline-block;
+margin: 0;
+padding: 0;
+list-style-type: none;
+height: 100%;
+font-size: 0;
+}
+
+
+
+.menu-item {
+display: inline-block;
+height: 100%;
+margin: 0;
+@include sm-only {
+  display: block;
+}
+  a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    color: #eeeeee;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    height: 100%;
+    padding: 0 16px;
+    margin: 0;
+
+    &:hover {
+      background-color: rgba(97, 97, 97, 0.6);
+    }
+  }
+}
+
+.sub-menu.active .menu-item {
+  display: block;
+
+  a {
+    color: $color-text;
+  }
 }

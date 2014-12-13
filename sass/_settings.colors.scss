@@ -2,62 +2,68 @@
     #COLORS
 \*------------------------------------*/
 
-$color__background-body: #fff;
-$color__background-screen: #f1f1f1;
-$color__background-hr: #ccc;
-$color__background-button: #e6e6e6;
-$color__background-pre: #eee;
-$color__background-ins: #fff9c0;
-
-$color__text-screen: #21759b;
-$color__text-input: #666;
-$color__text-input-focus: #111;
-$color__link: royalblue;
-$color__link-visited: purple;
-$color__link-hover: midnightblue;
-$color__text-main: #404040;
+@import "base.colors";
 
 
+/* ==========  Brand  ========== */
 
-// Literal color variables.
-
-$color-primary:         #2980b9;
-$color1:         		#2980b9;
-$color2:         		#1abc9c;
-$color-brand:        	$color1;
-
-/* ==========  Blacks  ========== */
-
-$color-black: #212121;
-$color-gray-dark: #616161;
-$color-gray: #9E9E9E;
-$color-gray-light: #E0E0E0;
-$color-gray-lighter: #EEEEEE;
-$color-gray-lightest: #FAFAFA;
+$color-primary:         	$blue-flat-700;
+$color-secondary:       	$green-800;
 
 
-/* ==========  LIGHT  ========== */
+/* ==========  Accents  ========== */
 
-$color-white: #fff;
+$color-grey-ui: 			$grey-flat-100;
 
-// Assign colors to more meaningful variables.
 
-$color-hr: #ccc;
+/* ==========  Text  ========== */
 
-// Text-level
-$color-text:            $color-gray-dark;
-$color-links:           $color-primary;
-$color-links-hover:     darken($color-links, 10);
-$dark-bg-color-links:           lighten($color-links, 10);
-$dark-bg-color-links-hover:     lighten($dark-bg-color-links, 10);
+$color-text:            	$grey-flat-900;
+
+$color-links:           	$color-primary;
+$color-links-hover:     	darken($color-links, 10);
+$color-links-visited:     	darken($color-links, 20);
+
+
+
+/* ==========  Objects  ========== */
+
+// Sections
+$color-header: 				$color-primary;
 
 // Buttons
-$color-btn-text:        #fff;
-$color-btn-background:  $color-primary;
+$btn-text:        			$color-text;
+$btn-bg:  					$color-grey-ui;
+$btn-bg-hover:  			lighten($btn-bg, 5);
+$btn-bg-active:  			darken($btn-bg, 10);
+$btn-primary-bg:  			$color-primary;
+$btn-primary-text:  		#fff;
 
+
+$color-hr: 					$color-grey-ui;
 
 //Alerts
-$color-error:  #e74c3c;
-$color-valid: #1abc9c;
-$color-warning: #f1c40f;
-$color-information: #3498db;
+$color-error:  				$red-flat-400;
+$color-valid: 				$green-flat-400;
+$color-warning: 			$yellow-flat-400;
+$color-information: 		$blue-flat-400;
+
+
+
+
+
+/* ==========  Helpers  ========== */
+
+$color-black: 				$grey-900;
+$color-grey-darker: 		$grey-800;
+$color-grey-dark: 			$grey-600;
+$color-gray: 				$grey-500;
+$color-grey-light: 			$grey-400;
+$color-grey-lighter: 		$grey-200;
+$color-grey-lightest: 		$grey-50;
+
+
+
+
+
+$color-white: 				#fff;

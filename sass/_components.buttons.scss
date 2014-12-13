@@ -2,18 +2,72 @@
     #BUTTONS
 \*------------------------------------*/
 
-/**
- * Extends `.btn` in _objects.buttons.scss.
- */
+// Default button colors
+$default-btn-color: rgba(#999999, 0.20);
+$default-btn-hover-color: rgba($default-btn-color, 0.15);
+$default-btn-active-color: rgba($default-btn-color, 0.40);
+$default-btn-text-color: #000;
+$default-flat-btn-focus-color: rgba(black, 0.12);
 
-.btn {
-    background-color: $color-btn-background;
+// Focus shadow
+@mixin focus-shadow() {
+  box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
+}
 
-    &,
-    &:hover,
-    &:active,
-    &:focus {
-        color: $color-btn-text;
+.btn,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    color: $btn-text;
+    background-color: $btn-bg;
+    border-radius: $base-radius;
+    @include typo-button();
+    text-decoration: none;
+    text-align: center;
+    line-height: $base-spacing-unit-lg;
+    height: $base-spacing-unit-lg;
+    padding: 0 $base-spacing-unit;
+    margin: 0;
+    display: inline-block;
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    transition-property: all;
+    transition-duration: .3s;
+
+    &::-moz-focus-inner {
+      border: 0;
     }
 
+    &:hover {
+        background-color: $btn-bg-hover;
+    }
+
+    &:focus:not(:active) {
+        background-color: $btn-bg-active;
+    }
+
+    &:active {
+        background-color: $btn-bg-active;
+    }
+
+
+
+}
+
+.btn-sm {
+    @extend .btn;
+    @include typo-button-sm();
+    border-radius: $base-radius / 2;
+    line-height: $base-spacing-unit;
+    height: $base-spacing-unit;
+    padding: 0 $base-spacing-unit-sm;
+}
+
+
+.entry-terms a {
+    @extend .btn-sm;
 }

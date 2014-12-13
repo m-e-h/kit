@@ -56,9 +56,9 @@ This theme, like WordPress, is licensed under the GPL.
  * Widths...............Width helper classes.
  */
 
+@import "settings.responsive";
 @import "settings.global";
 @import "settings.colors";
-@import "settings.responsive";
 
 @import "tools.functions";
 @import "tools.mixins";
@@ -77,10 +77,11 @@ This theme, like WordPress, is licensed under the GPL.
 
 @import "objects.icons";
 @import "objects.media";
-@import "objects.buttons";
 @import "objects.forms";
 @import "objects.menus";
 @import "objects.tables";
+@import "objects.footer";
+@import "objects.header";
 
 @import "components.buttons";
 @import "components.quotes";

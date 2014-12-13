@@ -2,76 +2,115 @@
     #LAYOUTS
 \*------------------------------------*/
 
-.content {
-	align-items: stretch;
-}
-
-.content-area, .widget-area {
-	display: flex;
-}
-
-.sidebar, .site-main {
-	margin: $base-spacing-unit-sm;
-	padding: $base-spacing-unit;
-	background-color: $color-gray-lightest;
+.site-content {
+	display: block;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0;
 	width: 100%;
+	text-align: left;
+	padding-left: $base-spacing-unit-sm;
+	padding-top: $base-spacing-unit * 4;
+		@include md {
+		padding-left: $base-spacing-unit;
+	}
+}
+
+.comment-respond, .widget, .entry {
+	background-color: $color-grey-lightest;
+	margin: 0 $base-spacing-unit-sm $base-spacing-unit-sm 0;
+	padding: $base-spacing-unit-sm;
 
 	@include md {
-		margin: $base-spacing-unit;
+		margin: 0 $base-spacing-unit $base-spacing-unit 0;
+		padding: $base-spacing-unit-lg;
 	}
 }
 
+
+
+
+
+/*------------------------------------*\
+    ##Layout 1 Column
+\*------------------------------------*/
 .layout-1c {
 
-.content-area {
-	width: 100%;
+	.content-area {
+		width: 100%;
+	}
+
+	.sidebar__primary {
+		width: 100%;
+	}
+
 }
 
-.sidebar__primary {
-	width: 100%;
-}
 
-}
 
-// @import "../layout/content-sidebar";
+
+
+/*------------------------------------*\
+    ##Layout 2 Column Left
+\*------------------------------------*/
 .layout-2c-l {
 
-.content-area {
-	float: left;
-}
-
-
-.sidebar__primary {
-	float: right;
-	overflow: hidden;
-@include md {
-	.sidebar {
-		margin-left: 0;
+	.content-area {
+		@extend .grid-item;
+		@extend .md-2-3;
 	}
-}
-@include sm-only {
-	.sidebar {
-		margin-top: 0;
+
+	.sidebar__primary {
+		@extend .grid-item;
+		@extend .md-1-3;
 	}
-}
-}
 
 }
 
-// @import "../layout/sidebar-content";
+
+
+
+
+/*------------------------------------*\
+    ##Layout 2 Column Right
+\*------------------------------------*/
 .layout-2c-r {
 
-.content-area {
-	float: right;
-	order: 1;
+	// .content-area {
+	// 	order: 1;
+	// 	@extend .grid-item;
+	// 	@extend .md-2-3;
+	// 	float: right;
+	// }
+
+	// .sidebar__primary {
+	// 	@extend .grid-item;
+	// 	@extend .md-1-3;
+	// 	float: left;
+	// }
+
+// 	.site-footer {
+// 	clear: both;
+// 	width: 100%;
+// }
+
+.site-content {
+    direction:rtl;
+    text-align:left;
+
+    	.content-area {
+        direction:ltr;
+        text-align:left;
+        @extend .grid-item;
+        @extend .md-2-3;
+    }
+
+	.sidebar__primary {
+        direction:ltr;
+        text-align:left;
+        @extend .grid-item;
+        @extend .md-1-3;
+    }
 }
 
-.sidebar__primary {
-	float: left;
-	overflow: hidden;
-}
-
-}
-.site-footer {
-	width: 100%;
 }

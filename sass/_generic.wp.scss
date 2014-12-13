@@ -44,7 +44,7 @@
 \*------------------------------------*/
 
 .widget {
-	margin: 0 0 $base-spacing-unit;
+	//margin: 0 0 $base-spacing-unit;
 
 	/* Make sure select elements fit in widgets */
 	select {
@@ -71,11 +71,6 @@
 
 .hentry {
 	margin: 0 0 $base-spacing-unit;
-}
-
-.byline,
-.updated:not(.published){
-	display: none;
 }
 
 .single .byline,
@@ -147,14 +142,6 @@ object,
 embed,
 iframe {
 	max-width:     100%;
-	margin-bottom: 1.5rem;
-}
-
-.wp-audio-shortcode,
-.wp-video-shortcode,
-audio,
-video {
-	display:   block;
 }
 
 
