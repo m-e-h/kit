@@ -2,12 +2,14 @@
     #SHARED
 \*------------------------------------*/
 
-h1, h2, h3, h4, h5, h6, hgroup,
-ul, ol, dl, dd,
-blockquote, p, address,
-table,
-fieldset, figure,
-pre {
-	margin: 0 0 $base-spacing-unit 0;
-	padding: 0;
+p, address, 
+table, 
+fieldset, figure, 
+pre, 
+%margin-bottom {
+    margin-bottom: $base-spacing-unit;
+}
+
+%margin-left {
+    margin-left: $base-spacing-unit;
 }

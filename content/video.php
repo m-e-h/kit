@@ -16,7 +16,7 @@
 			</div><!-- .entry-content -->
 
 		<footer class="entry-footer">
-			<?php kit_entry_footer(); ?>
+			<?php kit_entry_meta(); ?>
 		</footer><!-- .entry-footer -->
 
 		<?php else : // If not viewing a single post. ?>

@@ -1,7 +1,5 @@
 <article <?php hybrid_attr( 'post' ); ?>>
 
-	<?php get_the_image(); ?>
-
 	<?php if ( is_singular( get_post_type() ) ) : ?>
 
 		<header class="entry-header">
@@ -11,6 +9,7 @@
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
+
 			<?php the_content(); ?>
 			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
@@ -24,6 +23,9 @@
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-summary' ); ?>>
+
+		<?php get_the_image( array( 'image_class' => 'post-img' ) ); ?>
+
 			<?php the_excerpt(); ?>
 			<?php $count = hybrid_get_gallery_item_count(); ?>
 			<p class="gallery-count"><?php printf( _n( 'This gallery contains %s item.', 'This gallery contains %s items.', $count, 'kit' ), $count ); ?></p>

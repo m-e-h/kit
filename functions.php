@@ -122,7 +122,7 @@ add_action( 'wp_enqueue_scripts', 'kit_styles', 5 );
  * Registers custom image sizes.
  */
 function kit_image_sizes() {
-	set_post_thumbnail_size( 175, 119, true );
+	set_post_thumbnail_size( 150, 150, true );
 	add_image_size( 'kit-huge', 1100, 9999, false );
 }
 

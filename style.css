@@ -57,6 +57,9 @@ This theme, like WordPress, is licensed under the GPL.
 /*------------------------------------*\
     #STRUCTURE
 \*------------------------------------*/
+/*------------------------------------*\
+    #FONT-AWESOME
+\*------------------------------------*/
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -1182,11 +1185,6 @@ p a {
 /*------------------------------------*\
     #LISTS
 \*------------------------------------*/
-ul,
-ol {
-    margin-left: 24px;
-}
-
 ul {
     list-style: disc;
 }
@@ -1202,10 +1200,6 @@ li > ol {
 
 dt {
     font-weight: bold;
-}
-
-dd {
-    margin: 0 24px 24px;
 }
 
 /*------------------------------------*\
@@ -1230,6 +1224,7 @@ dd {
 .comment-respond,
 .widget,
 .entry {
+    overflow: hidden;
     margin: 0 12px 12px 0;
     padding: 12px; 
     background-color: #fafafa;
@@ -1241,6 +1236,16 @@ dd {
         margin: 0 24px 24px 0;
         padding: 48px;
     }
+}
+
+.entry-header {
+    display: inline-block; 
+    width: 100%;
+}
+
+.entry-footer {
+    display: inline-block; 
+    width: 100%;
 }
 
 /*------------------------------------*\
@@ -1472,10 +1477,22 @@ img {
     height: auto;
 }
 
-.plural .post-thumbnail {
+.thumbnail {
+    margin: 0 12px;
+}
+
+.portrait.thumbnail {
     float: left;
-    margin-right: 12px;
-    border-radius: 2px;
+    min-width: 100px;
+    max-width: 25%;
+    margin-left: 0;
+}
+
+.landscape.thumbnail {
+    float: right;
+    min-width: 150px;
+    max-width: 50%;
+    margin-right: 0;
 }
 
 /* Make sure embeds and iframes fit their containers */
@@ -1747,40 +1764,16 @@ label > .label-body {
 /*------------------------------------*\
     #MENUS
 \*------------------------------------*/
-.menu ul,
-.menu li {
-    margin: 0; 
-    list-style: none;
-}
-
-.menu__secondary--items {
-    text-align: right;
-}
-.menu__secondary--items .sub-menu {
-    right: 0;
-}
-
-/* Small menu */
-.menu-toggle {
-    display: none;
-}
-
-@media only screen and (max-width: 47em) {
-    .menu-toggle,
-    .menu.toggled .nav-menu {
-        display: block;
-    }
-
-    .menu ul {
-        display: none;
-    }
-}
-
 /*  Sets dropdown link to relative positioning */
+.menu-item-has-children {
+    position: relative;
+}
+
 /*  Display a caret after each dropdown link when JavaScript is supported.
  *  You can remove this or change it to a different symbol.
  *  (For example, a "+" symbol.) */
 .js-drop .menu-item-has-children > a:after {
+    float: right;
     margin-top: -1px; 
     font-family: "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans", sans-serif;
     content: " \002b";
@@ -1798,9 +1791,12 @@ label > .label-body {
 .sub-menu {
     display: none;
     visibility: hidden;
+    float: left;
     position: absolute;
     z-index: 1000;
     top: 100%;
+    min-width: 10em;
+    margin-left: 0;
     border-radius: 2px;
     background-color: #fff;
     box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2); 
@@ -1845,6 +1841,63 @@ label > .label-body {
     }
 }
 
+.menu-toggle:before {
+    position: relative;
+    top: -1px;
+    left: 0; 
+    color: #fff;
+    font-family: FontAwesome;
+    line-height: 42px;
+    content: "\f0c9";
+}
+
+.toggled .menu-toggle:before {
+    content: "\f00d";
+}
+
+.menu__primary {
+    width: 100%;
+}
+.menu__primary > ul > li > a {
+    min-height: 72px; 
+    padding: 12px 12px;
+}
+.menu__primary ul {
+    margin: 0;
+    padding-left: 0; 
+    list-style: none;
+}
+.menu__primary li {
+    display: inline-block;
+}
+.menu__primary a {
+    display: block;
+    color: #cab1b1;
+}
+
+/* Small menu */
+.menu-toggle {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .menu-toggle,
+    .menu__primary.toggled .nav-menu {
+        display: block;
+    }
+
+    .menu__primary a {
+        color: white;
+    }
+    .menu__primary li {
+        display: block;
+        width: 100%;
+    }
+    .menu__primary ul {
+        display: none;
+    }
+}
+
 .pagination {
     margin: 24px; 
     text-align: center;
@@ -1868,7 +1921,10 @@ label > .label-body {
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 
+    text-decoration: none;
     text-rendering: auto;
+
+    speak: none;
 }
 .pagination .page-numbers:first-child {
     margin-left: 0;
@@ -1901,7 +1957,10 @@ label > .label-body {
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 
+    text-decoration: none;
     text-rendering: auto;
+
+    speak: none;
 }
 .post-navigation span {
     font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
@@ -1914,85 +1973,6 @@ label > .label-body {
 .post-navigation .nav-next {
     display: inline-block;
     margin: 2px;
-}
-
-.menu__primary {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    flex-direction: row;
-    height: 60px;
-    margin: 0;
-    padding: 0;
-
-    -webkit-align-items: center;
-    align-items: center; 
-    -webkit-box-align: center;
-    -webkit-box-direction: normal;
-    /* display: inline-block; */
-    -webkit-box-orient: horizontal;
-    -ms-flex-align: center;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-}
-
-.menu__primary--items {
-    display: inline-block;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-size: 0; 
-    list-style-type: none;
-}
-
-.menu-item {
-    display: inline-block;
-    height: 100%;
-    margin: 0;
-}
-@media only screen and (max-width: 47em) {
-    .menu-item {
-        display: block;
-    }
-}
-.menu-item a {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    margin: 0; 
-    padding: 0 16px;
-    color: #eee;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-box-align: center;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -ms-flex-align: center;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-}
-.menu-item a:hover {
-    background-color: rgba(97, 97, 97, 0.6);
-}
-
-.sub-menu.active .menu-item {
-    display: block;
-}
-.sub-menu.active .menu-item a {
-    color: #263238;
 }
 
 /*------------------------------------*\
@@ -2028,13 +2008,41 @@ th {
     *display: inline;
 }
 
+.entry-footer span {
+    margin-right: 24px;
+}
+.entry-footer span:before {
+    display: inline-block;
+    margin-right: 5px; 
+    font-family: FontAwesome;
+    font-size: inherit;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none;
+    text-rendering: auto;
+
+    speak: none;
+}
+.entry-footer span span {
+    margin-right: 0;
+}
+
+span.entry-author:before {
+    content: "\f007";
+}
+
+span.entry-date:before {
+    content: "\f073";
+}
+
+span.comments-link:before {
+    content: "\f086";
+}
+
 /*------------------------------------*\
     #HEADER
 \*------------------------------------*/
-.trail-begin {
-    display: none;
-}
-
 .site-header {
     display: -webkit-box;
     display: -webkit-flex;
@@ -2043,7 +2051,6 @@ th {
     position: fixed;
     z-index: 5;
     width: 100%;
-    height: 72px;
     min-height: 72px;
     margin: 0;
     padding: 0 24px;
@@ -2076,6 +2083,10 @@ th {
     -webkit-align-items: center;
     align-items: center; 
     -webkit-box-align: center;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     -ms-flex-align: center;
 }
 @media only screen and (max-width: 47em) {
@@ -2092,31 +2103,18 @@ th {
     }
 }
 
-.breadcrumbs {
-    padding-left: 10px;
-}
-.breadcrumbs .sep {
-    display: inline-block;
-    opacity: 0.8; 
-    font-family: FontAwesome;
-    font-size: inherit;
-    font-weight: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: auto;
-}
-.breadcrumbs a {
-    color: inherit;
-}
-.breadcrumbs a:hover {
-    opacity: 0.8;
+.menu__primary {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
 }
 
 /*------------------------------------*\
     #BUTTONS
 \*------------------------------------*/
 .btn,
-a.page-numbers,
+.menu a.page-numbers,
 span.page-numbers,
 .btn-sm,
 .entry-terms a,
@@ -2152,7 +2150,7 @@ input[type="submit"] {
     appearance: none;
 }
 .btn::-moz-focus-inner,
-a.page-numbers::-moz-focus-inner,
+.menu a.page-numbers::-moz-focus-inner,
 span.page-numbers::-moz-focus-inner,
 .btn-sm::-moz-focus-inner,
 .entry-terms a::-moz-focus-inner,
@@ -2163,7 +2161,7 @@ input[type="submit"]::-moz-focus-inner {
     border: 0;
 }
 .btn:hover,
-a.page-numbers:hover,
+.menu a.page-numbers:hover,
 span.page-numbers:hover,
 .btn-sm:hover,
 .entry-terms a:hover,
@@ -2174,7 +2172,7 @@ input[type="submit"]:hover {
     background-color: #dee4e7;
 }
 .btn:focus:not(:active),
-a.page-numbers:focus:not(:active),
+.menu a.page-numbers:focus:not(:active),
 span.page-numbers:focus:not(:active),
 .btn-sm:focus:not(:active),
 .entry-terms a:focus:not(:active),
@@ -2185,7 +2183,7 @@ input[type="submit"]:focus:not(:active) {
     background-color: #b2c0c6;
 }
 .btn:active,
-a.page-numbers:active,
+.menu a.page-numbers:active,
 span.page-numbers:active,
 .btn-sm:active,
 .entry-terms a:active,
@@ -2232,6 +2230,29 @@ blockquote {
 blockquote.alignleft,
 blockquote.alignright {
     width: 33%;
+}
+
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+.trail-begin {
+    display: none;
+}
+
+.breadcrumbs {
+    padding-left: 10px;
+    cursor: default;
+}
+.breadcrumbs a {
+    color: inherit;
+}
+.breadcrumbs a:hover {
+    opacity: 0.8;
+}
+
+.trail-end {
+    opacity: 0.8;
+    font-weight: bold;
 }
 
 0.1-12 {
@@ -2814,24 +2835,20 @@ blockquote.alignright {
 /*------------------------------------*\
     #SHARED
 \*------------------------------------*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hgroup,
-ul,
-ol,
-dl,
-dd,
-blockquote,
 p,
 address,
 table,
 fieldset,
 figure,
-pre {
-    margin: 0 0 24px 0;
-    padding: 0;
+pre,
+ul,
+ol,
+dl {
+    margin-bottom: 24px;
+}
+
+ul,
+ol,
+dd {
+    margin-left: 24px;
 }

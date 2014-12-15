@@ -1,0 +1,28 @@
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+.trail-begin {
+display: none;
+}
+
+.breadcrumbs {
+padding-left: 10px;
+cursor: default;
+
+.sep {
+    //@include font-icon();
+    //opacity: 0.8;
+}
+a {
+    color: inherit;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+}
+
+.trail-end {
+opacity: 0.8;
+font-weight: bold;
+}

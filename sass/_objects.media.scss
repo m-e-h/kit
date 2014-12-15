@@ -12,10 +12,22 @@ img {
     display: block;
 }
 
-.plural .post-thumbnail {
-  float: left;
-  margin-right: $base-spacing-unit-sm;
-  border-radius: $base-radius;
+.thumbnail {
+  margin: 0 $base-spacing-unit-sm;
+}
+
+.portrait.thumbnail {
+max-width: 25%;
+min-width: 100px;
+float: left;
+margin-left: 0;
+}
+
+.landscape.thumbnail {
+max-width: 50%;
+float: right;
+min-width: 150px;
+margin-right: 0;
 }
 
 /* Make sure embeds and iframes fit their containers */

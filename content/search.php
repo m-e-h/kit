@@ -19,6 +19,6 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php kit_entry_footer(); ?>
+		<?php kit_entry_meta(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
