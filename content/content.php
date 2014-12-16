@@ -6,8 +6,6 @@
 
 <article <?php hybrid_attr( 'post' ); ?>>
 
-		<?php get_the_image(); ?>
-
 	<?php if ( is_singular( get_post_type() ) ) : ?>
 
 		<header class="entry-header">
@@ -17,6 +15,9 @@
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
+
+		<?php get_the_image( array( 'size' => 'full', 'link_to_post' => false, 'image_class' => 'post-img' ) ); ?>
+
 			<?php the_content(); ?>
 			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
@@ -30,6 +31,9 @@
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-summary' ); ?>>
+
+		<?php get_the_image( array( 'image_class' => 'post-img' ) ); ?>
+
 			<?php
 				the_content( sprintf(
 					esc_html__( 'Continue reading %s', 'kit' ),
@@ -41,7 +45,7 @@
 	<?php endif; // End single post check. ?>
 
 		<footer class="entry-footer">
-			<?php kit_entry_footer(); ?>
+			<?php kit_entry_meta(); ?>
 		</footer><!-- .entry-footer -->
 
 </article><!-- .entry -->

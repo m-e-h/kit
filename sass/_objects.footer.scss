@@ -46,3 +46,29 @@
         @extend .md-1-3;
     }
 }
+
+
+.entry-footer span {
+margin-right: $base-spacing-unit;
+&:before {
+  @include font-icon();
+  margin-right: 5px;
+}
+
+span {
+  margin-right: 0;
+}
+}
+
+
+span.entry-author:before {
+  content: $user;
+}
+
+span.entry-date:before {
+  content: $calendar;
+}
+
+span.comments-link:before {
+  content: $comments;
+}

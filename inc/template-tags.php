@@ -40,18 +40,24 @@ function kit_posted_on() {
 }
 endif;
 
-if ( ! function_exists( 'kit_entry_footer' ) ) :
+if ( ! function_exists( 'kit_entry_meta' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function kit_entry_footer() {  ?>
-	<div class="entry-meta">
+function kit_entry_meta() {  ?>
+	<span class="entry-format">
 		<?php hybrid_post_format_link(); ?>
-	<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?></span>
-	<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
-	<?php edit_post_link(); ?>
-	<?php comments_popup_link( false, false, false, 'comments-link' ); ?>
-	</div>
+	</span>
+	<span <?php hybrid_attr( 'entry-author' ); ?>><?php the_author_posts_link(); ?>
+	</span>
+	<span class="entry-date">
+		<time <?php hybrid_attr( 'entry-published' ); ?>><?php echo get_the_date(); ?></time>
+	</span>
+	<span class="comments-link">
+		<?php comments_popup_link( false, false, false, false ); ?>
+	</span>
+	<?php edit_post_link( esc_html__( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span>' ); ?>
+
 	<?php
 		hybrid_post_terms( array( 
 			'taxonomy'	=> 'category',

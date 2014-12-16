@@ -1,7 +1,5 @@
 <article <?php hybrid_attr( 'post' ); ?>>
 
-	<?php get_the_image( array( 'size' => 'full', 'split_content' => true, 'scan_raw' => true, 'scan' => true, 'order' => array( 'scan_raw', 'scan', 'featured', 'attachment' ) ) ); ?>
-
 	<?php if ( is_singular( get_post_type() ) ) : // If viewing a single post. ?>
 
 		<header class="entry-header">
@@ -11,6 +9,9 @@
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-content' ); ?>>
+
+		<?php get_the_image( array( 'size' => 'full', 'link_to_post' => false, 'image_class' => 'post-img' ) ); ?>
+
 			<?php the_content(); ?>
 			<?php wp_link_pages(); ?>
 		</div><!-- .entry-content -->
@@ -24,13 +25,16 @@
 		</header><!-- .entry-header -->
 
 		<div <?php hybrid_attr( 'entry-summary' ); ?>>
+
+		<?php get_the_image( array( 'image_class' => 'post-img' ) ); ?>
+
 			<?php the_excerpt(); ?>
 		</div><!-- .entry-summary -->
 
 	<?php endif; // End single post check. ?>
 
 		<footer class="entry-footer">
-			<?php kit_entry_footer(); ?>
+			<?php kit_entry_meta(); ?>
 		</footer><!-- .entry-footer -->
 
 </article><!-- .entry -->

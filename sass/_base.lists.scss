@@ -2,9 +2,12 @@
     #LISTS
 \*------------------------------------*/
 
-ul, ol,
-%margin-left {
-    margin-left: $base-spacing-unit;
+ul, ol, dd {
+    @extend %margin-left;
+}
+
+ul, ol, dl {
+    @extend %margin-bottom;
 }
 
 ul {
@@ -24,6 +27,3 @@ dt {
 	font-weight: bold;
 }
 
-dd {
-	margin: 0 $base-spacing-unit $base-spacing-unit;
-}

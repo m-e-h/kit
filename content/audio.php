@@ -40,7 +40,7 @@
 	<?php endif; // End single post check. ?>
 
 		<footer class="entry-footer">
-			<?php kit_entry_footer(); ?>
+			<?php kit_entry_meta(); ?>
 		</footer><!-- .entry-footer -->
 
 </article><!-- .entry -->

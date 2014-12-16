@@ -3,7 +3,7 @@
 	<?php breadcrumb_trail(
 		array( 
 			'container'     => 'nav', 
-			'separator'     => '&#xf105;', 
+			'separator'     => '&gt;', 
 			'show_browse'   => false,
 			'show_on_front' => false,
 		) 
