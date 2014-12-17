@@ -1,7 +1,6 @@
 <?php if ( has_nav_menu( 'primary' ) ) : // Check if there's a menu assigned to the 'primary' location. ?>
 
 	<nav <?php hybrid_attr( 'menu', 'primary' ); ?>>
-		<button class="menu-toggle" aria-controls="menu" aria-expanded="false"></button>
 		<?php wp_nav_menu(
 			array(
 				'theme_location'  => 'primary',

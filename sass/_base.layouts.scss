@@ -17,15 +17,8 @@
 }
 
 .comment-respond, .widget, .entry {
-	background-color: $color-grey-lightest;
 	overflow: hidden;
-	margin: 0 $base-spacing-unit-sm $base-spacing-unit-sm 0;
 	padding: $base-spacing-unit-sm;
-
-	@include md {
-		margin: 0 $base-spacing-unit $base-spacing-unit 0;
-		padding: $base-spacing-unit-lg;
-	}
 }
 
 .entry-header {

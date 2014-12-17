@@ -16,7 +16,27 @@ $base-spacing-unit-lg: $base-spacing-unit * 2;
 $font-body: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
-/*------------------------------------*\
-    #STRUCTURE
-\*------------------------------------*/
 
+
+///*------------------------------------*\
+//    #STRUCTURE
+//\*------------------------------------*/
+
+// Colors
+$layout-drawer-bg-color: $grey-flat-100;
+$layout-drawer-border-color: $grey-flat-200;
+$layout-text-color: $color-text;
+
+$layout-header-bg-color: $color-primary;
+$layout-header-text-color: #fff;
+
+// Dimensions
+$layout-drawer-narrow: 240px;
+$layout-drawer-wide: 456px;
+$layout-drawer-width: $layout-drawer-narrow;
+
+$layout-horizontal-padding: 24px;
+
+$layout-header-row-height: 60px;
+$layout-header-height: $layout-header-row-height;
+$layout-screen-size-threshold: 850px;
