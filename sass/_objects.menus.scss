@@ -2,92 +2,72 @@
     #MENUS
 \*------------------------------------*/
 
-
-
-
-// From Drop.js
-/*  Sets dropdown link to relative positioning */
-.menu-item-has-children {
-  position: relative;
+.menu a {
+  color: #fff;
 }
-
-/*  Display a caret after each dropdown link when JavaScript is supported.
+/*  Display a caret after each dropdown link.
  *  You can remove this or change it to a different symbol.
  *  (For example, a "+" symbol.) */
 .js-drop .menu-item-has-children > a:after {
-content: ' \002b';
-float: right;
-font-family: 'Lucida Grande','Lucida Sans Unicode','DejaVu Sans',sans-serif;
-//margin-right: -20px;
-margin-top: -1px;
+  content: " +";
+  font-size: .8em;
 }
 
 /*  When a dropdown is active, display a caret pointing up instead.
  *  You can remove this or change it to a different symbol.
  *  (For example, a "-" symbol.) */
 .js-drop .menu-item-has-children > a.active:after {
-content: " \2212";
+  content: " –";
 }
 
 /*  Styling for the dropdown content.
  *  Hides the content by default. */
 .sub-menu {
   position: absolute;
-  top: 100%;
   display: none;
   visibility: hidden;
   float: left;
-  min-width: 10em;
-  //margin-top: 0.5em;
-  margin-left: 0;
+  right: 0;
+  width: 100%;
+  margin-top: 0.5em;
   text-align: left;
-  //border: 0.0725em solid #b8b8b8;
-  background-color: #ffffff;
   z-index: 1000;
-  border-radius: $base-radius;
-  -webkit-box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2);
+  @include md {
+  background-color: $color-grey-ui;
 }
-
-/*  Remove list-style and margin-left
- *  from dropdown menu lists */
-.sub-menu ul,
-.sub-menu ol {
-  margin-left: $base-spacing-unit;
-  list-style: none;
 }
 
 /*  When a dropdown is active, display it. */
-// .js-drop .menu-item-has-children:hover > .sub-menu,
 .sub-menu.active {
   display: block;
   visibility: visible;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 
-/*  If dropdown link is near the right edge of the screen,
- *  shift the dropdown menu position to avoid content clipping. */
-.sub-menu.dropdown-right {
-  right: 0;
-  left: auto;
-}
-
-
-@include sm-only {
+/*  Optional small screen styling for use
+ *  with collapse-and-toggle navigation menus.
+ *  Learn more - http://cferdinandi.github.com/astro/ */
+@media (max-width: 40em) {
   /*  Switch dropdown content to relative positioning.
-   *  Remove styling. */
+   *  Add a border-radius. */
   .js-drop .sub-menu {
     position: relative;
     float: none;
-    min-width: 100%;
-    background-color: $color-grey-lightest;
-    border: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    border-radius: 0.25em;
   }
 
-  .js-drop .menu-item-has-children > a.active {
-  	background-color: $color-grey-lighter;
-	}
+  /*  Add padding to active dropdown content */
+  .js-drop .sub-menu.active {
+    padding: 0.5em;
+  }
+
+  /*  For use with the Kraken Grid.
+   *  If using the .container class for
+   *  dropdown content, give it a width of 100%. */
+  .js-drop .sub-menu .container {
+    width: 100%;
+  }
 }
 
 // From _s
@@ -105,43 +85,41 @@ left: 0;
 content: "\f00d";
 }
 
-.menu__primary {
-  width: 100%;
+// .menu__primary {
+//   width: 100%;
+// }
 
-  > ul > li > a {
-    padding: $base-spacing-unit-sm $base-spacing-unit-sm;
-    min-height: $base-spacing-unit * 3;
-  }
+//   > ul > li > a {
+//     padding: $base-spacing-unit-sm $base-spacing-unit-sm;
+//     min-height: $base-spacing-unit * 3;
+//   }
 
   ul {
     list-style: none;
-    margin: 0;
-    padding-left: 0;
 
   }
 
   li {
     display: inline-block;
-
-    &:hover > a {
-    }
   }
 
   a {
-    display: block;
-    color: #CAB1B1;
+    //display: block;
   }
 
-  .current_page_item > a,
-  .current-menu-item > a,
-  .current_page_ancestor > a {
-  }
+.nav-menu, .sub-menu {
+  margin: 0;
+  float:left;
 }
-
-
 /* Small menu */
 .menu-toggle {
   display: none;
+  background: none;
+  float: right;
+  margin: 0;
+  &:hover, &:active, &:focus:not(:active) {
+    background: none;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -164,9 +142,6 @@ content: "\f00d";
 }
 }
 
-
-
-.menu
 
 
 a.page-numbers,

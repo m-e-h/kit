@@ -1764,26 +1764,23 @@ label > .label-body {
 /*------------------------------------*\
     #MENUS
 \*------------------------------------*/
-/*  Sets dropdown link to relative positioning */
-.menu-item-has-children {
-    position: relative;
+.menu a {
+    color: #fff;
 }
 
-/*  Display a caret after each dropdown link when JavaScript is supported.
+/*  Display a caret after each dropdown link.
  *  You can remove this or change it to a different symbol.
  *  (For example, a "+" symbol.) */
 .js-drop .menu-item-has-children > a:after {
-    float: right;
-    margin-top: -1px; 
-    font-family: "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans", sans-serif;
-    content: " \002b";
+    font-size: 0.8em; 
+    content: " +";
 }
 
 /*  When a dropdown is active, display a caret pointing up instead.
  *  You can remove this or change it to a different symbol.
  *  (For example, a "-" symbol.) */
 .js-drop .menu-item-has-children > a.active:after {
-    content: " \2212";
+    content: " –";
 }
 
 /*  Styling for the dropdown content.
@@ -1793,51 +1790,48 @@ label > .label-body {
     visibility: hidden;
     float: left;
     position: absolute;
-    z-index: 1000;
-    top: 100%;
-    min-width: 10em;
-    margin-left: 0;
-    border-radius: 2px;
-    background-color: #fff;
-    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.2); 
+    z-index: 1000; 
+    right: 0;
+    width: 100%;
+    margin-top: 0.5em;
     text-align: left;
 }
-
-/*  Remove list-style and margin-left
- *  from dropdown menu lists */
-.sub-menu ul,
-.sub-menu ol {
-    margin-left: 24px;
-    list-style: none;
+@media only screen and (min-width: 48em) {
+    .sub-menu {
+        background-color: #cfd8dc;
+    }
 }
 
 /*  When a dropdown is active, display it. */
 .sub-menu.active {
     display: block;
     visibility: visible;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
 }
 
-/*  If dropdown link is near the right edge of the screen,
- *  shift the dropdown menu position to avoid content clipping. */
-.sub-menu.dropdown-right {
-    right: 0;
-    left: auto;
-}
-
-@media only screen and (max-width: 47em) {
+/*  Optional small screen styling for use
+ *  with collapse-and-toggle navigation menus.
+ *  Learn more - http://cferdinandi.github.com/astro/ */
+@media (max-width: 40em) {
     /*  Switch dropdown content to relative positioning.
-   *  Remove styling. */
+   *  Add a border-radius. */
     .js-drop .sub-menu {
         float: none;
         position: relative;
-        min-width: 100%;
-        border: none;
-        background-color: #fafafa;
-        box-shadow: none;
+        border-radius: 0.25em;
     }
 
-    .js-drop .menu-item-has-children > a.active {
-        background-color: #eee;
+    /*  Add padding to active dropdown content */
+    .js-drop .sub-menu.active {
+        padding: 0.5em;
+    }
+
+    /*  For use with the Kraken Grid.
+   *  If using the .container class for
+   *  dropdown content, give it a width of 100%. */
+    .js-drop .sub-menu .container {
+        width: 100%;
     }
 }
 
@@ -1855,29 +1849,31 @@ label > .label-body {
     content: "\f00d";
 }
 
-.menu__primary {
-    width: 100%;
-}
-.menu__primary > ul > li > a {
-    min-height: 72px; 
-    padding: 12px 12px;
-}
-.menu__primary ul {
-    margin: 0;
-    padding-left: 0; 
+ul {
     list-style: none;
 }
-.menu__primary li {
+
+li {
     display: inline-block;
 }
-.menu__primary a {
-    display: block;
-    color: #cab1b1;
+
+.nav-menu,
+.sub-menu {
+    float: left; 
+    margin: 0;
 }
 
 /* Small menu */
 .menu-toggle {
     display: none;
+    float: right;
+    margin: 0; 
+    background: none;
+}
+.menu-toggle:hover,
+.menu-toggle:active,
+.menu-toggle:focus:not(:active) {
+    background: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -2114,7 +2110,7 @@ span.comments-link:before {
     #BUTTONS
 \*------------------------------------*/
 .btn,
-.menu a.page-numbers,
+a.page-numbers,
 span.page-numbers,
 .btn-sm,
 .entry-terms a,
@@ -2150,7 +2146,7 @@ input[type="submit"] {
     appearance: none;
 }
 .btn::-moz-focus-inner,
-.menu a.page-numbers::-moz-focus-inner,
+a.page-numbers::-moz-focus-inner,
 span.page-numbers::-moz-focus-inner,
 .btn-sm::-moz-focus-inner,
 .entry-terms a::-moz-focus-inner,
@@ -2161,7 +2157,7 @@ input[type="submit"]::-moz-focus-inner {
     border: 0;
 }
 .btn:hover,
-.menu a.page-numbers:hover,
+a.page-numbers:hover,
 span.page-numbers:hover,
 .btn-sm:hover,
 .entry-terms a:hover,
@@ -2172,7 +2168,7 @@ input[type="submit"]:hover {
     background-color: #dee4e7;
 }
 .btn:focus:not(:active),
-.menu a.page-numbers:focus:not(:active),
+a.page-numbers:focus:not(:active),
 span.page-numbers:focus:not(:active),
 .btn-sm:focus:not(:active),
 .entry-terms a:focus:not(:active),
@@ -2183,7 +2179,7 @@ input[type="submit"]:focus:not(:active) {
     background-color: #b2c0c6;
 }
 .btn:active,
-.menu a.page-numbers:active,
+a.page-numbers:active,
 span.page-numbers:active,
 .btn-sm:active,
 .entry-terms a:active,

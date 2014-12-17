@@ -1,50 +1,4 @@
 /**
- * navigation.js
- *
- * Handles toggling the navigation menu for small screens.
- */
-( function() {
-	var container, button, menu;
-
-	container = document.getElementById( 'menu-primary' );
-	if ( ! container ) {
-		return;
-	}
-
-	button = container.getElementsByTagName( 'button' )[0];
-	if ( 'undefined' === typeof button ) {
-		return;
-	}
-
-	menu = container.getElementsByTagName( 'ul' )[0];
-
-	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
-		button.style.display = 'none';
-		return;
-	}
-
-	menu.setAttribute( 'aria-expanded', 'false' );
-
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-		menu.className += ' nav-menu';
-	}
-
-	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			menu.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			container.className += ' toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
-			menu.setAttribute( 'aria-expanded', 'true' );
-		}
-	};
-} )();
-
-
-/**
  * Drop v6.0.0
  * Simple, mobile-friendly dropdown menus, by Chris Ferdinandi.
  * http://github.com/cferdinandi/drop
@@ -217,9 +171,9 @@
 	drop.closeDrops = function () {
 
 		// Selectors and variables
-		var dropToggle = document.querySelectorAll('[data-dropdown] > a.' + settings.toggleActiveClass);
-		var dropWrapper = document.querySelectorAll('[data-dropdown].' + settings.toggleActiveClass);
-		var dropContent = document.querySelectorAll('[data-dropdown-menu].' + settings.contentActiveClass);
+		var dropToggle = document.querySelectorAll('.menu-item-has-children > a.' + settings.toggleActiveClass);
+		var dropWrapper = document.querySelectorAll('.menu-item-has-children.' + settings.toggleActiveClass);
+		var dropContent = document.querySelectorAll('.sub-menu.' + settings.contentActiveClass);
 
 		if ( dropToggle.length > 0 || dropWrapper.length > 0 || dropContent.length > 0 ) {
 
@@ -252,11 +206,11 @@
 	 */
 	var eventHandler = function (event) {
 		var toggle = event.target;
-		var menu = getClosest(toggle, '[data-dropdown-menu]');
-		if ( menu && toggle !== document.documentElement && !toggle.parentNode.hasAttribute( 'data-dropdown' ) ) {
+		var menu = getClosest(toggle, '.sub-menu');
+		if ( menu && toggle !== document.documentElement && !toggle.parentNode.classList.contains( 'menu-item-has-children' ) ) {
 			// If dropdown menu, do nothing
 			return;
-		} else if ( toggle !== document.documentElement && toggle.parentNode.hasAttribute( 'data-dropdown' ) ) {
+		} else if ( toggle !== document.documentElement && toggle.parentNode.classList.contains( 'menu-item-has-children' ) ) {
 			// If dropdown toggle element, toggle dropdown menu
 			event.preventDefault();
 			drop.toggleDrop(toggle, settings);
@@ -314,23 +268,8 @@
 
 ( function() {
 
-
-    	document.querySelector('.menu-item-has-children').dataset.dropdown = "";
-
-    	document.querySelector('.sub-menu').dataset.dropdown = "";
-
     	    drop.init({
     toggleClass: 'menu-item-has-children',
     contentClass: 'sub-menu',
     	});
 })();
-
-
-jQuery( document ).ready( function() {
-    jQuery(function () {
-
-jQuery('.menu-item-has-children').attr('data-dropdown', '');
-jQuery('.sub-menu').attr('data-dropdown', '');
-
-    });
-});
